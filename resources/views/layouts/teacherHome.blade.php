@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Admin Dashboard</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-<div class="wrapper">
+<div class="wrapper admin-wrapper">
     <!-- Topbar  -->
     <nav id="top-bar">
 

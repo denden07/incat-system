@@ -29,3 +29,13 @@ Route::resource('admin-dashboard','AdminHomeController',['names'=>[
 
 
 ]]);
+
+Route::resource('public-pre-enlistment','EnlistmentController',['names'=>[
+
+    'index'=>'public.enlistment.index',
+    'create'=>'public.enlistment.create',
+    'store'=>'public.enlistment.store',
+    'edit'=>'public.enlistment.edit'
+
+
+]]);
