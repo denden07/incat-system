@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EnlistmentRequest;
+use App\Student;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\New_;
 
 class EnlistmentController extends Controller
 {
@@ -15,7 +18,7 @@ class EnlistmentController extends Controller
     {
         //
 
-        return view('public.enrollmentForm');
+
     }
 
     /**
@@ -26,6 +29,10 @@ class EnlistmentController extends Controller
     public function create()
     {
         //
+
+        $students = new Student();
+
+        return view('public.enrollmentForm',compact('students'));
     }
 
     /**
@@ -34,9 +41,12 @@ class EnlistmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EnlistmentRequest $request)
     {
         //
+
+      $student =  new Student();
+
     }
 
     /**
