@@ -28,32 +28,29 @@ class EnlistmentRequest extends FormRequest
             'lastName' => 'required',
             'firstName' => 'required',
             'middleName' => 'required',
-            'dob' => 'required',
+            'dob' => 'required|date',
             'sex' => 'required',
             'age' => 'required',
             'mothertongue' => 'required',
             'schoolYear1' => 'required|numeric',
             'schoolYear2' => 'required|numeric',
-            'address' => 'required',
+//            'address' => 'required',
             'gradeLevel' => 'required',
             'semester' => 'required',
             'track' => 'required',
             'strand' => 'required',
-            'status' => 'required',
+//            'status' => 'required',
             'street' => 'required',
             'barangay' => 'required',
             'municipality' => 'required',
             'province' => 'required',
             'country' => 'required',
 
+
             'fatherName' => 'required',
             'motherName' => 'required',
             'guardianName' => 'required',
             'parentCpNo' => 'required|numeric',
-
-
-
-
 
 
         ];

@@ -3,7 +3,9 @@
 
 <head>
 <title>Enlistment Form</title>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 
@@ -21,8 +23,9 @@
     </div>
 
 
-    <form action="{{route('public-pre-enlistment.store')}}" method="post">
+    <form id="form-enlist" action="{{route('public-pre-enlistment.store')}}" method="post">
         @csrf
+        @include('layouts._successMessage')
         <div class="form-group">
             <div class="sub-enrollment-banner">
             <h3 style="text-align: center;margin-top: 15px">Basic Education Enrollment Form</h3>
@@ -184,7 +187,7 @@
 
                 <div class="col">
                     <label for="">Sex:</label>
-                    <select  class="{{$errors->has('sex')?'is-invalid' : ""}}" name="sex" id="">
+                    <select  class="{{$errors->has('sex')?'is-invalid' : ""}}" name="sex" id="sexValue">
                         <option value="" selected disabled hidden>Choose here</option>
                         <option value="1"  @if (old('sex') == "1") {{ 'selected' }} @endif>Male</option>
                         <option value="2" @if (old('sex') == "2") {{ 'selected' }} @endif>Female</option>
@@ -439,7 +442,7 @@
 
                     <div class="col-lg-3">
                         <label for="">Grade Level:</label>
-                        <select class="{{$errors->has('gradeLevel')?'is-invalid' : ""}}" name="gradeLevel" id="">
+                        <select class="{{$errors->has('gradeLevel')?'is-invalid' : ""}}" name="gradeLevel" id="gradeLevel">
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="Grade 11" @if (old('gradeLevel') == "Grade 11") {{ 'selected' }} @endif>Grade 11</option>
                             <option value="Grade 12" @if (old('gradeLevel') == "Grade 12") {{ 'selected' }} @endif>Grade 12</option>
@@ -454,7 +457,7 @@
 
                     <div class="col-lg-3">
                         <label for="">Semester:</label>
-                        <select class="{{$errors->has('semester')?'is-invalid' : ""}}"  name="semester" id="">
+                        <select class="{{$errors->has('semester')?'is-invalid' : ""}}"  name="semester" id="semester">
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="1st" @if (old('semester') == "1st") {{ 'selected' }} @endif>1st Semester</option>
                             <option value="2nd" @if (old('semester') == "2nd") {{ 'selected' }} @endif>2nd Semester</option>
@@ -487,7 +490,7 @@
                     <div style="margin-top: 100px" class="row">
                     <div class="col academic-strand">
                         <label for="">Strand:</label>
-                        <select class="{{$errors->has('strand')?'is-invalid' : ""}}" name="strand" id="">
+                        <select class="{{$errors->has('strand')?'is-invalid' : ""}}" name="strand" id="strand">
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="(ABM) Accountancy,Business And Management" @if (old('strand') == "(ABM) Accountancy,Business And Management") {{ 'selected' }} @endif>(ABM) Accountancy,Business And Management</option>
                             <option value="(HUMSS) Humanities and Social Studies" @if (old('strand') == "(HUMSS) Humanities and Social Studies") {{ 'selected' }} @endif>(HUMSS) Humanities and Social Studies</option>
@@ -503,7 +506,7 @@
 
                     <div class="col technical-strand">
                         <label for="">Strand:</label>
-                        <select class="{{$errors->has('strand')?'is-invalid' : ""}}"  name="strand" id="">
+                        <select class="{{$errors->has('strand')?'is-invalid' : ""}}"  name="strand1" id="">
                             <option value="" selected disabled hidden>Choose here</option>
                             <optgroup label="(HE) Home Economics">
                                 <option value="(BC) Beauty Care" @if (old('strand') == "(BC) Beauty Care") {{ 'selected' }} @endif>(BC) Beauty Care</option>
@@ -539,10 +542,14 @@
         <div class="container justify-content-center">
             <div class="row offset-4">
 
-            <button class="btn btn-success col-lg-5" type="submit">Submit</button>
+            <button id="submit" class="btn btn-success col-lg-5" type="button">Submit</button>
+                <button style="display: none;"  id="submit1" class="btn btn-success col-lg-5" type="submit">Submit</button>
             </div>
 
         </div>
+
+        <div id="preview_data" title="Preview Form Data" style="display:none;"></div>
+
 
     </form>
 
@@ -559,7 +566,7 @@
 
 
 <script src="{{asset('js/app.js')}}"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
     $( document ).ready(function() {
@@ -576,6 +583,206 @@
             }
         });
     });
+
+
+</script>
+
+
+<script type= "text/javascript">
+    $(document).ready( function() {
+        $('#submit').on('click', function() {
+            preview();
+        });
+    });
+
+
+
+
+
+    function submit_form() {
+
+        $('#form-enlist').submit();
+    }
+
+
+    function preview() {
+        var firstName = $('input[name="firstName"]').val();
+        var middleName = $('input[name="middleName"]').val();
+        var lastName = $('input[name="lastName"]').val();
+        var extName = $('input[name="extName"]').val();
+
+        var basic_info_1 = '<p><span style="font-weight: bold">Name:&nbsp;  </span>' + firstName + " " + middleName + " " + lastName + " " + extName + '</p>';
+
+        var dob = $('input[name="dob"]').val();
+
+        var sex_option =$('#sexValue option:selected').val();
+
+        var sex = "";
+        if(sex_option == "1"){
+            sex = "Male";
+        }else{
+            sex ="Female";
+        }
+
+
+
+
+
+        var religion = $('input[name="religion"]').val();
+        var indigenous = $('input[name="indigenous"]').val();
+        var mothertongue = $('input[name="mothertongue"]').val();
+
+        var basic_info_2 = '<p><strong>Date of birth: </strong>' + dob + '</p>';
+        var basic_info_3 = '<p><strong>Sex: </strong>' + sex + '</p>';
+        var basic_info_4 = '<p><strong>Religion: </strong>' + religion + '</p>';
+        var basic_info_5 = '<p><strong>Group: </strong>' + indigenous + '</p>';
+        var basic_info_6 = '<p><strong>Group: </strong>' + mothertongue + '</p>';
+
+
+        var lrnStatus = $('input[name="lrnStatus"]').val();
+        var lrnNo = $('input[name="lrnNo"]').val();
+        var psaNo = $('input[name="psaNo"]').val();
+        var schoolYear1 = $('input[name="schoolYear1"]').val();
+        var schoolYear2 = $('input[name="schoolYear1"]').val();
+
+        var basic_info_7 = '<p><strong>School Year: </strong>' + schoolYear1 + " - " + schoolYear2 + '</p>';
+        var basic_info_8 = '<p><strong>LRN: </strong>' + lrnStatus + '</p>';
+        var basic_info_9 = '<p><strong>LRN No.: </strong>' + lrnNo + '</p>';
+        var basic_info_10 = '<p><strong>Psa No.: </strong>' + psaNo + '</p>';
+
+
+
+       var street = $('input[name="street"]').val();
+       var barangay = $('input[name="barangay"]').val();
+       var municipality =  $('input[name="municipality"]').val();
+       var province = $('input[name="province"]').val();
+       var country = $('input[name="country"]').val();
+       var houseNumber =  $('input[name="houseNumber"]').val();
+       var zip =  $('input[name="zip"]').val();
+
+        var basic_info_11 = '<p><strong>House No.: </strong>' + houseNumber + '</p>';
+        var basic_info_12 = '<p><strong>Street: </strong>' + street + '</p>';
+        var basic_info_13 = '<p><strong>Barangay: </strong>' + barangay + '</p>';
+        var basic_info_14 = '<p><strong>Municipality: </strong>' + municipality + '</p>';
+        var basic_info_15 = '<p><strong>Province: </strong>' + province + '</p>';
+        var basic_info_16 = '<p><strong>Country: </strong>' + country + '</p>';
+        var basic_info_17 = '<p><strong>Zip code: </strong>' + zip + '</p>';
+
+
+
+
+
+       var fatherName =  $('input[name="fatherName"]').val();
+       var motherName = $('input[name="motherName"]').val();
+       var guardianName = $('input[name="guardianName"]').val();
+       var parentCpNo =  $('input[name="parentCpNo"]').val();
+       var parentTpNo = $('input[name="parentTpNo"]').val();
+
+        var basic_info_18 = '<p><strong>Father Name: </strong>' + fatherName + '</p>';
+        var basic_info_19 = '<p><strong>Mother Name: </strong>' + motherName + '</p>';
+        var basic_info_20 = '<p><strong>Guardian Name: </strong>' + guardianName + '</p>';
+        var basic_info_21 = '<p><strong>Cp No: </strong>' + parentCpNo + '</p>';
+        var basic_info_22 = '<p><strong>Tp No: </strong>' + parentTpNo + '</p>';
+
+
+
+
+       var lastGrade = $('input[name="lastGrade"]').val();
+       var lastSchoolYear = $('input[name="lastSchoolYear"]').val();
+       var lastSchoolId = $('input[name="lastSchoolId"]').val();
+       var lastSchool = $('input[name="lastSchool"]').val();
+       var lastSchoolAddress = $('input[name="lastSchoolAddress"]').val();
+
+        var basic_info_23 = '<p><strong>Last grade: </strong>' + lastGrade + '</p>';
+        var basic_info_24 = '<p><strong>Last school year: </strong>' + lastSchoolYear + '</p>';
+        var basic_info_25 = '<p><strong>Last school ID no.: </strong>' + lastSchoolId + '</p>';
+        var basic_info_26 = '<p><strong>Last school name: </strong>' + lastSchool + '</p>';
+        var basic_info_27 = '<p><strong>Address: </strong>' + lastSchoolAddress + '</p>';
+
+
+
+
+       var gradeLevel_option = $('#gradeLevel option:selected').val();
+       var gradeLevel = "";
+        if(gradeLevel_option == 'Grade 11' ){
+            gradeLevel = "Grade 11";
+        }else if(gradeLevel_option == 'Grade 12'){
+            gradeLevel = "Grade 12";
+        }
+
+
+       var semester_option = $('#semester option:selected').val();
+        var semester = "";
+
+        if(semester_option == "1st" ){
+            semester = '1st';
+        }else if (semester_option == "2nd"){
+            semester = '2nd';
+        }
+
+        var track_option = $('#track-selector option:selected').val();
+        var track = '';
+
+        if(track_option == 'Academic'){
+            track = "Academic";
+        }else if(track_option == "Technical-Vocational Livelihood"){
+            track = "Technical-Vocational Livelihood";
+        }
+
+
+
+        var strand_selector = $('#strand option:selected').val();
+        var strand = "";
+
+        if(strand_selector == "(ABM) Accountancy,Business And Management" ){
+            strand = "(ABM) Accountancy,Business And Management"
+        }else if(strand_selector == "(HUMSS) Humanities and Social Studies"){
+            strand = "(HUMSS) Humanities and Social Studies";
+
+        }else if(strand_selector == "(STEM) Science, Techonological, Engineering and Mathematics"){
+            strand = "(STEM) Science, Techonological, Engineering and Mathematics";
+        }
+
+
+
+        var basic_info_28 = '<p><strong>Grade: </strong>' + gradeLevel + '</p>';
+        var basic_info_29 = '<p><strong>Semester: </strong>' + semester + '</p>';
+        var basic_info_30 = '<p><strong>Track: </strong>' + track + '</p>';
+        var basic_info_31 = '<p><strong>Strand: </strong>' + strand + '</p>';
+
+
+
+        var data = basic_info_1 + basic_info_2 + basic_info_3 + basic_info_4 + basic_info_5 + basic_info_6 + basic_info_7 +
+                   basic_info_8 + basic_info_9 + basic_info_10 + basic_info_11 + basic_info_12 + basic_info_13 + basic_info_14 +
+                   basic_info_15 + basic_info_16 + basic_info_17 + basic_info_18 + basic_info_19 + basic_info_20 + basic_info_21 +
+                   basic_info_22 + basic_info_23 + basic_info_24 + basic_info_25 + basic_info_26 + basic_info_27 + basic_info_28 +
+                   basic_info_29 + basic_info_30 + basic_info_31;
+
+        $('#preview_data').html('');
+        $('#preview_data').append(data);
+
+        var form = $('#form-enlist');
+
+       $('#preview_data').dialog({
+            resizable: false,
+            height:500,
+            width:500,
+            modal: true,
+            buttons: {
+                Submit: function() {
+                    //submit the form
+
+                   $('#submit1').trigger('click');
+
+
+                },
+                Cancel: function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
+
 
 </script>
 

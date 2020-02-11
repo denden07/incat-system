@@ -32,6 +32,7 @@ class EnlistmentController extends Controller
 
         $students = new Student();
 
+
         return view('public.enrollmentForm',compact('students'));
     }
 
@@ -45,7 +46,46 @@ class EnlistmentController extends Controller
     {
         //
 
-      $student =  new Student();
+        $students =  new Student();
+
+        $students->lastName = $request->lastName;
+        $students->firstName = $request->firstName;
+        $students->middleName = $request->middleName;
+        $students->extName = $request->extName;
+        $students->dob = $request->dob;
+        $students->sex = $request->sex;
+        $students->age = $request->age;
+        $students->religion	= $request->religion;
+        $students->indigenous = $request->indigenous;
+        $students->mothertongue = $request->mothertongue;
+        $students->lrnStatus= $request->lrnStatus;
+        $students->lrnNo = $request->lrnNo;
+        $students->psaNo = $request->psaNo;
+        $students->schoolYear1 =$request->schoolYear1;
+        $students->schoolYear12 =$request->schoolYear2;
+        $students ->address = $request->houseNumber . ", " . $request->street .", ". $request->barangay .", " . $request->municipality .", ". $request->province .", ". $request->country . ", ". $request->zip;
+        $students-> fatherName	= $request->fatherName;
+        $students-> motherName	= $request->motherName;
+        $students->guardianName	 = $request->guardianName;
+        $students->parentCpNo = $request->parentCpNo;
+        $students->parentTpNo = $request->parentTpNo;
+        $students->lastGrade =$request->lastGrade;
+        $students->lastSchoolYear =$request->lastSchoolYear;
+        $students->lastSchoolId = $request->lastSchoolId;
+        $students->lastSchool = $request->lastSchool;
+        $students->lastSchoolAddress = $request->lastSchoolAddress;
+        $students->gradeLevel = $request->gradeLevel;
+        $students->semester = $request->semester;
+        $students->track = $request->track;
+        $students->strand = $request->strand;
+        $students->status = "active";
+
+        $students->save();
+
+        return redirect()->route('public.enlistment.create')->with('success',"Congrats you have been enlisted");
+
+
+
 
     }
 
