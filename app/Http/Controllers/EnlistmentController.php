@@ -78,7 +78,7 @@ class EnlistmentController extends Controller
         $students->semester = $request->semester;
         $students->track = $request->track;
         $students->strand = $request->strand;
-        $students->status = "active";
+        $students->status = "enlisted";
 
         $students->save();
 

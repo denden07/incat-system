@@ -59,6 +59,11 @@
                     <li>
                         <a href="#">Enroll Student</a>
                     </li>
+                    <li>
+                        <a href="#">Enlistment</a>
+                    </li>
+
+
 
                 </ul>
             </li>

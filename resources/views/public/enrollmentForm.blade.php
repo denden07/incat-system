@@ -611,7 +611,7 @@
         var lastName = $('input[name="lastName"]').val();
         var extName = $('input[name="extName"]').val();
 
-        var basic_info_1 = '<p><span style="font-weight: bold">Name:&nbsp;  </span>' + firstName + " " + middleName + " " + lastName + " " + extName + '</p>';
+        var basic_info_1 = '<p><span style="font-weight: bold;font-size: 1.2em;">Name:&nbsp;  </span>' + firstName + " " + middleName + " " + lastName + " " + extName + '</p>';
 
         var dob = $('input[name="dob"]').val();
 
@@ -632,11 +632,11 @@
         var indigenous = $('input[name="indigenous"]').val();
         var mothertongue = $('input[name="mothertongue"]').val();
 
-        var basic_info_2 = '<p><strong>Date of birth: </strong>' + dob + '</p>';
-        var basic_info_3 = '<p><strong>Sex: </strong>' + sex + '</p>';
-        var basic_info_4 = '<p><strong>Religion: </strong>' + religion + '</p>';
-        var basic_info_5 = '<p><strong>Group: </strong>' + indigenous + '</p>';
-        var basic_info_6 = '<p><strong>Group: </strong>' + mothertongue + '</p>';
+        var basic_info_2 = '<p><strong style="font-weight: bold;font-size: 1.2em;" >Date of birth: </strong>' + dob + '</p>';
+        var basic_info_3 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Sex: </strong>' + sex + '</p>';
+        var basic_info_4 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Religion: </strong>' + religion + '</p>';
+        var basic_info_5 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Group: </strong>' + indigenous + '</p>';
+        var basic_info_6 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Group: </strong>' + mothertongue + '</p>';
 
 
         var lrnStatus = $('input[name="lrnStatus"]').val();
@@ -645,10 +645,10 @@
         var schoolYear1 = $('input[name="schoolYear1"]').val();
         var schoolYear2 = $('input[name="schoolYear1"]').val();
 
-        var basic_info_7 = '<p><strong>School Year: </strong>' + schoolYear1 + " - " + schoolYear2 + '</p>';
-        var basic_info_8 = '<p><strong>LRN: </strong>' + lrnStatus + '</p>';
-        var basic_info_9 = '<p><strong>LRN No.: </strong>' + lrnNo + '</p>';
-        var basic_info_10 = '<p><strong>Psa No.: </strong>' + psaNo + '</p>';
+        var basic_info_7 = '<p><strong style="font-weight: bold;font-size: 1.2em;">School Year: </strong>' + schoolYear1 + " - " + schoolYear2 + '</p>';
+        var basic_info_8 = '<p><strong style="font-weight: bold;font-size: 1.2em;">LRN: </strong>' + lrnStatus + '</p>';
+        var basic_info_9 = '<p><strong style="font-weight: bold;font-size: 1.2em;">LRN No.: </strong>' + lrnNo + '</p>';
+        var basic_info_10 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Psa No.: </strong>' + psaNo + '</p>';
 
 
 
@@ -660,13 +660,13 @@
        var houseNumber =  $('input[name="houseNumber"]').val();
        var zip =  $('input[name="zip"]').val();
 
-        var basic_info_11 = '<p><strong>House No.: </strong>' + houseNumber + '</p>';
-        var basic_info_12 = '<p><strong>Street: </strong>' + street + '</p>';
-        var basic_info_13 = '<p><strong>Barangay: </strong>' + barangay + '</p>';
-        var basic_info_14 = '<p><strong>Municipality: </strong>' + municipality + '</p>';
-        var basic_info_15 = '<p><strong>Province: </strong>' + province + '</p>';
-        var basic_info_16 = '<p><strong>Country: </strong>' + country + '</p>';
-        var basic_info_17 = '<p><strong>Zip code: </strong>' + zip + '</p>';
+        var basic_info_11 = '<p><strong style="font-weight: bold;font-size: 1.2em;">House No.: </strong>' + houseNumber + '</p>';
+        var basic_info_12 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Street: </strong>' + street + '</p>';
+        var basic_info_13 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Barangay: </strong>' + barangay + '</p>';
+        var basic_info_14 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Municipality: </strong>' + municipality + '</p>';
+        var basic_info_15 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Province: </strong>' + province + '</p>';
+        var basic_info_16 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Country: </strong>' + country + '</p>';
+        var basic_info_17 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Zip code: </strong>' + zip + '</p>';
 
 
 
@@ -678,11 +678,11 @@
        var parentCpNo =  $('input[name="parentCpNo"]').val();
        var parentTpNo = $('input[name="parentTpNo"]').val();
 
-        var basic_info_18 = '<p><strong>Father Name: </strong>' + fatherName + '</p>';
-        var basic_info_19 = '<p><strong>Mother Name: </strong>' + motherName + '</p>';
-        var basic_info_20 = '<p><strong>Guardian Name: </strong>' + guardianName + '</p>';
-        var basic_info_21 = '<p><strong>Cp No: </strong>' + parentCpNo + '</p>';
-        var basic_info_22 = '<p><strong>Tp No: </strong>' + parentTpNo + '</p>';
+        var basic_info_18 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Father Name: </strong>' + fatherName + '</p>';
+        var basic_info_19 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Mother Name: </strong>' + motherName + '</p>';
+        var basic_info_20 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Guardian Name: </strong>' + guardianName + '</p>';
+        var basic_info_21 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Cp No: </strong>' + parentCpNo + '</p>';
+        var basic_info_22 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Tp No: </strong>' + parentTpNo + '</p>';
 
 
 
@@ -693,11 +693,11 @@
        var lastSchool = $('input[name="lastSchool"]').val();
        var lastSchoolAddress = $('input[name="lastSchoolAddress"]').val();
 
-        var basic_info_23 = '<p><strong>Last grade: </strong>' + lastGrade + '</p>';
-        var basic_info_24 = '<p><strong>Last school year: </strong>' + lastSchoolYear + '</p>';
-        var basic_info_25 = '<p><strong>Last school ID no.: </strong>' + lastSchoolId + '</p>';
-        var basic_info_26 = '<p><strong>Last school name: </strong>' + lastSchool + '</p>';
-        var basic_info_27 = '<p><strong>Address: </strong>' + lastSchoolAddress + '</p>';
+        var basic_info_23 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Last grade: </strong>' + lastGrade + '</p>';
+        var basic_info_24 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Last school year: </strong>' + lastSchoolYear + '</p>';
+        var basic_info_25 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Last school ID no.: </strong>' + lastSchoolId + '</p>';
+        var basic_info_26 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Last school name: </strong>' + lastSchool + '</p>';
+        var basic_info_27 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Address: </strong>' + lastSchoolAddress + '</p>';
 
 
 
@@ -745,10 +745,10 @@
 
 
 
-        var basic_info_28 = '<p><strong>Grade: </strong>' + gradeLevel + '</p>';
-        var basic_info_29 = '<p><strong>Semester: </strong>' + semester + '</p>';
-        var basic_info_30 = '<p><strong>Track: </strong>' + track + '</p>';
-        var basic_info_31 = '<p><strong>Strand: </strong>' + strand + '</p>';
+        var basic_info_28 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Grade: </strong>' + gradeLevel + '</p>';
+        var basic_info_29 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Semester: </strong>' + semester + '</p>';
+        var basic_info_30 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Track: </strong>' + track + '</p>';
+        var basic_info_31 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Strand: </strong>' + strand + '</p>';
 
 
 

@@ -30,6 +30,9 @@ Route::resource('admin-dashboard','AdminHomeController',['names'=>[
 
 ]]);
 
+
+
+
 Route::resource('public-pre-enlistment','EnlistmentController')->except('create');
 
 Route::get('public/enlistment-form','EnlistmentController@create')->name('public.enlistment.create');
