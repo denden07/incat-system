@@ -16,4 +16,8 @@ class Student extends Model
         'gradeLevel','semester','track','strand','status','	yearGraduate',
 
     ];
+
+    public function level(){
+        return $this->belongsTo('App\Level','gradeLevel');
+    }
 }

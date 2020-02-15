@@ -444,8 +444,11 @@
                         <label for="">Grade Level:</label>
                         <select class="{{$errors->has('gradeLevel')?'is-invalid' : ""}}" name="gradeLevel" id="gradeLevel">
                             <option value="" selected disabled hidden>Choose here</option>
-                            <option value="Grade 11" @if (old('gradeLevel') == "Grade 11") {{ 'selected' }} @endif>Grade 11</option>
-                            <option value="Grade 12" @if (old('gradeLevel') == "Grade 12") {{ 'selected' }} @endif>Grade 12</option>
+                            @foreach($levels as $level)
+
+                                <option value="{{$level->id}}" @if (old('gradeLevel') == "$level->name") {{ 'selected' }}@endif >{{$level->name}}</option>
+                                @endforeach
+
                         </select>
                         @if($errors->has('gradeLevel'))
                             <div class="invalid-feedback">
@@ -704,9 +707,9 @@
 
        var gradeLevel_option = $('#gradeLevel option:selected').val();
        var gradeLevel = "";
-        if(gradeLevel_option == 'Grade 11' ){
+        if(gradeLevel_option == 1 ){
             gradeLevel = "Grade 11";
-        }else if(gradeLevel_option == 'Grade 12'){
+        }else if(gradeLevel_option == 2){
             gradeLevel = "Grade 12";
         }
 

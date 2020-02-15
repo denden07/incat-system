@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EnlistmentRequest;
+use App\Level;
 use App\Student;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\New_;
@@ -31,9 +32,10 @@ class EnlistmentController extends Controller
         //
 
         $students = new Student();
+        $levels = Level::all();
 
 
-        return view('public.enrollmentForm',compact('students'));
+        return view('public.enrollmentForm',compact('students','levels'));
     }
 
     /**

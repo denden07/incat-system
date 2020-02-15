@@ -2,9 +2,11 @@
 <html>
 
 <head>
-    <title>Admin Dashboard</title>
+    <title>@yield('title')</title>
+    @yield('css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
 
 </head>
 <body>
@@ -40,14 +42,14 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li class="active">
+            <li class="@yield('dashboard-status')">
                 <a href="#homeSubmenu">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
             </li>
 
-            <li>
+            <li class="@yield('student-status')">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-user-graduate"></i>
                    Students
@@ -59,8 +61,8 @@
                     <li>
                         <a href="#">Enroll Student</a>
                     </li>
-                    <li>
-                        <a href="#">Enlistment</a>
+                    <li class="@yield('student-status-enlistment')">
+                        <a href="{{route('admin.student.enlistment')}}">Enlistment</a>
                     </li>
 
 
@@ -115,6 +117,7 @@
 </body>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+@yield('scripts')
 <script>
     $(document).ready(function () {
 
