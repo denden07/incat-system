@@ -493,7 +493,7 @@
                     <div style="margin-top: 100px" class="row">
                     <div class="col academic-strand">
                         <label for="">Strand:</label>
-                        <select class="{{$errors->has('strand')?'is-invalid' : ""}}" name="strand" id="strand">
+                        <select class="{{$errors->has('strand')?'is-invalid' : ""}} strand" name="strand">
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="(ABM) Accountancy,Business And Management" @if (old('strand') == "(ABM) Accountancy,Business And Management") {{ 'selected' }} @endif>(ABM) Accountancy,Business And Management</option>
                             <option value="(HUMSS) Humanities and Social Studies" @if (old('strand') == "(HUMSS) Humanities and Social Studies") {{ 'selected' }} @endif>(HUMSS) Humanities and Social Studies</option>
@@ -509,7 +509,7 @@
 
                     <div class="col technical-strand">
                         <label for="">Strand:</label>
-                        <select class="{{$errors->has('strand')?'is-invalid' : ""}}"  name="strand1" id="">
+                        <select class="{{$errors->has('strand')?'is-invalid' : ""}} strand-1"  name="strand" >
                             <option value="" selected disabled hidden>Choose here</option>
                             <optgroup label="(HE) Home Economics">
                                 <option value="(BC) Beauty Care" @if (old('strand') == "(BC) Beauty Care") {{ 'selected' }} @endif>(BC) Beauty Care</option>
@@ -577,9 +577,11 @@
             if($(this).val() == "Academic"){
                 $(".academic-strand").show().prop('disabled',false);
                 $(".technical-strand").hide().prop('disabled',true);
+                $(".strand-1").val('');
             }else if($(this).val()=="Technical-Vocational Livelihood"){
                 $(".technical-strand").show().prop('disabled',false);
                 $(".academic-strand").hide().prop('disabled',true);
+                $(".strand").val('');
             }else{
                 $(".academic-strand").hide();
                 $(".technical-strand").hide();
@@ -732,19 +734,60 @@
             track = "Technical-Vocational Livelihood";
         }
 
+        var strand_selector;
+
+        if(!$('.strand-1').val()){
+             strand_selector = $('.strand option:selected').val();
+        }else if(!$('.strand').val()){
+            strand_selector = $('.strand-1 option:selected').val();
+        }
 
 
-        var strand_selector = $('#strand option:selected').val();
         var strand = "";
 
-        if(strand_selector == "(ABM) Accountancy,Business And Management" ){
+        if(strand_selector == "(ABM) Accountancy,Business And Management" )
+        {
             strand = "(ABM) Accountancy,Business And Management"
-        }else if(strand_selector == "(HUMSS) Humanities and Social Studies"){
+        }else if(strand_selector == "(HUMSS) Humanities and Social Studies")
+        {
             strand = "(HUMSS) Humanities and Social Studies";
 
-        }else if(strand_selector == "(STEM) Science, Techonological, Engineering and Mathematics"){
+        }else if(strand_selector == "(STEM) Science, Techonological, Engineering and Mathematics")
+        {
             strand = "(STEM) Science, Techonological, Engineering and Mathematics";
+        }else if(strand_selector == "(BC) Beauty Care")
+        {
+            strand = "(BC) Beauty Care";
+        }else if(strand_selector == "(GT) Garments Technology")
+        {
+            strand ="(GT) Garments Technology";
+        }else if(strand_selector == "(FPS) Food Products Servicing")
+        {
+            strand ="(FPS) Food Products Servicing";
+        }else if(strand_selector == "(HRS) Hotel & Restaurant Servicing")
+        {
+            strand="(HRS) Hotel & Restaurant Servicing";
+        }else if(strand_selector == "(CSS) Computer System Servicing")
+        {
+            strand="(CSS) Computer System Servicing";
+        }else if(strand_selector == "(TDA) Technical Drafting and Animation")
+        {
+            strand ="(TDA) Technical Drafting and Animation";
+        }else if(strand_selector == "(ATS) Automotive Servicing")
+        {
+            strand ="(ATS) Automotive Servicing";
+        }else if(strand_selector == "(EIM) Electrical Installation And Maintenance")
+        {
+            strand ="(EIM) Electrical Installation And Maintenance";
+        }else if(strand_selector == "(EPAS) Electornic Products Assembly and Servicing")
+        {
+            strand ="(EPAS) Electornic Products Assembly and Servicing";
+        }else if(strand_selector == "(RAC) Refrigiration and Air-conditioning Servicing")
+        {
+            strand ="(RAC) Refrigiration and Air-conditioning Servicing";
         }
+
+
 
 
 

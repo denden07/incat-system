@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStrandsTable extends Migration
+class CreateTracksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateStrandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('strands', function (Blueprint $table) {
+        Schema::create('tracks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('track_id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateStrandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strands');
+        Schema::dropIfExists('tracks');
     }
 }

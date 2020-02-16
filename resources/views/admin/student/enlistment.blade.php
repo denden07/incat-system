@@ -7,11 +7,10 @@
 
 @section('css')
     <!-- MDBootstrap Datatables  -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 @endsection
-
 @section('student-status')
 
     active
@@ -20,6 +19,7 @@
 @section('student-status-enlistment')
     active
 @endsection
+
 @section('contents')
 
     <div class="container table-design">
@@ -84,9 +84,31 @@
             <td>
                 <select data-column="5" class="form-control filter-select">
                     <option value="">Select Strand</option>
+                    <optgroup label="Academic">
                     <option value="(HUMSS) Humanities and Social Studies">(HUMSS) Humanities and Social Studies</option>
                     <option value="(STEM) Science, Techonological, Engineering and Mathematics">(STEM) Science, Techonological, Engineering and Mathematics</option>
                     <option value="(ABM) Accountancy,Business And Managemen">(ABM) Accountancy,Business And Managemen</option>
+                    </optgroup>
+                    <optgroup label="Technical/Vocational">
+                    <optgroup label="(HE) Home Economics">
+                        <option value="(BC) Beauty Care" >(BC) Beauty Care</option>
+                        <option value="(GT) Garments Technology" >(GT) Garments Technology</option>
+                        <option value="(FPS) Food Products Servicing" >(FPS) Food Products Servicing</option>
+                        <option value="(HRS) Hotel & Restaurant Servicing" >(HRS) Hotel & Restaurant Servicing</option>
+                    </optgroup>
+
+                    <optgroup label="(ICT) Information And Communication Technology">
+                        <option value="(CSS) Computer System Servicing" >(CSS) Computer System Servicing</option>
+                        <option value="(TDA) Technical Drafting and Animation">(TDA) Technical Drafting and Animation</option>
+                    </optgroup>
+
+                    <optgroup label="(IA) Industrial Arts">
+                        <option value="(ATS) Automotive Servicing">(ATS) Automotive Servicing</option>
+                        <option value="(EIM) Electrical Installation And Maintenance">(EIM) Electrical Installation And Maintenance</option>
+                        <option value="(EPAS) Electornic Products Assembly and Servicing">(EPAS) Electornic Products Assembly and Servicing</option>
+                        <option value="(RAC) Refrigiration and Air-conditioning Servicing>(RAC) Refrigiration and Air-conditioning Servicing</option>
+                    </optgroup>
+                    </optgroup>
                 </select>
             </td>
         </tr>
@@ -107,13 +129,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
-   <script>
 
-
-
-
-
-    </script>
     <script>
         $(document).ready(function() {
          $('#datatable').DataTable(
