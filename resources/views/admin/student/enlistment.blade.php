@@ -27,11 +27,53 @@
         <div class="row table-inner-design">
             <form action="{{route('admin.student.enlistment.bulkdelete')}}" method="post">
                 @csrf
-
+                @include('layouts._message')
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                <button type="submit" name="action" value="delete" class="btn-danger button-delete-enlistment-list"><i class="fas fa-trash"></i></button>
-                <button type="submit" name="action" value="update" class="btn-success button-delete-enlistment-list"><i class="fas fa-upload"></i></button>
-        <thead>
+                <button  type="button" data-toggle="modal"  class="btn-danger button-delete-enlistment-list" data-target="#exampleModalCenter1"><i class="fas fa-trash"></i></button>
+                <button type="button"   data-toggle="modal" class="btn-success button-enroll-enlistment-list" data-target="#exampleModalCenter"><i class="fas fa-upload"></i></button>
+
+
+                <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Students</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are You sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" name="action" value="delete">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Enroll Students</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are You sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success" name="action" value="update">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <thead>
         <tr>
             <th><input id="select-all-enlistment" type="checkbox" onclick="checkAll(this)"></th>
             <th>Id</th>
@@ -43,7 +85,7 @@
             </th>
             <th class="th-sm">Strand
             </th>
-            <th class="th-sm">Action
+            <th class="th-sm">Contact Number
             </th>
 
         </tr>
@@ -59,7 +101,7 @@
             <td>{{$student->level->name}}</td>
             <td>{{$student->age}}</td>
             <td>{{$student->strand}}</td>
-            <td><a href="{{route('admin.student.enlistment.delete',['student_id'=>$student->id])}}">delete</a></td>
+            <td>{{$student->parentCpNo}}</td>
 
                     </tr>
                 @endforeach
@@ -106,7 +148,7 @@
                         <option value="(ATS) Automotive Servicing">(ATS) Automotive Servicing</option>
                         <option value="(EIM) Electrical Installation And Maintenance">(EIM) Electrical Installation And Maintenance</option>
                         <option value="(EPAS) Electornic Products Assembly and Servicing">(EPAS) Electornic Products Assembly and Servicing</option>
-                        <option value="(RAC) Refrigiration and Air-conditioning Servicing>(RAC) Refrigiration and Air-conditioning Servicing</option>
+                        <option value="(RAC) Refrigiration and Air-conditioning Servicing">(RAC) Refrigiration and Air-conditioning Servicing</option>
                     </optgroup>
                     </optgroup>
                 </select>
@@ -117,6 +159,12 @@
             </form>
         </div>
     </div>
+
+
+
+
+
+
 @endsection
 
 @section('scripts')

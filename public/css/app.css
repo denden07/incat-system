@@ -17359,5 +17359,14 @@ a.article:hover {
   float: left;
   margin-top: 20px;
   margin-left: 20px;
+  width: 50px;
+}
+
+.button-enroll-enlistment-list {
+  display: inline;
+  float: left;
+  margin-top: 20px;
+  width: 50px;
+  margin-left: 7px;
 }
 

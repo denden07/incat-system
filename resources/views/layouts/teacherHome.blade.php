@@ -50,7 +50,7 @@
             </li>
 
             <li class="@yield('student-status')" >
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-user-graduate"></i>
                    Students
                 </a>

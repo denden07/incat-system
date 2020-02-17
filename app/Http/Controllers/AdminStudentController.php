@@ -49,12 +49,20 @@ class AdminStudentController extends Controller
         switch ($request->input('action')){
             case 'delete':
                 $studen->delete();
+                return redirect()->route('admin.student.enlistment')->with('fail',"Students has been deleted");
                 break;
 
             case  'update':
                 $studen->update(['status'=>'enrolled']);
+                return redirect()->route('admin.student.enlistment')->with('success',"Students has been enrolled");
                 break;
         }
+    }
+
+
+    public function studentList()
+    {
+        return view('admin.student.studentList');
     }
 
 

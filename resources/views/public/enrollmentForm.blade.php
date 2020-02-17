@@ -25,7 +25,7 @@
 
     <form id="form-enlist" action="{{route('public-pre-enlistment.store')}}" method="post">
         @csrf
-        @include('layouts._successMessage')
+        @include('layouts._message')
         <div class="form-group">
             <div class="sub-enrollment-banner">
             <h3 style="text-align: center;margin-top: 15px">Basic Education Enrollment Form</h3>
