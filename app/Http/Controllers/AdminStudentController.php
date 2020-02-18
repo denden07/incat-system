@@ -62,7 +62,17 @@ class AdminStudentController extends Controller
 
     public function studentList()
     {
-        return view('admin.student.studentList');
+        $students = Student::all()->where('status','enrolled');
+        $gradeLevel = Level::all();
+        $levels = $gradeLevel->sortBy('name')->pluck('name')->unique();
+        return view('admin.student.studentList',compact('students','levels'));
+    }
+
+    public function studentShow($student_id)
+    {
+       $student = Student::where('id',$student_id)->where('status','enrolled')->first();
+
+        return view('admin.student.studentShow',compact('student'));
     }
 
 

@@ -55,8 +55,11 @@
                    Students
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li class="@yield('student-list-status')">
+                        <a href="{{route('admin.student.list')}}">All Students</a>
+                    </li>
                     <li>
-                        <a href="#">All Students</a>
+                        <a href="#">Sections</a>
                     </li>
                     <li>
                         <a href="#">Enroll Student</a>

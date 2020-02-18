@@ -216,5 +216,22 @@
             });
 
         });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#select-all-enlistment').click(function (event) {
+                if(this.checked){
+                    $(':checkbox').each(function () {
+                        this.checked = true;
+                    })
+                }else{
+                    $(':checkbox').each(function() {
+                        this.checked = false;
+                    });
+                }
+            })
+        });
     </script>
 @endsection

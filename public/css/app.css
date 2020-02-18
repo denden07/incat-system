@@ -17370,3 +17370,55 @@ a.article:hover {
   margin-left: 7px;
 }
 
+/* ---------------------------------------------------
+ Student info
+----------------------------------------------------- */
+
+.student-info-body {
+  background: white;
+  padding-bottom: 70px;
+  margin-bottom: 30px;
+}
+
+.student-info-banner {
+  text-align: center;
+  text-decoration: underline;
+  padding: 5px;
+}
+
+.student-info-back {
+  float: right;
+  margin-top: 10px;
+}
+
+.student-info-info-container {
+  margin-top: 25px;
+  padding-bottom: 50px;
+}
+
+.student-personal-info {
+  margin-right: 7px;
+  background: #4e555b;
+  color: white;
+  border-radius: 9px;
+}
+
+.student-info-info-container h4 {
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
+
+.student-info-info-container p {
+  color: white;
+}
+
+.student-info-school-status,
+.student-info-emergency {
+  background: #4e555b;
+  color: white;
+  border-radius: 9px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+

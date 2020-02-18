@@ -20,4 +20,10 @@ class Student extends Model
     public function level(){
         return $this->belongsTo('App\Level','gradeLevel');
     }
+
+    public function getNameAttribute(){
+        return $this->firstName . " " .$this->middleName . " " .$this->lastName . " " . $this->extName;
+    }
+
+
 }
