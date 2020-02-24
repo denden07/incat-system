@@ -76,6 +76,29 @@ class AdminStudentController extends Controller
     }
 
 
+    public function enrollmentFormDocs($student_id){
+        $student = Student::findOrFail($student_id)->first();
+//
+//        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+//
+//        $newSection = $phpWord->addSection();
+//
+//
+//        $desc1 = " I am" . $student->name ." ". "nice to meet you";
+//
+//        $newSection->addText($desc1);
+//
+//        $objectWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord,'Word2007');
+//        try{
+//            $objectWriter->save(storage_path('TestWordFile.docx'));
+//        }catch (\Exception $e){}
+//
+//        return response()->download(storage_path('TestWordFile.docx'));
+
+
+        return view('admin.student.enlistmentForm',compact('student'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -14,6 +14,7 @@ class Student extends Model
         'motherName','guardianName','parentCpNo','parentTpNo','lastGrade',
         'lastSchoolYear','lastSchoolId','lastSchool','lastSchoolAddress',
         'gradeLevel','semester','track','strand','status','	yearGraduate',
+        'houseNumber','street','barangay','municipality','province','country','zip'
 
     ];
 

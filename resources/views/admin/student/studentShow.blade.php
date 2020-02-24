@@ -1,4 +1,4 @@
-@extends('layouts.teacherHome')
+<span>@extends('layouts.teacherHome')
 
 @section('title')
     Student List | Admin
@@ -35,61 +35,66 @@
             </div>
         </div>
 
+        <div class="row">
+            <h5>Actions:</h5>
+            <span><a href="{{route('admin.student.form.docx',['student_id'=>$student->id])}}"><i class="fas fa-print"></i></a></span>
+        </div>
+
     <div class="container student-info-info-container">
         <div class="row">
             <div  class="col  student-personal-info">
                 <h4>Personal Info</h4>
 
-                <p>Name: {{$student->name}}</p>
-                <p>Age: {{$student->age}}</p>
+                <p><span>Name: </span> {{$student->name}}</p>
+                <p><span>Age:  </span> {{$student->age}}</p>
                 @if($student->sex ==1)
-                <p>Sex: Male</p>
+                <p><span>Sex: </span> Male</p>
                  @else
                     <p>Sex: Female</p>
                     @endif
-                <p>Address: {{$student->address}}</p>
-                <p>Birthday: {{$student->dob}}</p>
-                <p>Religion: {{$student->religion}}</p>
-                <p>Mother Tounge: {{$student->mothertongue}}</p>
+                <p><span>Address: </span> {{$student->address}}</p>
+                <p><span>Birthday: </span> {{$student->dob}}</p>
+                <p><span>Religion: </span> {{$student->religion}}</p>
+                <p><span>Mother Tounge:</span> {{$student->mothertongue}}</p>
                 @if(empty($student->indigenous))
 
-                <p>Indgenous Group: None</p>
+                <p><span>Indgenous Group: </span>  None</p>
                     @else
-                <p>Indgenous Group:$student->indigenous </p>
+                <p><span>Indgenous Group: </span>{{$student->indigenous}} </p>
                     @endif
             </div>
             <div class="col">
                <div class="col student-info-school-status">
                 <h4>School Info</h4>
                    @if(empty($student->lrnNo))
-                   <p>Lrn: None</p>
+                   <p><span>Lrn: None </span></p>
                    @else
-                   <p>Lrn: {{$student->lrnNo}}</p>
+                   <p><span>Lrn: </span> {{$student->lrnNo}}</p>
                        @endif
-                   <p>Grade: {{$student->level->name}}</p>
-                   <p>Section: Tba</p>
-                   <p>Stand: {{$student->strand}}</p>
+                   <p><span>Grade: </span> {{$student->level->name}}</p>
+                   <p><span>Section: Tba </span></p>
+                   <p><span>Stand: </span> {{$student->strand}}</p>
                    @if($student->status == "enrolled")
-                   <p>Status: <span class="alert-success">Enrolled</span> </p>
+                   <p><span>Status: </span> <span class="alert-success">Enrolled</span> </p>
                        @elseif($student->status =="transferee")
-                       <p>Status: <span class="alert-primary">Enrolled</span> </p>
+                       <p><span>Status: </span> <span class="alert-primary">Enrolled</span> </p>
                        @elseif($students->status == "drop")
-                       <p>Status: <span class="alert-danger">Enrolled</span> </p>
+                       <p><span>Status: </span> <span class="alert-danger">Enrolled</span> </p>
                        @endif
                </div>
 
                 <div class="col student-info-emergency">
                     <h4>Parents/Emergency Contact</h4>
-                    <p>Father's name: {{$student->fatherName}}</p>
-                    <p>Mothers's name: {{$student->motherName}}</p>
-                    <p>Mothers's name: {{$student->guardianName}}</p>
+                    <p><span>Father's name: </span> {{$student->fatherName}}</p>
+                    <p><span>Mothers's name: </span> {{$student->motherName}}</p>
+                    <p><span>Mothers's name: </span> {{$student->guardianName}}</p>
                     @if(empty($student->parentCpNo))
-                        <p>Contact no: {{$student->parentTpNo}}</p>
+                        <p><span>Contact no: </span> {{$student->parentTpNo}}</p>
                     @elseif(empty($student->parentTpNo))
-                    <p>Contact no: {{$student->parentCpNo}}</p>
+                    <p><span>Contact no:  </span>{{$student->parentCpNo}}</p>
                     @elseif(!empty($student->parentCpNo)&&(!empty($student->parentTpNo)))
-                        <p>Cellphone no: {{$student->parentCpNo}}</p>
-                        <p>Telephone no: {{$student->parentTpNo}}</p>
+                        <p><span>Cellphone no: </span> {{$student->parentCpNo}}</p>
+                        <p><span>Telephone no: </span> {{$student->parentTpNo}}</p>
 
                     @endif
                 </div>

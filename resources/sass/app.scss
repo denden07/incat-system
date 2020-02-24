@@ -16,6 +16,7 @@ $fa-font-path:        "../webfonts";
 //googlefonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 
 *{
@@ -25,6 +26,8 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #e1ecf2;
 }
+
+
 
 .admin-wrapper{
   font-family: 'Oswald', sans-serif;
@@ -247,6 +250,7 @@ a.article:hover {
   margin-left:250px;
   transition: all 0.3s ease;
   position: fixed;
+  z-index: 3434343;
 }
 #top-bar.resize {
   margin-left: 80px;
@@ -633,26 +637,344 @@ a.article:hover {
 
 .student-personal-info{
   margin-right: 7px;
-  background: #4e555b;
+  background: #282628;
+  padding: 27px;
   color: white;
   border-radius: 9px;
 }
 
+
 .student-info-info-container h4{
-  padding: 5px;
+  padding: 7px;
   text-align: center;
   color: white;
+
 }
 .student-info-info-container p{
   color: white;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
 
 }
 
+.student-info-info-container span:first-child{
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: underline;
+}
+
+
+
 
 .student-info-school-status ,.student-info-emergency {
-  background: #4e555b;
+  background: #282628;
   color: white;
+  padding: 27px;
   border-radius: 9px;
   margin-bottom: 15px;
-  padding-bottom: 5px;
+
+}
+
+//style="text-align: center;min-width: 500px;margin: 0 auto"
+/* ---------------------------------------------------
+ Printed form
+----------------------------------------------------- */
+
+.enrollment-form-body{
+
+  min-width: 816px;
+  margin: 0 auto;
+  font-family: Calibri;
+
+  padding: 5px;
+  background: white;
+  background-image: url("/images/logo/background.png");
+  background-repeat: no-repeat;
+  background-position: 50% 70%;;
+  -webkit-print-color-adjust: exact;
+
+}
+.enrollment-form-header{
+  min-width: 800px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.deped-banner {
+
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.deped-banner p{
+  color: goldenrod;
+
+}
+
+.enrollment-form-header p
+.enrollment-laoag-seal, .enrollment-deped-logo,.incat-logo{
+  display:inline-block;
+
+}
+
+.enrollment-laoag-seal,.incat-logo{
+  margin-top: -30px;
+}
+
+.enrollment-laoag-seal{
+  margin-right: 40px;
+}
+
+.incat-logo{
+  margin-left: 40px;
+}
+
+.enrollment-deped-logo{
+  margin-bottom: -20px;
+}
+
+#form-print-body{
+
+  min-width: 816px;
+}
+
+
+.basic-enrollment-banner{
+  text-align: center;
+  margin-top: 3%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.enrollment-form-note p{
+  font-style: italic;
+}
+.first-line{
+  text-align: center;
+}
+.first-line p{
+  display: inline-block;
+  color: black;
+  font-size: 18px;
+  text-decoration: underline;
+  margin-right: 25px;
+}
+.first-line span{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.student-info-print-banner{
+  text-align: center;
+  margin-top: 3.5%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom:7%;
+
+}
+.enrollment-form-note{
+  margin: 0 2%;
+line-height: 0;
+  text-align: center;
+}
+.enrollment-form-note span{
+  font-weight: bold;
+  color: black;
+}
+.student-info-print{
+ margin-top: 3.5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 3.5%;
+  color: black;
+  padding-left: 20px;
+  padding-right:  20px;
+}
+.student-info-print span{
+  font-weight: bold;
+  color: black;
+}
+.student-info-print p{
+  color: black;
+  text-transform: uppercase;
+}
+.enrollment-form-address{
+  margin-left: 0;
+
+}
+
+.enrollment-form-address span{
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.enrollment-form-address p{
+  font-size: 11px;
+}
+#enrollment-form-address-banner{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.second-page{
+  background: white;
+  background-image: url("/images/logo/background.png");
+  background-repeat: no-repeat;
+  background-position: 50% 70%;;
+  -webkit-print-color-adjust: exact;
+  margin-top: 500px;
+  min-width: 816px;
+  min-height: 14in;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.second-page-banner{
+  text-align: center;
+ padding: 50px;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.course-second-page span{
+  color:black;
+  font-weight: bold;
+}
+.course-second-page p{
+  color: black;
+}
+.permit-second-page p{
+  text-indent: 100px;
+  font-size: 17px;
+  color: black;
+}
+.permit-second-page{
+  margin-top: 40px;
+}
+
+.second-page-parent-signature{
+  margin-top: 70px;
+}
+.second-page-parent-signature p{
+  color: black;
+  padding-top: 20px;
+}
+
+.second-page-parent-signature p{
+  border-top: 2px solid black;
+
+  text-align: center;
+}
+.second-page-course-border{
+  padding-bottom: 60px;
+  border-bottom: 5px solid black;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.second-page-deped-personel-note{
+  margin-left: 2%;
+  margin-right: 2%;
+  color: black;
+  font-weight: bold;
+}
+.second-page-deped-personel-note span{
+  font-weight: bolder;
+  color:black;
+}
+.second-page-deped-personel-date{
+  margin-top: 50px;
+  padding: 5px;
+}
+.second-page-deped-personel-date p{
+  color: black;
+}
+.second-page-deped-personel-grade p{
+  color: black;
+  margin-top: 50px;
+}
+.second-page-deped-personel-requirements{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 50px;
+  padding-bottom: 90px;
+  border-bottom: 5px solid black;
+}
+.second-page-deped-personel-requirements p{
+  text-align: center;
+  margin-left: -290px;
+  color: black;
+}
+.second-page-medical h2:first-child{
+  text-align: center;
+  font-size: 23px;
+padding: 5px;
+  font-weight: bold;
+}
+.second-page-medical{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.second-page-medical-dr{
+  margin-top: 100px;
+}
+.second-page-medical-dr p{
+  border-top: 1px black solid;
+  text-align: center;
+  color: black;
+}
+.admitted-by{
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 150px;
+}
+.signature-enrolling-officer{
+  margin-top: 50px;
+  color: black;
+  text-align: center;
+  border-top: black 1px solid;
+}
+.enlistment-guardian-info{
+  border-top: 3px solid black;
+  margin-top: 70px;
+
+}
+.enlistment-guardian-info-banner{
+
+  font-weight: bold;
+  text-align: center;
+}
+
+.last-school-attended-enlistment-form{
+  border-top: 3px solid black;
+}
+.last-school-attended-enlistment-form-banner{
+  text-align: center;
+  font-weight: bold;
+}
+
+//print
+@media print
+{
+  @page {
+    size: Legal; /* DIN A4 standard, Europe */
+    margin:0;
+  }
+  html, #form-print-body {
+    width: 8.5in;
+    /* height: 297mm; */
+    height: 14in;
+
+
+    overflow:visible;
+  }
+
 }

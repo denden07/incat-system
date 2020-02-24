@@ -41,6 +41,8 @@ Route::get('admin/student/enlistment','AdminStudentController@enlistment')->name
 Route::get('admin/student/enrolled/list','AdminStudentController@studentList')->name('admin.student.list');
 Route::get('admin/student/show-details/{student_id}','AdminStudentController@studentShow')->name('admin.student.show-details');
 
+Route::get('admin/student/enrollment-form/{student_id}/docx','AdminStudentController@enrollmentFormDocs')->name('admin.student.form.docx');
+
 
 //route for single delete
 Route::get('admin/students/delete/{student_id}','AdminStudentController@delete')->name('admin.student.enlistment.delete');
