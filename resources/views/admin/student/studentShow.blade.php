@@ -1,13 +1,9 @@
-<span>@extends('layouts.teacherHome')
+@extends('layouts.teacherHome')
 
 @section('title')
     Student List | Admin
 @endsection
 
-@section('css')
-
-
-@endsection
 
 @section('student-status')
 
@@ -35,9 +31,12 @@
             </div>
         </div>
 
-        <div class="row">
+        <div  class="row action-buttons">
             <h5>Actions:</h5>
-            <span><a href="{{route('admin.student.form.docx',['student_id'=>$student->id])}}"><i class="fas fa-print"></i></a></span>
+            <div class="student-info-show-delete col-1">
+            <span ><a href="{{route('admin.student.form.docx',['student_id'=>$student->id])}}"><i  class="fas fa-print"></i></a></span>
+            <span>Print</span>
+            </div>
         </div>
 
     <div class="container student-info-info-container">

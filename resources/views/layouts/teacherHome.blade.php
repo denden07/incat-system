@@ -73,6 +73,27 @@
                 </ul>
             </li>
 
+
+            <li class="@yield('teacher-status')" >
+                <a href="#teacherSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                   Teachers
+                </a>
+                <ul class="collapse list-unstyled" id="teacherSubmenu">
+                    <li class="@yield('teacher-list-status')">
+                        <a href="{{route('admin.teacher.list')}}">All Teacher</a>
+                    </li>
+
+                    <li class="@yield('teacher-add-status')">
+                        <a href="{{route('admin.teacher.add')}}">Add Teacher</a>
+                    </li>
+
+
+
+
+                </ul>
+            </li>
+
             <li>
                 <a href="#">
                     <i class="fas fa-briefcase"></i>

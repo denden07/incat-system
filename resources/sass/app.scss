@@ -610,7 +610,7 @@ a.article:hover {
 
 
 /* ---------------------------------------------------
- Student info
+ Student info-student-show
 ----------------------------------------------------- */
 
 .student-info-body{
@@ -673,6 +673,24 @@ a.article:hover {
   padding: 27px;
   border-radius: 9px;
   margin-bottom: 15px;
+
+}
+
+.action-buttons {
+
+  padding: 25px;
+  text-align: center;
+
+}
+.student-info-show-delete{
+  margin-left: -20px;
+}
+.action-buttons span i{
+  font-size: 25px;
+  transition: ease all .5s;
+}
+.action-buttons span i:hover{
+  transform: scale(1.9);
 
 }
 
@@ -977,4 +995,35 @@ padding: 5px;
     overflow:visible;
   }
 
+}
+
+/* ---------------------------------------------------
+ Add Teacher Form
+----------------------------------------------------- */
+
+.teacher-add-body{
+  background-color: white;
+  padding: 7px
+}
+.teacher-add-banner{
+  text-align: center;
+}
+.teacher-add-body h5{
+ text-align: center;
+}
+
+.teacher-add-name input
+{
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eee;
+  font-size: 20px;
+
+}
+
+.teacher-add-name label
+{
+  font-size: 20px;
 }

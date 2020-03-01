@@ -37,6 +37,8 @@ Route::resource('public-pre-enlistment','EnlistmentController')->except('create'
 
 Route::get('public/enlistment-form','EnlistmentController@create')->name('public.enlistment.create');
 
+
+//Students
 Route::get('admin/student/enlistment','AdminStudentController@enlistment')->name('admin.student.enlistment');
 Route::get('admin/student/enrolled/list','AdminStudentController@studentList')->name('admin.student.list');
 Route::get('admin/student/show-details/{student_id}','AdminStudentController@studentShow')->name('admin.student.show-details');
@@ -50,3 +52,10 @@ Route::get('admin/students/delete/{student_id}','AdminStudentController@delete')
 Route::post('admin/students/bulk-delete','AdminStudentController@bulkDelete')->name('admin.student.enlistment.bulkdelete');
 //route for bulk update in enlistment
 Route::post('admin/students/bulk-update-enlist','AdminStudentController@updateStautsEnlistment')->name('admin.student.enlistment.bulk-update-enlist');
+
+
+
+//Teachers
+Route::get('admin/teacher/add','AdminTeacherController@addTeacher')->name('admin.teacher.add');
+Route::post('admin/teacher/store','AdminTeacherController@storeTeacher')->name('admin.teacher.store');
+Route::get('admin/teacher/teacher-list','AdminTeacherController@teacherList')->name('admin.teacher.list');
