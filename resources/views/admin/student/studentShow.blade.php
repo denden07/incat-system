@@ -37,6 +37,10 @@
             <span ><a href="{{route('admin.student.form.docx',['student_id'=>$student->id])}}"><i  class="fas fa-print"></i></a></span>
             <span>Print</span>
             </div>
+            <div class="student-info-show-delete col-1">
+                <span ><a href="{{route('admin.student.form.docx',['student_id'=>$student->id])}}"><i class="fas fa-edit"></i></a></span>
+                <span style="display: block;text-align: center">Edit</span>
+            </div>
         </div>
 
     <div class="container student-info-info-container">

@@ -17777,6 +17777,10 @@ a.article:hover {
 .teacher-add-body {
   background-color: white;
   padding: 7px;
+  border-radius: 21px 21px 21px 21px;
+  -moz-border-radius: 21px 21px 21px 21px;
+  -webkit-border-radius: 21px 21px 21px 21px;
+  margin-bottom: 100px;
 }
 
 .teacher-add-banner {
@@ -17792,11 +17796,139 @@ a.article:hover {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
-  background-color: #eee;
   font-size: 20px;
+  margin-left: 20px;
+}
+
+.teacher-add-name input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
 }
 
 .teacher-add-name label {
   font-size: 20px;
+}
+
+.teacher-add-name .row {
+  margin-bottom: 8px;
+}
+
+.teacher-add-additional-details .teacher-add-additional-details-first {
+  padding: 25px;
+}
+
+.teacher-add-additional-details .teacher-add-additional-details-first input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-left: 4px;
+}
+
+.teacher-add-additional-details .teacher-add-additional-details-first input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
+}
+
+.teacher-add-additional-details-second label {
+  font-size: 20px;
+}
+
+.teacher-add-additional-details-second input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  font-size: 20px;
+  margin-left: 25px;
+}
+
+.teacher-add-additional-details-second input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
+}
+
+.teacher-add-additional-details .teacher-add-additional-details-second {
+  margin-bottom: 25px;
+}
+
+.teacher-add-additional-details-third {
+  padding: 25px;
+}
+
+.teacher-add-additional-details-third input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-left: 4px;
+}
+
+.teacher-add-additional-details-third input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
+}
+
+.teacher-add-education-1 {
+  margin-top: 20px;
+}
+
+.teacher-add-education-1 input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.teacher-add-education-1 input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
+}
+
+.teacher-add-education-1 label {
+  font-size: 16px;
+}
+
+.teacher-add-education-1 {
+  margin-bottom: 14px;
+  padding: 17px;
+}
+
+.teacher-add-education-2 input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.teacher-add-education-2 input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
+}
+
+.teacher-add-education-2 label {
+  font-size: 16px;
+}
+
+.teacher-add-education-2 {
+  margin-bottom: 14px;
+  padding: 17px;
+}
+
+.teacher-add-body h5 {
+  width: 100%;
+  background: #4e555b;
+  padding: 5px;
+  color: white;
 }
 

@@ -24,7 +24,7 @@
         <form action="{{route('admin.teacher.store')}}" method="post">
             @csrf
             <h5>TEACHER'S BASIC INFORMATION</h5>
-
+            @include('layouts._message')
         <div class="teacher-add-name">
             <div class="row">
 
@@ -76,11 +76,10 @@
             </div>
         </div>
 
-
-            <div class="row">
-
-
-                <div class="col">
+<div class="teacher-add-additional-details">
+    <div class="teacher-add-additional-details-first">
+            <div class="row justify-content-center">
+                <div class="col-2">
                     <label for="">Sex:</label>
                     <select  class="{{$errors->has('sex')?'is-invalid' : ""}}" name="sex">
                         <option value="" selected disabled hidden>Choose here</option>
@@ -127,11 +126,12 @@
                     @endif
                 </div>
             </div>
-
+    </div>
+        <div class="teacher-add-additional-details-second">
             <div class="row">
                 <div class="col-12">
                 <label for="address">Address: </label>
-                <input class="col-8 {{$errors->has('address')?'is-invalid' : ""}}" type="text" name="address" placeholder="House Number/Street/Brgy/Town/City,Province/Country" >
+                <input class="col-10 {{$errors->has('address')?'is-invalid' : ""}}" type="text" name="address" placeholder="House Number/Street/Brgy/Town/City,Province/Country" >
                     @if($errors->has('address'))
                         <div class="invalid-feedback">
                             <strong>{{$errors->first('address')}}</strong>
@@ -140,10 +140,40 @@
                     @endif
                 </div>
                 </div>
+        </div>
 
+    <div class="teacher-add-additional-details-third">
+            <div class="row">
+                <div class="col">
+                    <label for="religion">Religion:</label>
+                    <input type="text" name="religion" class= "{{$errors->has('religion')?'is-invalid' : ""}}">
+                    @if($errors->has('religion'))
+                        <div class="invalid-feedback">
+                            <strong>{{$errors->first('religion')}}</strong>
+                        </div>
+
+                    @endif
+                </div>
+
+
+
+
+                <div class="col">
+                    <label for="mothertongue">Mother Tongue:</label>
+                    <input type="text" name="mothertongue" class= "{{$errors->has('mothertongue')?'is-invalid' : ""}}">
+                    @if($errors->has('mothertongue'))
+                        <div class="invalid-feedback">
+                            <strong>{{$errors->first('mothertongue')}}</strong>
+                        </div>
+                    @endif
+                </div>
+            </div>
+    </div>
+</div>
 
 <h5>Education</h5>
 
+            <div class="teacher-add-education-1">
             <div class="row">
                 <div class="col">
                     <label for="course">Course: </label>
@@ -183,12 +213,25 @@
 
 
             </div>
+            </div>
 
-
+            <div class="teacher-add-education-2">
             <div class="row">
 
                 <div class="col">
-                    <label for="award">Awards </label>
+                    <label for="expertise">Expertise: </label>
+                    <input type="text" name="expertise" class= "{{$errors->has('expertise')?'is-invalid' : ""}}">
+                    @if($errors->has('expertise'))
+                        <div class="invalid-feedback">
+                            <strong>{{$errors->first('expertise')}}</strong>
+                        </div>
+
+                    @endif
+                </div>
+
+
+                <div class="col">
+                    <label for="award">Awards: </label>
                     <input type="text" name="award">
                 </div>
 
@@ -197,39 +240,43 @@
                     <input type="text" name="lastSchoolTeached">
                 </div>
             </div>
+            </div>
+
+
 
             <h5>Requirements</h5>
-            <div class="row">
 
-                <div class="col">
+            <div class="row justify-content-center">
+
+                <div class="col-5">
 
                 <input type="checkbox" name="nso" value=1>
                     <label for="nso">Nso</label>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-5">
                     <input type="checkbox" name="transcript" value=1>
                     <label for="transcript">Transcript</label>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-5">
                     <input type="checkbox" name="let" value=1>
                     <label for="let">Let Scores</label>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-5">
                     <input type="checkbox" name="prc" value=1>
                     <label for="prc">Prc I.D</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-5">
                     <input type="checkbox" name="coe" value=1>
                     <label for="coe">Certificate of Employment(if teached before) </label>
                 </div>
@@ -237,8 +284,8 @@
 
 
 
-            <div class="row">
-                <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-5">
                     <input type="checkbox" name="certificates" value=1>
                     <label for="certificates">Certificates(NC's) </label>
                 </div>

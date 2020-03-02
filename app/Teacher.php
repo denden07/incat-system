@@ -11,7 +11,7 @@ class Teacher extends Model
         'lastName', 'firstName', 'middleName', 'dob', 'age', 'address', 'contactNo',
         'course','yearGraduated', 'lastSchoolTeached', 'status','lastSchoolAttended',
         'award','extensionName','nso','transcript','let','prc','coe','certificates',
-        'sex'
+        'sex','religion','mothertongue','expertise'
     ];
 
     public function getNameAttribute(){

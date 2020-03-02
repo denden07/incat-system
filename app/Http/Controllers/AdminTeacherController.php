@@ -61,6 +61,9 @@ class AdminTeacherController extends Controller
         $teacher->dob = $request->dob;
         $teacher->age = $request->age;
         $teacher->address = $request->address;
+        $teacher->religion = $request->religion;
+        $teacher->mothertongue = $request->mothertongue;
+        $teacher->expertise = $request->expertise;
         $teacher->contactNo	 = $request->contactNo;
         $teacher->course	 = $request->course;
         $teacher->yearGraduated	 = $request->yearGraduated;
@@ -78,6 +81,7 @@ class AdminTeacherController extends Controller
 
         $teacher->save();
 
+        return redirect()->route('admin.teacher.add')->with('success','Teacher has been added successfully');
 
 
     }

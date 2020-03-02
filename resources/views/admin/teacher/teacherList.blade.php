@@ -48,9 +48,9 @@
             <td>{{$teacher->id}}</td>
             <td>{{$teacher->name}}</td>
             <td>{{$teacher->course}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$teacher->expertise}}</td>
+            <td>{{$teacher->contactNo}}</td>
+            <td>{{$teacher->address}}</td>
         </tr>
         @endforeach
     @endif

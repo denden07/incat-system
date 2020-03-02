@@ -15,6 +15,10 @@ class AddAdditionalDetailsToTeachersTable extends Migration
     {
         Schema::table('teachers', function (Blueprint $table) {
             //
+            
+            $table->string('religion')->nullable();
+            $table->string('mothertongue')->nullable();
+            $table->string('expertise');
             $table->string('sex');
             $table->string('status')->nullable();
             $table->string('lastSchoolAttended')->nullable();
