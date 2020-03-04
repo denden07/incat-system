@@ -59,3 +59,12 @@ Route::post('admin/students/bulk-update-enlist','AdminStudentController@updateSt
 Route::get('admin/teacher/add','AdminTeacherController@addTeacher')->name('admin.teacher.add');
 Route::post('admin/teacher/store','AdminTeacherController@storeTeacher')->name('admin.teacher.store');
 Route::get('admin/teacher/teacher-list','AdminTeacherController@teacherList')->name('admin.teacher.list');
+
+
+//Section
+Route::get('admin/section/create','AdminSectionController@createSection')->name('admin.section.add');
+
+
+//Subject
+Route::get('admin/subject/create', 'AdminSubjectController@createSubject')->name('admin.subject.add');
+Route::post('admin/subject/save', 'AdminSubjectController@storeSubject')->name('admin.subject.save');

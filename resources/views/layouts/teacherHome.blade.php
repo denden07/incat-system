@@ -87,12 +87,39 @@
                     <li class="@yield('teacher-add-status')">
                         <a href="{{route('admin.teacher.add')}}">Add Teacher</a>
                     </li>
-
-
-
-
                 </ul>
             </li>
+
+
+            <li class="@yield('section-status')" >
+                <a href="#sectionSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                   Sections/Subjects
+                </a>
+                <ul class="collapse list-unstyled" id="sectionSubmenu">
+                    <li class="@yield('section-list-status')">
+                        <a href="{{route('admin.teacher.list')}}">All Sections</a>
+                    </li>
+
+                    <li class="@yield('subject-list-status')">
+                        <a href="{{route('admin.teacher.list')}}">All Subjects</a>
+                    </li>
+                    <li class="@yield('subject-schedules-list-status')">
+                        <a href="{{route('admin.teacher.list')}}">Subject Schedules</a>
+                    </li>
+
+                    <li class="@yield('section-add-status')">
+                        <a href="{{route('admin.section.add')}}">Add Section</a>
+                    </li>
+                    <li class="@yield('subject-add-status')">
+                        <a href="{{route('admin.subject.add')}}">Add Subject</a>
+                    </li>
+                    <li class="@yield('subject-schedules-add-status')">
+                        <a href="{{route('admin.section.add')}}">Create Subject Schedules</a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li>
                 <a href="#">
