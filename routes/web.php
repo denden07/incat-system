@@ -63,7 +63,10 @@ Route::get('admin/teacher/teacher-list','AdminTeacherController@teacherList')->n
 
 //Section
 Route::get('admin/section/create','AdminSectionController@createSection')->name('admin.section.add');
-
+Route::post('admin/section/save','AdminSectionController@storeSection')->name('admin.section.save');
+Route::get('admin/section/list','AdminSectionController@sectionList')->name('admin.section.list');
+Route::get('admin/section/show/{section_id}/{grade_id}/{strand_id}','AdminSectionController@sectionShow')->name('admin.section.show');
+Route::patch('admin/section/add-students/{section_id}','AdminSectionController@addStudentToSection')->name('admin.section.add-student');
 
 //Subject
 Route::get('admin/subject/create', 'AdminSubjectController@createSubject')->name('admin.subject.add');

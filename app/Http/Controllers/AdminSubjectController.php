@@ -74,6 +74,18 @@ class AdminSubjectController extends Controller
         return view('admin.subject.subjectList');
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Store a newly created resource in storage.
      *

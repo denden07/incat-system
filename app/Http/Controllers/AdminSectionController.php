@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Level;
+use App\Section;
+use App\Strand;
+use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class AdminSectionController extends Controller
@@ -32,10 +37,64 @@ class AdminSectionController extends Controller
     public function createSection()
     {
 
+        $teachers = Teacher::all();
+        $levels = Level::all();
+        $strands = Strand::all();
 
-        return view('admin.sections.create');
+        return view('admin.sections.create',compact('teachers','levels','strands'));
     }
 
+    public function storeSection(Request $request)
+    {
+        $input = $request->all();
+        $count = count($request->input('name'));
+
+        for ($i=0;$i<=$count;$i++)
+        {
+            if(empty($input['name'][$i]) || !is_string($input['name'][$i])) continue;
+            $data = [
+                'name' =>$input['name'][$i],
+                'year' => $input['year'][$i],
+                'teacher_id' =>$input['teacher_id'][$i],
+                'level_id' =>$input['level_id'][$i],
+                'strand_id' =>$input['strand_id'][$i],
+            ];
+            Section::create($data);
+        }
+    }
+
+    public function sectionList()
+    {
+
+        $sections = Section::all();
+
+        return view('admin.sections.sectionList',compact('sections'));
+    }
+
+    public function sectionShow($section_id,$grade_id,$strand_id)
+    {
+
+        $section = Section::find($section_id);
+        $strand = Strand::findOrFail($strand_id);
+        $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand->name)->where('status','enrolled')->pluck('name','id');
+
+
+        return view('admin.sections.sectionShow',compact('section','students'));
+    }
+
+
+    public function addStudentToSection(Request $request ,$section_id)
+    {
+        $section = Section::findOrFail($section_id);
+        $section->save();
+
+        if(isset($request->students)){
+            $section->students()->sync($request->students,true);
+        }else{
+            $section->students()->sync(array());
+        }
+
+    }
 
     /**
      * Store a newly created resource in storage.

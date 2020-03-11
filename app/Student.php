@@ -26,5 +26,9 @@ class Student extends Model
         return $this->firstName . " " .$this->middleName . " " .$this->lastName . " " . $this->extName;
     }
 
+    public function section()
+    {
+        return $this->belongsToMany('App\Section','section_student','student_id','section_id');
+    }
 
 }

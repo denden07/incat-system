@@ -98,7 +98,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="sectionSubmenu">
                     <li class="@yield('section-list-status')">
-                        <a href="{{route('admin.teacher.list')}}">All Sections</a>
+                        <a href="{{route('admin.section.list')}}">All Sections</a>
                     </li>
 
                     <li class="@yield('subject-list-status')">
