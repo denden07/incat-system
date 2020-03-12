@@ -52,6 +52,7 @@
             <td>{{$teacher->contactNo}}</td>
             <td>{{$teacher->address}}</td>
         </tr>
+
         @endforeach
     @endif
         </tbody>

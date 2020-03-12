@@ -27,6 +27,8 @@ class Section extends Model
         return $this->belongsTo('App\Strand','strand_id');
     }
 
+
+
     public function students()
     {
         return $this->belongsToMany('App\Student','section_student','section_id','student_id');

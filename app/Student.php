@@ -28,7 +28,7 @@ class Student extends Model
 
     public function section()
     {
-        return $this->belongsToMany('App\Section','section_student','student_id','section_id');
+        return $this->belongsToMany('App\Section','section_student','student_id','section_id')->latest()->limit(1);
     }
 
 }

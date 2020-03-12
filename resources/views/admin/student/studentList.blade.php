@@ -22,8 +22,14 @@
 
 @section('contents')
 
+    {{--@foreach($student->section as $st)--}}
+
+        {{--{{$st->name}}--}}
+        {{--@endforeach--}}
+
     <div class="container table-design">
         <h3 class="enlistment-list-banner">Student List</h3>
+
         <div class="row table-inner-design">
             <form action="{{route('admin.student.enlistment.bulkdelete')}}" method="post">
                 @csrf
@@ -92,6 +98,7 @@
                     </thead>
                     <tbody>
 
+
                     @if($students)
                         @foreach($students as $student)
                             <tr>
@@ -99,7 +106,12 @@
                                 <td>{{$student->id}}</td>
                                 <td><a href="{{route('admin.student.show-details',['student_id'=>$student->id])}}">{{$student->firstName ." ".$student->middleName ." " .$student->lastName}}</a></td>
                                 <td>{{$student->level->name}}</td>
-                                <td>TBA</td>
+                                <td>
+                                    @foreach($student->section as $section)
+                                        {{$section->name}}
+                                    @endforeach
+
+                                </td>
                                 <td>{{$student->strand}}</td>
                                 <td>{{$student->parentCpNo}}</td>
 
