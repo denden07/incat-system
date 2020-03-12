@@ -22,27 +22,35 @@
 
 @section('contents')
     <div class="section-student-list">
+        <div class="section-student-list-heading">
+
     <h1>{{$section->name}}</h1>
     <p>Year: <span>{{$section->year}}</span></p>
      <p>Grade: <span>{{$section->level->name}}</span></p>
         <p>Strand: <span>{{$section->strand->name}}</span></p>
     <p>Adviser: <span>{{$section->adviser->name}}</span></p>
+            <p>Student Count: <span>{{$section->students->count()}}</span></p>
+        </div>
+
+
+        @include('layouts._message')
+            <h3 class="section-student-banner">Student List</h3>
 
 
 
-        <div class="container ">
-            <h3 class="enlistment-list-banner">Student List</h3>
-            <div class="row table-inner-design">
-                <form action="{{route('admin.student.enlistment.bulkdelete')}}" method="post">
                     @csrf
-                    @include('layouts._message')
-                    <table id="datatable" class="table table-striped table-bordered" style="width:100%;text-align: center;font-size: 20px">
+
+                    <div class="section-list-table">
+                    <table id="datatable" class="table table-striped table-bordered" style="width:100%;text-align: center;">
                         <button type="button"   data-toggle="modal" class="btn-success section-add-student-button" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></button>
+
                         <thead>
                         <tr>
 
                             <th>Id</th>
                             <th >Name
+                            </th>
+                            <th >Sex
                             </th>
                             <th>Contact Number
                             </th>
@@ -54,14 +62,15 @@
                             <tr>
                                 <td>{{$student->id}}</td>
                                 <td>{{$student->name}}</td>
+                                <td>{{$student->sex}}</td>
                                 <td>{{$student->parentCpNo}}</td>
                             </tr>
 
                         @endforeach
                         </tbody>
                     </table>
-                </form>
-            </div>
+                    </div>
+
         </div>
 
 
@@ -76,7 +85,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div  class="modal-body">
                         {!! Form::model($section,['method'=>'PATCH','action'=>['AdminSectionController@addStudentToSection',$section->id],'files'=>true]) !!}
                         @csrf
                         @method('PATCH')
@@ -102,7 +111,7 @@
 
 
 
-    </div>
+
  @endsection
 
 @section('scripts')
@@ -137,11 +146,15 @@
         $(document).ready(function() {
 
 
+            var text1 = 'Year: ';
 
 
 
             $('#datatable').DataTable(
                 {
+
+
+
 
                     dom: 'Blfrtip',
 
@@ -149,9 +162,32 @@
                     "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
 
                     buttons: [
-                     {
-                            extend: 'pdf',
-                            message: 'The information in this table is copyright to Sirius Cybernetics Corp. \n hey',
+                        {
+                            extend: 'pdfHtml5',
+
+                            customize: function(doc) {
+                                console.dir(doc)
+                                doc.content[2].margin = [ 100, 0, 100, 0 ]//left, top, right, bottom,
+                                var objLayout = {};
+                                objLayout['hLineWidth'] = function(i) { return .5; };
+                                objLayout['vLineWidth'] = function(i) { return .5; };
+                                objLayout['hLineColor'] = function(i) { return '#aaa'; };
+                                objLayout['vLineColor'] = function(i) { return '#aaa'; };
+                                objLayout['paddingLeft'] = function(i) { return 5; };
+                                objLayout['paddingRight'] = function(i) { return 5; };
+                                doc.content[2].layout = objLayout;
+
+                                doc.defaultStyle.fontSize = 10;
+
+                            },
+                            message: 'Year: ' + '{{$section->year}}' + '\n' +
+                                      'Grade: ' + '{{$section->level->name}}' +'\n' +
+                                        'Strand: ' + '{{$section->strand->name}}' +'\n' +
+                                        'Adviser: ' + '{{$section->adviser->name}}'+'\n' +
+                                        'Total Student: ' + '{{$section->students->count()}}',
+
+
+
                         },
                     ],
 

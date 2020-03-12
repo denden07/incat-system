@@ -82,6 +82,17 @@ class AdminSectionController extends Controller
         return view('admin.sections.sectionShow',compact('section','students'));
     }
 
+    public function sectionPrint($section_id,$grade_id,$strand_id)
+    {
+
+        $section = Section::find($section_id);
+        $strand = Strand::findOrFail($strand_id);
+        $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand->name)->where('status','enrolled')->pluck('name','id');
+
+
+        return view('admin.sections.sectionShow',compact('section','students'));
+    }
+
 
     public function addStudentToSection(Request $request ,$section_id)
     {
@@ -94,6 +105,8 @@ class AdminSectionController extends Controller
             $section->students()->sync(array());
         }
 
+
+        return back()->with('success','Changes has been saved');
     }
 
     /**

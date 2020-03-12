@@ -17942,7 +17942,7 @@ Section
 
 .section-student-list {
   background: white;
-  padding: 10px;
+  padding: 10px 10px 50px 10px;
   color: black;
   width: 100%;
 }
@@ -17952,7 +17952,7 @@ Section
   color: black;
 }
 
-.section-student-list input[type=search] {
+.modal-body input[type=search] {
   width: 100% !important;
 }
 
@@ -17961,5 +17961,30 @@ Section
   margin-top: 20px;
   width: 50px;
   margin-left: 7px;
+}
+
+.section-list-table {
+  padding: 50px;
+}
+
+.section-student-banner {
+  margin-bottom: -20px;
+  text-align: center;
+}
+
+.section-student-list-heading p {
+  font-weight: bold;
+}
+
+.section-student-list-heading span {
+  font-weight: normal;
+}
+
+.section-student-list-heading h1 {
+  text-align: center;
+}
+
+.section-student-list-heading {
+  padding: 7px;
 }
 
