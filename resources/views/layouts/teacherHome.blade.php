@@ -59,9 +59,6 @@
                         <a href="{{route('admin.student.list')}}">All Students</a>
                     </li>
                     <li>
-                        <a href="#">Sections</a>
-                    </li>
-                    <li>
                         <a href="#">Enroll Student</a>
                     </li>
                     <li class="@yield('student-status-enlistment')">

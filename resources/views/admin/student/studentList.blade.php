@@ -110,7 +110,6 @@
                                     @foreach($student->section as $section)
                                         {{$section->name}}
                                     @endforeach
-
                                 </td>
                                 <td>{{$student->strand}}</td>
                                 <td>{{$student->parentCpNo}}</td>

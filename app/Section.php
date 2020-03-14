@@ -33,4 +33,10 @@ class Section extends Model
     {
         return $this->belongsToMany('App\Student','section_student','section_id','student_id');
     }
+
+    public function studentsCount()
+    {
+        return $this->belongsToMany('App\Student','section_student','section_id','student_id')->limit(1);
+    }
+
 }

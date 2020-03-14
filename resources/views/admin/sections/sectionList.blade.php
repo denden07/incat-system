@@ -21,6 +21,8 @@
 
 @section('contents')
 
+    <div class="table-design">
+        <h3>Section List</h3>
     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
@@ -36,7 +38,7 @@
             </th>
             <th class="th-sm">Year
             </th>
-            <th>Student Count</th>
+            <th>Total Student</th>
             <th>Status</th>
 
         </tr>
@@ -53,13 +55,25 @@
                     <td>{{$section->level->name}}</td>
                     <td>{{$section->strand->name}}</td>
                     <td>{{$section->year}}</td>
-                    <td></td>
-                    <td></td>
+                    <td width="1%">
+
+                        @foreach($section->studentsCount as $students)
+
+
+                            {{$students->pivot->count()}}
+
+
+
+                            @endforeach
+
+                    </td>
+                    <td>{{$section->status}}</td>
                 </tr>
             @endforeach
         @endif
         </tbody>
     </table>
+    </div>
 
 
 @endsection

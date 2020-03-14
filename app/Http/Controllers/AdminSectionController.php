@@ -58,6 +58,7 @@ class AdminSectionController extends Controller
                 'teacher_id' =>$input['teacher_id'][$i],
                 'level_id' =>$input['level_id'][$i],
                 'strand_id' =>$input['strand_id'][$i],
+                'status' => 'active',
             ];
             Section::create($data);
         }
@@ -67,6 +68,7 @@ class AdminSectionController extends Controller
     {
 
         $sections = Section::all();
+
 
         return view('admin.sections.sectionList',compact('sections'));
     }

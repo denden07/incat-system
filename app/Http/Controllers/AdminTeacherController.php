@@ -86,6 +86,28 @@ class AdminTeacherController extends Controller
 
     }
 
+    public function teacherAction(Request $request){
+
+        $teachers = $request->input('checkboxTeacher');
+
+        $teacher = Teacher::whereIn('id',$teachers);
+
+
+
+
+        switch ($request->input('action')){
+            case 'inactive':
+                $teacher->update(['status'=>'inactive']);
+                return redirect()->route('admin.teacher.list')->with('fail',"Teacher/s is inactive");
+                break;
+
+            case  'active':
+                $teacher->update(['status'=>'active']);
+                return redirect()->route('admin.teacher.list')->with('success',"Teacher/s is active");
+                break;
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
