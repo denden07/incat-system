@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Level;
+use App\Schedule;
+use App\Section;
 use App\Strand;
 use App\Subject;
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class AdminSubjectController extends Controller
@@ -75,6 +78,39 @@ class AdminSubjectController extends Controller
     }
 
 
+    public function subjectSchedule()
+    {
+
+        $subjects = Subject::all();
+        $teachers = Teacher::all()->where('status','active');
+        $sections = Section::all()->where('status','active');
+
+        return view('admin.subject.subjectSchedule',compact('subjects','teachers','sections'));
+    }
+
+    public function saveSubjectSchedule(Request $request)
+    {
+
+        $input = $request->all();
+        $count = count($request->input('subject'));
+
+
+        for($i=0; $i<= $count;$i++){
+            if(empty($input['subject'][$i]) || !is_string($input['subject'][$i])) continue;
+            $data = [
+                'subject_id' => $input['subject'][$i],
+                'teacher_id' => $input['teacher'][$i],
+                'section_id' => $input['section'][$i],
+                'schedule'=> $input['schedule'][$i],
+                'status'=> "active",
+            ];
+            Schedule::create($data);
+
+        }
+
+        return "congrats!";
+
+    }
 
 
 

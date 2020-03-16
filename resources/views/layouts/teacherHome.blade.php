@@ -112,7 +112,7 @@
                         <a href="{{route('admin.subject.add')}}">Add Subject</a>
                     </li>
                     <li class="@yield('subject-schedules-add-status')">
-                        <a href="{{route('admin.section.add')}}">Create Subject Schedules</a>
+                        <a href="{{route('admin.subject.schedule.create')}}">Create Subject Schedules</a>
                     </li>
                 </ul>
             </li>

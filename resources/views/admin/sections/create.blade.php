@@ -41,7 +41,7 @@
                             </td>
 
                             <td>
-                                <label for="teacher_id">Teacher</label>
+                                <label for="teacher_id">Adviser</label>
                                 <select name="teacher_id[]" id="">
                                     <option value="" selected disabled hidden>Choose Teacher</option>
                                     @foreach($teachers as $teacher)
