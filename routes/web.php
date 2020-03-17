@@ -77,3 +77,4 @@ Route::get('admin/subject/create', 'AdminSubjectController@createSubject')->name
 Route::post('admin/subject/save', 'AdminSubjectController@storeSubject')->name('admin.subject.save');
 Route::get('admin/subject/create/schedule', 'AdminSubjectController@subjectSchedule')->name('admin.subject.schedule.create');
 Route::post('admin/subject/save/schedule', 'AdminSubjectController@saveSubjectSchedule')->name('admin.subject.schedule.save');
+Route::get('admin/subject/create/schedule/list', 'AdminSubjectController@subjectScheduleList')->name('admin.subject.schedule.list');

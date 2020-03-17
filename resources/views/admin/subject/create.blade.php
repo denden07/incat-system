@@ -25,6 +25,7 @@
 
         <form  name="add_subject" id="add_subject" action="{{route('admin.subject.save')}}" method="post">
             @csrf
+            @include('layouts._message')
         <table class="table table-bordered" id="dynamic_field">
 
             <tr>
@@ -45,7 +46,6 @@
 
                 <td>   <label for="strand_id">Strand</label>
                     <select name="strand_id[]" id="">
-                        <option value="" selected disabled hidden>Choose here</option>
                         <option value="">none</option>
                         @foreach($strands as $strand)
                             <option value="{{$strand->id}}">{{$strand->name}}</option>

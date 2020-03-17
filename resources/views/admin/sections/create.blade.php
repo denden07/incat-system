@@ -28,6 +28,7 @@
             <div class="add-section-form">
                 <form action="{{route('admin.section.save')}}" method="post">
                     @csrf
+                    @include('layouts._message')
                     <table class="table table-bordered" id="dynamic_field">
                         <tr>
                             <td>

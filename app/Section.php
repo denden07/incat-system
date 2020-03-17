@@ -9,7 +9,7 @@ class Section extends Model
     //
 
     protected $fillable = [
-        'name','year','level_id','teacher_id','strand_id'
+        'name','year','level_id','teacher_id','strand_id','status'
     ];
 
     public function level()

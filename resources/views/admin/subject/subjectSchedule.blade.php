@@ -25,6 +25,7 @@
 
         <form  name="add_subject" id="add_subject" action="{{route('admin.subject.schedule.save')}}" method="post">
             @csrf
+            @include('layouts._message')
             <table class="table table-bordered" id="dynamic_field">
 
                 <tr id="row1">

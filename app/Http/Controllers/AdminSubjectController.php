@@ -40,10 +40,7 @@ class AdminSubjectController extends Controller
         $strands = Strand::all();
 
 
-
-
-
-        return view('admin.subject.create',compact('levels','strands'));
+        return view('admin.subject.create', compact('levels', 'strands'));
     }
 
     public function storeSubject(Request $request)
@@ -53,13 +50,13 @@ class AdminSubjectController extends Controller
         $count = count($request->input('title'));
 
 
-        for($i=0; $i<= $count;$i++){
-            if(empty($input['title'][$i]) || !is_string($input['title'][$i])) continue;
+        for ($i = 0; $i <= $count; $i++) {
+            if (empty($input['title'][$i]) || !is_string($input['title'][$i])) continue;
             $data = [
                 'subjCode' => $input['subjCode'][$i],
                 'title' => $input['title'][$i],
                 'level_id' => $input['level_id'][$i],
-                'strand_id'=> $input['strand_id'][$i],
+                'strand_id' => $input['strand_id'][$i],
             ];
             Subject::create($data);
 
@@ -74,7 +71,7 @@ class AdminSubjectController extends Controller
 //
 //        $subject->save();
 
-        return view('admin.subject.subjectList');
+        return redirect()->route('admin.subject.add')->with('success', 'Subject(s) has been created!');
     }
 
 
@@ -82,10 +79,10 @@ class AdminSubjectController extends Controller
     {
 
         $subjects = Subject::all();
-        $teachers = Teacher::all()->where('status','active');
-        $sections = Section::all()->where('status','active');
+        $teachers = Teacher::all()->where('status', 'active');
+        $sections = Section::all()->where('status', 'active');
 
-        return view('admin.subject.subjectSchedule',compact('subjects','teachers','sections'));
+        return view('admin.subject.subjectSchedule', compact('subjects', 'teachers', 'sections'));
     }
 
     public function saveSubjectSchedule(Request $request)
@@ -95,22 +92,30 @@ class AdminSubjectController extends Controller
         $count = count($request->input('subject'));
 
 
-        for($i=0; $i<= $count;$i++){
-            if(empty($input['subject'][$i]) || !is_string($input['subject'][$i])) continue;
+        for ($i = 0; $i <= $count; $i++) {
+            if (empty($input['subject'][$i]) || !is_string($input['subject'][$i])) continue;
             $data = [
                 'subject_id' => $input['subject'][$i],
                 'teacher_id' => $input['teacher'][$i],
                 'section_id' => $input['section'][$i],
-                'schedule'=> $input['schedule'][$i],
-                'status'=> "active",
+                'schedule' => $input['schedule'][$i],
+                'status' => "active",
             ];
             Schedule::create($data);
 
         }
 
-        return "congrats!";
+        return redirect()->route('admin.subject.schedule.create')->with('success', 'Subject schedule created!');
 
     }
+
+    public function subjectScheduleList()
+    {
+        $schedules = Schedule::all()->where('status','active');
+
+        return view('admin.subject.subjectScheduleList',compact('schedules'));
+    }
+
 
 
 

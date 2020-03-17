@@ -49,19 +49,30 @@ class AdminSectionController extends Controller
         $input = $request->all();
         $count = count($request->input('name'));
 
+
+
         for ($i=0;$i<=$count;$i++)
         {
+          if(!empty($input['strand_id'][$i]))
+        {
+          $strand = $input['strand_id'][$i];
+        }else
+          {
+              null;
+          }
             if(empty($input['name'][$i]) || !is_string($input['name'][$i])) continue;
             $data = [
                 'name' =>$input['name'][$i],
                 'year' => $input['year'][$i],
                 'teacher_id' =>$input['teacher_id'][$i],
                 'level_id' =>$input['level_id'][$i],
-                'strand_id' =>$input['strand_id'][$i],
+                'strand_id' =>$strand,
                 'status' => 'active',
             ];
             Section::create($data);
         }
+
+        return redirect()-> route('admin.section.add')->with('success','Section(s) has been created');
     }
 
     public function sectionList()
