@@ -74,7 +74,11 @@ Route::get('admin/section/print/{section_id}/{grade_id}/{strand_id}','AdminSecti
 
 //Subject
 Route::get('admin/subject/create', 'AdminSubjectController@createSubject')->name('admin.subject.add');
+Route::get('admin/subject/list', 'AdminSubjectController@subjectList')->name('admin.subject.list');
 Route::post('admin/subject/save', 'AdminSubjectController@storeSubject')->name('admin.subject.save');
 Route::get('admin/subject/create/schedule', 'AdminSubjectController@subjectSchedule')->name('admin.subject.schedule.create');
+
 Route::post('admin/subject/save/schedule', 'AdminSubjectController@saveSubjectSchedule')->name('admin.subject.schedule.save');
 Route::get('admin/subject/create/schedule/list', 'AdminSubjectController@subjectScheduleList')->name('admin.subject.schedule.list');
+//Route::get('admin/subject/fetch/create/schedule', 'AdminSubjectController@fetch')->name('admin.subject.fetch');
+Route::post('admin/subject/schedule/action','AdminSubjectController@subjectUpdate')->name('admin.subject.schedule.action');

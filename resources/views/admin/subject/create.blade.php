@@ -38,7 +38,7 @@
 
                 <td>  <label for="level_id">Grade: </label>
                     <select name="level_id[]" >
-                        <option value="" selected disabled hidden>Choose here</option>
+                        <option value="">none</option>
                         @foreach($levels as $level)
                             <option value="{{$level->id}}">{{$level->name}}</option>
                         @endforeach
@@ -75,7 +75,7 @@
     <script>
         $(document).ready(function(){
             var i=1;
-            $('#add').click(function(){
+            $('#dynamic_field').on("click","#add" ,function(){
                 i++;
                 $('#dynamic_field').append('<tr id="row'+i+'"> <td>  <label for="subjCode">Subject Code:</label>\n' +
                     '                    <input type="text" name="subjCode[]"></td>\n' +
@@ -86,7 +86,7 @@
                     '\n' +
                     '                <td>  <label for="level_id">Grade: </label>\n' +
                     '                    <select name="level_id[]" id="" >\n' +
-                    '                        <option value="" selected disabled hidden>Choose here</option>\n' +
+                    '                            <option value="">none</option>\n' +
                     '                        @foreach($levels as $level)\n' +
                     '                            <option value="{{$level->id}}">{{$level->name}}</option>\n' +
                     '                        @endforeach\n' +
@@ -94,13 +94,13 @@
                     '\n' +
                     '                <td>   <label for="strand_id">Strand</label>\n' +
                     '                    <select name="strand_id[]" id="">\n' +
-                    '                        <option value="" selected disabled hidden>Choose here</option>\n' +
+
                     '                        <option value="">none</option>\n' +
                     '                        @foreach($strands as $strand)\n' +
                     '                            <option value="{{$strand->id}}">{{$strand->name}}</option>\n' +
                     '                        @endforeach\n' +
                     '\n' +
-                    '                    </select></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+                    '                    </select></td> <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
             });
 
             $(document).on('click', '.btn_remove', function(){

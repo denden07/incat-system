@@ -23,19 +23,20 @@
 
     <div class="teacher-list-table-design table-design ">
         <h3>Subject Schedule List</h3>
-        <form action="{{route('admin.teacher.action')}}" method="post">
+        <form action="{{route('admin.subject.schedule.action')}}" method="post">
             @csrf
             @include('layouts._message')
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                <button  type="button" data-toggle="modal"  class="btn-danger button-delete-enlistment-list" data-target="#exampleModalCenter1"><i class="fas fa-times-circle"></i></button>
+                <button  type="button" data-toggle="modal"  class="btn-warning button-delete-enlistment-list" data-target="#exampleModalCenter1"><i class="fas fa-times-circle"></i></button>
                 <button type="button"   data-toggle="modal" class="btn-success button-enroll-enlistment-list" data-target="#exampleModalCenter"><i class="fas fa-check"></i></button>
+                <button type="button"   data-toggle="modal" class="btn-danger button-enroll-enlistment-list" data-target="#exampleModalCenter2"><i class="fas fa-trash"></i></button>
 
 
                 <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark teacher as inactive?</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Schedule as inactive?</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -56,7 +57,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark teacher as active?</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Schedule as active?</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -71,9 +72,32 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Delete Schedule?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are You sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" name="action" value="delete">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <thead>
                 <tr>
-                    <th><input id="select-all-teacher" type="checkbox" onclick="checkAll(this)"></th>
+                    <th><input id="select-all-schedule" type="checkbox" onclick="checkAll(this)"></th>
                     <th>Id</th>
                     <th class="th-sm">Subject Code
                     </th>
@@ -93,7 +117,7 @@
                     @foreach($schedules as $schedule)
 
                         <tr>
-                            <td><input type="checkbox" name="checkboxTeacher[]" value="{{$schedule->id}}"></td>
+                            <td><input type="checkbox" name="checkboxSchedule[]" value="{{$schedule->id}}"></td>
                             <td>{{$schedule->id}}</td>
                             <td>{{$schedule->subject->subjCode}}</td>
                             <td>{{$schedule->subject->title}}</td>

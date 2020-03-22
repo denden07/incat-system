@@ -9,6 +9,7 @@ use App\Strand;
 use App\Subject;
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminSubjectController extends Controller
 {
@@ -42,6 +43,17 @@ class AdminSubjectController extends Controller
 
         return view('admin.subject.create', compact('levels', 'strands'));
     }
+
+    public function subjectList(Request $request)
+    {
+
+
+       $subjects = Subject::all();
+
+
+        return view('admin.subject.subjectList', compact('subjects'));
+    }
+
 
     public function storeSubject(Request $request)
     {
@@ -85,6 +97,24 @@ class AdminSubjectController extends Controller
         return view('admin.subject.subjectSchedule', compact('subjects', 'teachers', 'sections'));
     }
 
+//
+//    function fetch(Request $request)
+//    {
+//        $select = $request->get('select');
+//        $value = $request->get('value');
+//        $dependent = $request->get('dependent');
+//        $data = DB::table('subjects')
+//            ->where($select, $value)
+//            ->groupBy($dependent)
+//            ->get();
+//        $output = '<option value="">Select '.ucfirst($dependent).'</option>';
+//        foreach($data as $row)
+//        {
+//            $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
+//        }
+//        echo $output;
+//    }
+
     public function saveSubjectSchedule(Request $request)
     {
 
@@ -111,10 +141,39 @@ class AdminSubjectController extends Controller
 
     public function subjectScheduleList()
     {
-        $schedules = Schedule::all()->where('status','active');
+        $schedules = Schedule::all();
 
         return view('admin.subject.subjectScheduleList',compact('schedules'));
     }
+
+    public function subjectUpdate(Request $request){
+
+        $subject = $request->input('checkboxSchedule');
+
+        $subjects = Schedule::whereIn('id',$subject);
+
+
+
+
+        switch ($request->input('action')){
+            case 'inactive':
+                $subjects->update(['status'=>'inactive']);
+                return redirect()->route('admin.subject.schedule.list')->with('fail',"Subject/s is inactive");
+                break;
+
+            case  'active':
+                $subjects->update(['status'=>'active']);
+                return redirect()->route('admin.subject.schedule.list')->with('success',"Subject/s is active");
+                break;
+
+            case 'delete':
+                $subjects->delete();
+                return redirect()->route('admin.subject.schedule.list')->with('fail',"Subject/s has been deleted");
+                break;
+        }
+    }
+
+
 
 
 

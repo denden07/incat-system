@@ -22,7 +22,7 @@
 @section('contents')
 
     <div class="table-design">
-        <h3>Section List</h3>
+        <h3 style="text-align: center;padding-top: 10px">Section List</h3>
     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
@@ -109,23 +109,6 @@
             );
 
         } );
-        $(document).ready(function () {
-            var table = $('#datatable').DataTable({
-                'processing':true,
-                'serverSide': true,
-                'ajax': "{{route('public-pre-enlistment.index')}}",
-                'columns':[
-                    {'data': 'levels'}
-                ],
-            });
 
-
-            $('.filter-select').change(function () {
-                table.column($(this).data('column'))
-                    .search($(this).val())
-                    .draw();
-            });
-
-        });
     </script>
 @endsection

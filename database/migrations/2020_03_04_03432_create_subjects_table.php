@@ -17,10 +17,10 @@ class CreateSubjectsTable extends Migration
             $table->increments('id');
             $table->string('subjCode');
             $table->string('title');
-            $table->integer('level_id');
-            $table->integer('strand_id');
+            $table->integer('level_id')->nullable();
+            $table->integer('strand_id')->nullable();
             $table->timestamps();
-        });
+    });
     }
 
     /**

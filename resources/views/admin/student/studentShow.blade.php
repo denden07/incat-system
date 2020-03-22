@@ -80,9 +80,9 @@
                    @if($student->status == "enrolled")
                    <p><span>Status: </span> <span class="alert-success">Enrolled</span> </p>
                        @elseif($student->status =="transferee")
-                       <p><span>Status: </span> <span class="alert-primary">Enrolled</span> </p>
+                       <p><span>Status: </span> <span class="alert-primary">Transferee</span> </p>
                        @elseif($students->status == "drop")
-                       <p><span>Status: </span> <span class="alert-danger">Enrolled</span> </p>
+                       <p><span>Status: </span> <span class="alert-danger">Drop</span> </p>
                        @endif
                </div>
 

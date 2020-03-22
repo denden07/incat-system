@@ -99,7 +99,7 @@
                     </li>
 
                     <li class="@yield('subject-list-status')">
-                        <a href="{{route('admin.teacher.list')}}">All Subjects</a>
+                        <a href="{{route('admin.subject.list')}}">All Subjects</a>
                     </li>
                     <li class="@yield('subject-schedules-list-status')">
                         <a href="{{route('admin.subject.schedule.list')}}">Subject Schedules</a>

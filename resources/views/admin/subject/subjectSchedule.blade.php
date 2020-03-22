@@ -31,15 +31,34 @@
                 <tr id="row1">
 
 
+                    {{--<td>--}}
+                        {{--<label for="subjectCode">Subject Code </label>--}}
+                        {{--<select name="subjCode[]" id="subjCode" class="dynamic" data-dependent="subject">--}}
+                            {{--<option value="" selected disabled hidden>Choose here</option>--}}
+                            {{--<option value="">none</option>--}}
+                            {{--@foreach($subjects as $subject)--}}
+                                {{--<option value="{{$subject->id}}">{{$subject->subjCode}}</option>--}}
+                            {{--@endforeach--}}
+                        {{--</select>--}}
+                    {{--</td>--}}
+
+
                     <td>  <label for="subject">Subject </label>
-                        <select name="subject[]" >
+                        <select name="subject[]" id="subject"  class="dynamic" data-dependent="subjCode">
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="">none</option>
+                            @if($subjects)
                             @foreach($subjects as $subject)
-                                <option value="{{$subject->id}}">{{$subject->title}}</option>
+                                @if(!empty($subject->level->name))
+                                <option value="{{$subject->id}}">{{$subject->title ." - ". $subject->level->name}} </option>
+                                    @elseif(empty($subject->level->name))
+                                        <option value="{{$subject->id}}">{{$subject->title}} </option>
+                                    @endif
                             @endforeach
+                                @endif
                         </select></td>
 
+                    @csrf
                     <td>  <label for="teacher">Teacher</label>
                         <select name="teacher[]" id="">
                             <option value="" selected disabled hidden>Choose here</option>
@@ -56,7 +75,7 @@
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="">none</option>
                             @foreach($sections as $section)
-                                <option value="{{$section->id}}">{{$section->name}} -  {{$section->level->name}}</option>
+                                <option value="{{$section->id}}">{{$section->name}} -  {{$section->level->name}} - {{$section->strand->name}}</option>
                             @endforeach
 
                         </select>
@@ -94,9 +113,15 @@
                     '                        <select name="subject[]" >\n' +
                     '                            <option value="" selected disabled hidden>Choose here</option>\n' +
                     '                            <option value="">none</option>\n' +
-                    '                            @foreach($subjects as $subject)\n' +
-                    '                                <option value="{{$subject->id}}">{{$subject->title}}</option>\n' +
+                       ' @if($subjects)\n' +
+                          '      @foreach($subjects as $subject)\n' +
+                            '    @if(!empty($subject->level->name))\n' +
+                    '                                <option value="{{$subject->id}}">{{$subject->title ." - ". $subject->level->name}}</option>\n' +
+                       ' @elseif(empty($subject->level->name))\n' +
+                   ' <option value="{{$subject->id}}">{{$subject->title}} </option>\n'+
+                                        '@endif\n'+
                     '                            @endforeach\n' +
+                    '                            @endif\n' +
                     '                        </select></td>\n' +
                     '\n' +
                     '                    <td>  <label for="teacher">Teacher</label>\n' +
@@ -115,7 +140,7 @@
                     '                            <option value="" selected disabled hidden>Choose here</option>\n' +
                     '                            <option value="">none</option>\n' +
                     '                            @foreach($sections as $section)\n' +
-                    '                                <option value="{{$section->id}}">{{$section->name}} -  {{$section->level->name}}</option>\n' +
+                    '                                <option value="{{$section->id}}">{{$section->name}} -  {{$section->level->name}} - {{$section->strand->name}}</option>\n' +
                     '                            @endforeach\n' +
                     '\n' +
                     '                        </select>\n' +
@@ -151,4 +176,40 @@
 
         });
     </script>
+
+    {{--<script>--}}
+        {{--$(document).ready(function(){--}}
+
+            {{--$('.dynamic').change(function(){--}}
+                {{--if($(this).val() != '')--}}
+                {{--{--}}
+                    {{--var select = $(this).attr("id");--}}
+                    {{--var value = $(this).val();--}}
+                    {{--var dependent = $(this).data('dependent');--}}
+                    {{--var _token = $('input[name="_token"]').val();--}}
+                    {{--$.ajax({--}}
+                        {{--url:"{{ route('admin.subject.fetch') }}",--}}
+                        {{--method:"POST",--}}
+                        {{--data:{select:select, value:value, _token:_token, dependent:dependent},--}}
+                        {{--success:function(result)--}}
+                        {{--{--}}
+                            {{--$('#'+dependent).html(result);--}}
+                        {{--}--}}
+
+                    {{--})--}}
+                {{--}--}}
+            {{--});--}}
+
+            {{--$('#subjCode').change(function(){--}}
+                {{--$('#subject').val('');--}}
+
+            {{--});--}}
+
+            {{--$('#subject').change(function(){--}}
+                {{--$('#subjCode').val('');--}}
+            {{--});--}}
+
+
+        {{--});--}}
+    {{--</script>--}}
 @endsection
