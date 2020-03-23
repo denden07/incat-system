@@ -20,54 +20,16 @@
     <div class="mySubject-list-table-design table-design ">
         <h3>{{$schedule->subject->title}}</h3>
         <p>{{$schedule->section->name}}</p>
-        <form action="{{route('teacher.mysubject.all.action')}}" method="post">
+        <form action="{{route('teacher.student.grade.save')}}" method="post">
             @csrf
             @include('layouts._message')
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                <button  type="button" data-toggle="modal"  class="btn-danger button-delete-enlistment-list" data-target="#exampleModalCenter1"><i class="fas fa-times-circle"></i></button>
-                <button type="button"   data-toggle="modal" class="btn-success button-enroll-enlistment-list" data-target="#exampleModalCenter"><i class="fas fa-check"></i></button>
+                <button type="button"   data-toggle="modal" class="btn-primary button-enroll-enlistment-list" data-target="#exampleModalCenter"><i class="fas fa-paper-plane"></i></i></button>
 
 
-                <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Subject as inactive?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Are You sure?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" name="action" value="inactive">Yes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Subject as active?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Are You sure?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-success" name="action" value="active">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <thead>
                 <tr>
                     <th><input id="select-all-mySubject" type="checkbox" onclick="checkAll(this)"></th>
@@ -93,18 +55,36 @@
                     @foreach($schedule->section->students as $student)
                         <tr>
                             <td><input type="checkbox" name="checkboxMySubject[]" value="{{$student->id}}"></td>
-                       <td> {{$student->id}}</td>
+                       <td><input name="student_id[]" value="{{$student->id}}" style="display: none">{{$student->id}}</td>
                         <td>{{$student->name}}</td>
-                            <td><input name="first{{$student->id}}[]" type="number"></td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
+                            <td><input name="first[]" type="number"></td>
+                            <td><input name="second[]" type="number"></td>
+                            <td><input name="third[]" type="number"></td>
+                            <td><input name="fourth[]" type="number"></td>
                             <td>Tba</td>
                     @endforeach
                         </tr>
 
 
-
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Submit Grades?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are You sure?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success" >Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </tbody>
             </table>
         </form>

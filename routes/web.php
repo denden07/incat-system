@@ -117,6 +117,8 @@ Route::get('teacher-dashboard','TeacherHomeController@index')->name('teacher.das
 Route::get('teacher/my-subjects/all','TeacherSubjectController@mySubjectList')->name('teacher.mysubject.all');
 Route::post('teacher/my-subjects/all/action','TeacherSubjectController@mySubjectListAction')->name('teacher.mysubject.all.action');
 Route::get('teacher/my-subjects/show-students/{schedule_id}','TeacherSubjectController@subjectStudentShow')->name('teacher.mysubject.student.show');
+Route::post('teacher/grade-student/save','TeacherSubjectController@gradeStudent')->name('teacher.student.grade.save');
+
 
 
 
