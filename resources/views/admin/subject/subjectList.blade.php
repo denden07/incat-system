@@ -10,7 +10,7 @@
 @endsection
 
 @section('title')
-    Subject List | Admin
+    Subject List | Admin'e
 @endsection
 
 @section('css')

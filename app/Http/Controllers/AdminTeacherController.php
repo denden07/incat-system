@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTeacherRequest;
 use App\Teacher;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class AdminTeacherController extends Controller
 {
@@ -80,6 +82,14 @@ class AdminTeacherController extends Controller
         $teacher->certificates = $request->certificates;
 
         $teacher->save();
+
+        $user = new User();
+        $user->name = $request->username;
+        $user->password = Input::get('password');
+        $user->teacher_id = $teacher->id;
+        $user->role_id = 2;
+        $user->email = $request->email;
+        $user->save();
 
         return redirect()->route('admin.teacher.add')->with('success','Teacher has been added successfully');
 

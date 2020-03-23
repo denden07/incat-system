@@ -17925,6 +17925,34 @@ a.article:hover {
   padding: 17px;
 }
 
+.teacher-add-system {
+  margin-top: 20px;
+}
+
+.teacher-add-system input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.teacher-add-system input:focus {
+  background-color: #eee;
+  outline: none;
+  border-bottom-color: #1d643b;
+}
+
+.teacher-add-system label {
+  font-size: 16px;
+}
+
+.teacher-add-system {
+  margin-bottom: 14px;
+  padding: 17px;
+}
+
 .teacher-add-body h5 {
   width: 100%;
   background: #4e555b;

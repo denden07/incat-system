@@ -243,6 +243,26 @@
             </div>
 
 
+            <h5>System Account</h5>
+
+            <div class="teacher-add-system">
+            <div class="row justify-content-center" >
+                <div class="col-3">
+                    <label for="username">User Name: </label>
+                    <input type="text" name="username">
+                </div>
+                <div class="col-3">
+                    <label for="email">Email:  </label>
+                    <input type="email" name="email">
+                </div>
+
+                <div class="col-3">
+                    <label for="password">Password: </label>
+                    <input type="password" name="password">
+                </div>
+            </div>
+            </div>
+
 
             <h5>Requirements</h5>
 

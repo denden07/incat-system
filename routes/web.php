@@ -20,6 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
+
+
+//For Admin
 Route::resource('admin-dashboard','AdminHomeController',['names'=>[
 
     'index'=>'admin.dashboard.index',
@@ -82,3 +86,37 @@ Route::post('admin/subject/save/schedule', 'AdminSubjectController@saveSubjectSc
 Route::get('admin/subject/create/schedule/list', 'AdminSubjectController@subjectScheduleList')->name('admin.subject.schedule.list');
 //Route::get('admin/subject/fetch/create/schedule', 'AdminSubjectController@fetch')->name('admin.subject.fetch');
 Route::post('admin/subject/schedule/action','AdminSubjectController@subjectUpdate')->name('admin.subject.schedule.action');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//For teacher System
+
+
+
+Route::get('teacher-dashboard','TeacherHomeController@index')->name('teacher.dashboard');
+
+
+
+
+
+
+
+

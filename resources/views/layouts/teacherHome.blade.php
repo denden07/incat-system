@@ -43,7 +43,7 @@
 
         <ul class="list-unstyled components">
             <li class="@yield('dashboard-status')">
-                <a href="#homeSubmenu">
+                <a href="{{route('admin.dashboard.index')}}">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
