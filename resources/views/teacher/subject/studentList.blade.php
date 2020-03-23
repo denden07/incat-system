@@ -1,3 +1,5 @@
+
+
 @extends('layouts.teacherLayout')
 
 @section('title')
@@ -10,13 +12,14 @@
 
 @section('mySubject-list-status')
     active
-    @endsection
+@endsection
 
 @section('contents')
 
 
     <div class="mySubject-list-table-design table-design ">
-        <h3>My Subjects History</h3>
+        <h3>{{$schedule->subject->title}}</h3>
+        <p>{{$schedule->section->name}}</p>
         <form action="{{route('teacher.mysubject.all.action')}}" method="post">
             @csrf
             @include('layouts._message')
@@ -69,52 +72,44 @@
                 <tr>
                     <th><input id="select-all-mySubject" type="checkbox" onclick="checkAll(this)"></th>
                     <th>Id</th>
-                    <th class="th-sm">Title
+                    <th class="th-sm">Name
                     </th>
-                    <th class="th-sm">Section
+                    <th class="th-sm">First
                     </th>
-                    <th class="th-sm">Students
+                    <th class="th-sm">Second
                     </th>
-                    <th class="th-sm">Schedule
+                    <th class="th-sm">Third
                     </th>
-                    <th class="th-sm">Status
+                    <th class="th-sm">Fourth
                     </th>
+                    <th>Final</th>
 
 
                 </tr>
                 </thead>
                 <tbody>
-                @if($schedules)
-                    @foreach($schedules as $schedule)
 
+
+                    @foreach($schedule->section->students as $student)
                         <tr>
-                            <td><input type="checkbox" name="checkboxMySubject[]" value="{{$schedule->id}}"></td>
-                            <td>{{$schedule->id}}</td>
-                            <td><a href="{{route('teacher.mysubject.student.show',['schedule_id'=>$schedule->id])}}">{{$schedule->subject->title}}</a></td>
-                            <td>{{$schedule->section->name}}</td>
-                            <td>
-                                @foreach($schedule->section->studentsCount as $count)
-                                {{$count->pivot->count()}}
-                            @endforeach
-                            </td>
-                            <td>{{$schedule->schedule}}</td>
-
-                            @if($schedule->status == 'active')
-                                <td><div class="alert-success">active</div></td>
-                            @else
-                                <td><div class="alert-danger">inactive</div></td>
-                            @endif
-
-
+                            <td><input type="checkbox" name="checkboxMySubject[]" value="{{$student->id}}"></td>
+                       <td> {{$student->id}}</td>
+                        <td>{{$student->name}}</td>
+                            <td><input name="first{{$student->id}}[]" type="number"></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
+                            <td>Tba</td>
+                    @endforeach
                         </tr>
 
-                    @endforeach
-                @endif
+
+
                 </tbody>
             </table>
         </form>
     </div>
-    @endsection
+@endsection
 
 
 @section('scripts')

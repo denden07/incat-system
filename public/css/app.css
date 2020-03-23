@@ -18029,3 +18029,20 @@ Section
   padding: 7px;
 }
 
+/* ---------------------------------------------------
+For Teachers
+----------------------------------------------------- */
+
+/* ---------------------------------------------------
+My subject List
+----------------------------------------------------- */
+
+.mySubject-list-table-design {
+  padding: 5px 5px 50px 5px;
+}
+
+.mySubject-list-table-design h3 {
+  text-align: center;
+  padding: 15px;
+}
+

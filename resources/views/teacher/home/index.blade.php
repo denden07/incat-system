@@ -1,5 +1,12 @@
 @extends('layouts.teacherLayout')
 
+@section('title')
+    Teacher Dashboard
+    @endsection
+
+@section('dashboard-status')
+    active
+    @endsection
 
 @section('contents')
 

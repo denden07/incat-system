@@ -113,6 +113,10 @@ Route::post('admin/subject/schedule/action','AdminSubjectController@subjectUpdat
 
 Route::get('teacher-dashboard','TeacherHomeController@index')->name('teacher.dashboard');
 
+//Subjects
+Route::get('teacher/my-subjects/all','TeacherSubjectController@mySubjectList')->name('teacher.mysubject.all');
+Route::post('teacher/my-subjects/all/action','TeacherSubjectController@mySubjectListAction')->name('teacher.mysubject.all.action');
+Route::get('teacher/my-subjects/show-students/{schedule_id}','TeacherSubjectController@subjectStudentShow')->name('teacher.mysubject.student.show');
 
 
 

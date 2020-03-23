@@ -49,14 +49,14 @@
                 </a>
             </li>
 
-            <li class="@yield('student-status')" >
+            <li class="@yield('mySubject-status')" >
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-book-open"></i>
                     My Subjects
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li class="@yield('student-list-status')">
-                        <a href="{{route('admin.student.list')}}">All Subjects</a>
+                    <li class="@yield('mySubject-list-status')">
+                        <a href="{{route('teacher.mysubject.all')}}">All Subjects</a>
                     </li>
                     <li>
                         <a href="#">Active Subjects</a>
