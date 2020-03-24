@@ -74,15 +74,50 @@ class TeacherSubjectController extends Controller
                 'third' => $input['third'][$i],
                 'fourth' => $input['fourth'][$i],
                 'student_id' => $input['student_id'][$i],
+                'subject_id'=>$input['subject_id'][$i]
             ];
             Grade::create($data);
 
         }
 
-        return "Success";
+        return view('teacher.subject.meme');
     }
 
 
+    public function editGradeStudent($schedule)
+    {
+
+
+        $schedule = Schedule::findOrFail($schedule);
+        $grades =Grade::all()->where('subject_id',$schedule->id);
+
+        return view('teacher.subject.editGrade',compact('schedule','grades'));
+    }
+
+    public function updateGradeStudent(Request $request)
+    {
+        $input = $request->all();
+        $count = count($request->input('first'));
+
+
+        for ($i = 0; $i <= $count; $i++) {
+            if (empty($input['first'][$i]) || !is_numeric($input['first'][$i])) continue;
+            $student = $input['student_id'][$i];
+            Grade::where('subject_id',18)->where('student_id',$student)->update(  [
+                'first' => $input['first'][$i],
+                'second' => $input['second'][$i],
+                'third' => $input['third'][$i],
+                'fourth' => $input['fourth'][$i],
+                'student_id' => $input['student_id'][$i],
+                'subject_id'=>$input['subject_id'][$i]
+            ]);
+
+
+        }
+
+
+        return redirect()->route('teacher.mysubject.student.show.edit',['subject_id'=>18]);
+    }
 
 
 
