@@ -117,11 +117,12 @@ Route::get('teacher-dashboard','TeacherHomeController@index')->name('teacher.das
 Route::get('teacher/my-subjects/all','TeacherSubjectController@mySubjectList')->name('teacher.mysubject.all');
 Route::post('teacher/my-subjects/all/action','TeacherSubjectController@mySubjectListAction')->name('teacher.mysubject.all.action');
 Route::get('teacher/my-subjects/show-students/{schedule_id}','TeacherSubjectController@subjectStudentShow')->name('teacher.mysubject.student.show');
-Route::post('teacher/grade-student/save','TeacherSubjectController@gradeStudent')->name('teacher.student.grade.save');
+Route::post('teacher/grade-student/save/{schedule_id}','TeacherSubjectController@gradeStudent')->name('teacher.student.grade.save');
 Route::get('teacher/my-subjects/show-students/{schedule_id}/edit','TeacherSubjectController@editGradeStudent')->name('teacher.mysubject.student.show.edit');
-Route::post('teacher/my-subjects/show-students/update','TeacherSubjectController@updateGradeStudent')->name('teacher.mysubject.student.show.update');
+Route::post('teacher/my-subjects/show-students/update/{schedule_id}','TeacherSubjectController@updateGradeStudent')->name('teacher.mysubject.student.show.update');
+Route::post('teacher/my-subjects/show-students/update/{schedule_id}/show','TeacherSubjectController@updateGradeStudentShow')->name('teacher.mysubject.student.show.update.show');
 
-
+Route::get('teacher/my-active-subjects/all','TeacherSubjectController@mySubjectListActive')->name('teacher.mysubject.active.all');
 
 
 

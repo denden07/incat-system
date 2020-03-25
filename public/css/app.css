@@ -18046,3 +18046,13 @@ My subject List
   padding: 15px;
 }
 
+.mySubject-list-table-design-info p {
+  color: black;
+  margin-bottom: -2px;
+}
+
+.mySubject-list-table-design-info span {
+  color: black;
+  font-weight: bold;
+}
+

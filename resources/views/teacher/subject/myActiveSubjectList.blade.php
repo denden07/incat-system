@@ -11,13 +11,13 @@
 
 @section('mySubject-list-status')
     active
-    @endsection
+@endsection
 
 @section('contents')
 
 
     <div class="mySubject-list-table-design table-design ">
-        <h3>My Subjects History</h3>
+        <h3>My Active Subjects</h3>
         <form action="{{route('teacher.mysubject.all.action')}}" method="post">
             @csrf
             @include('layouts._message')
@@ -95,8 +95,8 @@
                             <td>{{$schedule->section->name}}</td>
                             <td>
                                 @foreach($schedule->section->studentsCount as $count)
-                                {{$count->pivot->count()}}
-                            @endforeach
+                                    {{$count->pivot->count()}}
+                                @endforeach
                             </td>
                             <td>{{$schedule->schedule}}</td>
 
@@ -115,7 +115,7 @@
             </table>
         </form>
     </div>
-    @endsection
+@endsection
 
 
 @section('scripts')

@@ -9,7 +9,7 @@ class Schedule extends Model
     //
 
     protected $fillable = [
-        'subject_id', 'teacher_id', 'section_id', 'schedule', 'status', 'year'
+        'subject_id', 'teacher_id', 'section_id', 'schedule', 'status', 'year','is_editable'
     ];
 
 

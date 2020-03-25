@@ -19,8 +19,12 @@
 
     <div class="mySubject-list-table-design table-design ">
         <h3>{{$schedule->subject->title}}</h3>
-        <p>{{$schedule->section->name}}</p>
-        <form action="{{route('teacher.mysubject.student.show.update')}}" method="post">
+        <div class="mySubject-list-table-design-info">
+            <p>Section: {{$schedule->section->name}}</p>
+            <p>Schedules: {{$schedule->schedule}}</p>
+        </div>
+
+        <form action="{{route('teacher.mysubject.student.show.update',['schedule_id'=>$schedule->id])}}" method="post">
 
             @csrf
             @include('layouts._message')
@@ -28,7 +32,7 @@
                 <button type="button"   data-toggle="modal" class="btn-primary button-enroll-enlistment-list" data-target="#exampleModalCenter"><i class="fas fa-paper-plane"></i></i></button>
 
 
-                <a href="{{route('teacher.mysubject.student.show.edit',['subject_id'=>$schedule->id])}}">edit</a>
+
 
                 <thead>
                 <tr>
@@ -53,7 +57,7 @@
                 <tbody>
 
 
-                @foreach($grades as $grade )
+                @foreach($grades as $grade)
                     <tr>
                         <td><input type="checkbox" name="checkboxMySubject[]" value="{{$grade->id}}"></td>
                         <td><input name="student_id[]" value="{{$grade->student_id}}" style="display: none">{{$grade->student_id}}</td>

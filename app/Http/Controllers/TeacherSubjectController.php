@@ -28,6 +28,19 @@ class TeacherSubjectController extends Controller
         return view('teacher.subject.allSubjectList',compact('teacher','schedules'));
     }
 
+    public function mySubjectListActive()
+    {
+
+        $teacher = Teacher::find(9)->id;
+
+
+        $schedules = Schedule::all()->where('teacher_id',$teacher)->where('status','active');
+
+
+        return view('teacher.subject.myActiveSubjectList',compact('teacher','schedules'));
+    }
+
+
     public function mySubjectListAction(Request $request)
     {
         $subjects = $request->input('checkboxMySubject');
@@ -54,16 +67,21 @@ class TeacherSubjectController extends Controller
     public function subjectStudentShow($schedule)
     {
 
+
         $schedule = Schedule::findOrFail($schedule);
 
-        return view('teacher.subject.studentList',compact('schedule'));
+        $grades =Grade::all()->where('subject_id',$schedule->id);
+
+
+        return view('teacher.subject.studentList',compact('schedule','grades'));
     }
 
 
-    public function gradeStudent(Request $request)
+    public function gradeStudent(Request $request ,$schedule)
     {
         $input = $request->all();
         $count = count($request->input('first'));
+
 
 
         for ($i = 0; $i <= $count; $i++) {
@@ -80,21 +98,14 @@ class TeacherSubjectController extends Controller
 
         }
 
-        return view('teacher.subject.meme');
+        Schedule::find($schedule)->update(['is_editable'=>'yes']);
+
+
+
+        return redirect()->route('teacher.mysubject.student.show',['subject_id'=>$schedule])->with('success','Grades successfully submitted');
     }
 
-
-    public function editGradeStudent($schedule)
-    {
-
-
-        $schedule = Schedule::findOrFail($schedule);
-        $grades =Grade::all()->where('subject_id',$schedule->id);
-
-        return view('teacher.subject.editGrade',compact('schedule','grades'));
-    }
-
-    public function updateGradeStudent(Request $request)
+    public function updateGradeStudentShow(Request $request, $schedule_id)
     {
         $input = $request->all();
         $count = count($request->input('first'));
@@ -103,7 +114,7 @@ class TeacherSubjectController extends Controller
         for ($i = 0; $i <= $count; $i++) {
             if (empty($input['first'][$i]) || !is_numeric($input['first'][$i])) continue;
             $student = $input['student_id'][$i];
-            Grade::where('subject_id',18)->where('student_id',$student)->update(  [
+            Grade::where('subject_id',$schedule_id)->where('student_id',$student)->update(  [
                 'first' => $input['first'][$i],
                 'second' => $input['second'][$i],
                 'third' => $input['third'][$i],
@@ -116,7 +127,43 @@ class TeacherSubjectController extends Controller
         }
 
 
-        return redirect()->route('teacher.mysubject.student.show.edit',['subject_id'=>18]);
+        return redirect()->route('teacher.mysubject.student.show',['subject_id'=>$schedule_id])->with('success','Grades successfully submitted');
+    }
+
+
+    public function editGradeStudent($schedule_id)
+    {
+
+
+        $schedule = Schedule::findOrFail($schedule_id);
+        $grades =Grade::all()->where('subject_id',$schedule_id);
+
+        return view('teacher.subject.editGrade',compact('schedule','grades'));
+    }
+
+    public function updateGradeStudent(Request $request, $subject)
+    {
+        $input = $request->all();
+        $count = count($request->input('first'));
+
+
+        for ($i = 0; $i <= $count; $i++) {
+            if (empty($input['first'][$i]) || !is_numeric($input['first'][$i])) continue;
+            $student = $input['student_id'][$i];
+            Grade::where('subject_id',$subject)->where('student_id',$student)->update(  [
+                'first' => $input['first'][$i],
+                'second' => $input['second'][$i],
+                'third' => $input['third'][$i],
+                'fourth' => $input['fourth'][$i],
+                'student_id' => $input['student_id'][$i],
+                'subject_id'=>$input['subject_id'][$i]
+            ]);
+
+
+        }
+
+
+        return redirect()->route('teacher.mysubject.student.show.edit',['subject_id'=>$subject]);
     }
 
 

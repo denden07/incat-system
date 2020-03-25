@@ -43,7 +43,7 @@
 
         <ul class="list-unstyled components">
             <li class="@yield('dashboard-status')">
-                <a href="#">
+                <a href="{{route('teacher.dashboard')}}">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
@@ -59,7 +59,7 @@
                         <a href="{{route('teacher.mysubject.all')}}">All Subjects</a>
                     </li>
                     <li>
-                        <a href="#">Active Subjects</a>
+                        <a href="{{route('teacher.mysubject.active.all')}}">Active Subjects</a>
                     </li>
 
                 </ul>
