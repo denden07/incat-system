@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminHomeController extends Controller
+class LoginHome extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,16 +14,38 @@ class AdminHomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
+
+
+
+
+
+    public function loginHome()
     {
-        $this->middleware('admin');
+        return view('public.login');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function index()
     {
         //
-
-        return view('admin.home.index');
     }
 
     /**

@@ -85,7 +85,7 @@ class AdminTeacherController extends Controller
 
         $user = new User();
         $user->name = $request->username;
-        $user->password = Input::get('password');
+        $user->password = bcrypt(Input::get('password'));
         $user->teacher_id = $teacher->id;
         $user->role_id = 2;
         $user->email = $request->email;

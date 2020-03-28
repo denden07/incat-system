@@ -11,6 +11,13 @@ class TeacherHomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct()
+    {
+        $this->middleware('teacher');
+    }
+
     public function index()
     {
         //

@@ -39,14 +39,34 @@ class User extends Authenticatable
     ];
 
 
-    public function setPasswordAttribute($pass){
-
-        $this->attributes['password'] = Hash::make($pass);
-
-    }
+//    public function setPasswordAttribute($pass){
+//
+//        $this->attributes['password'] = Hash::make($pass);
+//
+//    }
 
     public function teacher()
     {
         return $this->belongsTo('App\Teacher','teacher_id');
+    }
+
+
+
+    public function isTeacher()
+    {
+        if($this->role_id == 2)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public function isAdmin()
+    {
+        if($this->role_id == 1)
+        {
+            return true;
+        }
+        return false;
     }
 }
