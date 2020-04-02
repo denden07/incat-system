@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EnlistmentRequest;
 use App\Level;
+use App\Strand;
 use App\Student;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\New_;
@@ -33,9 +34,13 @@ class EnlistmentController extends Controller
 
         $students = new Student();
         $levels = Level::all();
+        $strands1 = Strand::all()->where('track_id',1);
+        $strands2 = Strand::all()->where('track_id',2)->where('sub_cat','(HE) Home Economics');
+        $strands3 = Strand::all()->where('track_id',2)->where('sub_cat','(ICT) Information And Communication Technology');
+        $strands4 = Strand::all()->where('track_id',2)->where('sub_cat','(IA) Industrial Arts');
 
 
-        return view('public.enrollmentForm',compact('students','levels'));
+        return view('public.enrollmentForm',compact('students','levels','strands1','strands2','strands3','strands4'));
     }
 
     /**

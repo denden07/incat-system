@@ -495,9 +495,11 @@
                         <label for="">Strand:</label>
                         <select class="{{$errors->has('strand')?'is-invalid' : ""}} strand" name="strand">
                             <option value="" selected disabled hidden>Choose here</option>
-                            <option value="(ABM) Accountancy,Business And Management" @if (old('strand') == "(ABM) Accountancy,Business And Management") {{ 'selected' }} @endif>(ABM) Accountancy,Business And Management</option>
-                            <option value="(HUMSS) Humanities and Social Studies" @if (old('strand') == "(HUMSS) Humanities and Social Studies") {{ 'selected' }} @endif>(HUMSS) Humanities and Social Studies</option>
-                            <option value="(STEM) Science, Techonological, Engineering and Mathematics" @if (old('strand') == "(HUMSS) Humanities and Social Studies") {{ 'selected' }} @endif>(STEM) Science, Techonological, Engineering and Mathematics</option>
+
+                            @foreach($strands1 as $strand)
+                                <option value="{{$strand->id}}" @if (old('strand') == "{{$strand->name}}") {{ 'selected' }} @endif>{{$strand->name}}</option>
+
+                            @endforeach
                         </select>
                         @if($errors->has('strand'))
                             <div class="invalid-feedback">
@@ -512,22 +514,31 @@
                         <select class="{{$errors->has('strand')?'is-invalid' : ""}} strand-1"  name="strand" >
                             <option value="" selected disabled hidden>Choose here</option>
                             <optgroup label="(HE) Home Economics">
-                                <option value="(BC) Beauty Care" @if (old('strand') == "(BC) Beauty Care") {{ 'selected' }} @endif>(BC) Beauty Care</option>
-                                <option value="(GT) Garments Technology" @if (old('strand') == "(GT) Garments Technology") {{ 'selected' }} @endif>(GT) Garments Technology</option>
-                                <option value="(FPS) Food Products Servicing" @if (old('strand') == "(FPS) Food Products Servicing") {{ 'selected' }} @endif>(FPS) Food Products Servicing</option>
-                                <option value="(HRS) Hotel & Restaurant Servicing" @if (old('strand') == "(HRS) Hotel & Restaurant Servicing") {{ 'selected' }} @endif>(HRS) Hotel & Restaurant Servicing</option>
+
+                                @foreach($strands2 as $strand2)
+
+                                    <option value="{{$strand2->id}}" @if (old('strand') == "{{$strand2->name}}") {{ 'selected' }} @endif>{{$strand2->name}}</option>
+
+                                @endforeach
+
                             </optgroup>
 
                             <optgroup label="(ICT) Information And Communication Technology">
-                                <option value="(CSS) Computer System Servicing" @if (old('strand') == "(CSS) Computer System Servicing") {{ 'selected' }} @endif>(CSS) Computer System Servicing</option>
-                                <option value="(TDA) Technical Drafting and Animation" @if (old('strand') == "(TDA) Technical Drafting and Animation") {{ 'selected' }} @endif>(TDA) Technical Drafting and Animation</option>
+
+                                @foreach($strands3 as $strand3)
+                                    <option value="{{$strand3->id}}" @if (old('strand') == "{{$strand3->name}}") {{ 'selected' }} @endif>{{$strand3->name}}</option>
+
+                                    @endforeach
+
                             </optgroup>
 
                             <optgroup label="(IA) Industrial Arts">
-                                <option value="(ATS) Automotive Servicing" @if (old('strand') == "(ATS) Automotive Servicing") {{ 'selected' }} @endif>(ATS) Automotive Servicing</option>
-                                <option value="(EIM) Electrical Installation And Maintenance" @if (old('strand') == "(EIM) Electrical Installation And Maintenance") {{ 'selected' }} @endif>(EIM) Electrical Installation And Maintenance</option>
-                                <option value="(EPAS) Electornic Products Assembly and Servicing" @if (old('strand') == "(EPAS) Electornic Products Assembly and Servicing") {{ 'selected' }} @endif>(EPAS) Electornic Products Assembly and Servicing</option>
-                                <option value="(RAC) Refrigiration and Air-conditioning Servicing" @if (old('strand') == "(RAC) Refrigiration and Air-conditioning Servicing") {{ 'selected' }} @endif>(RAC) Refrigiration and Air-conditioning Servicing</option>
+                                @foreach($strands4 as $strand4)
+
+                                    <option value="{{$strand4->id}}" @if (old('strand') == "{{$strand4->name}}") {{ 'selected' }} @endif>{{$strand4->name}}</option>
+
+                                @endforeach
+
                             </optgroup>
 
                         </select>
@@ -620,17 +631,14 @@
 
         var dob = $('input[name="dob"]').val();
 
-        var sex_option =$('#sexValue option:selected').val();
+        var sex_option = $('#sexValue option:selected').val();
 
         var sex = "";
-        if(sex_option == "1"){
+        if (sex_option == "1") {
             sex = "Male";
-        }else{
-            sex ="Female";
+        } else {
+            sex = "Female";
         }
-
-
-
 
 
         var religion = $('input[name="religion"]').val();
@@ -656,14 +664,13 @@
         var basic_info_10 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Psa No.: </strong>' + psaNo + '</p>';
 
 
-
-       var street = $('input[name="street"]').val();
-       var barangay = $('input[name="barangay"]').val();
-       var municipality =  $('input[name="municipality"]').val();
-       var province = $('input[name="province"]').val();
-       var country = $('input[name="country"]').val();
-       var houseNumber =  $('input[name="houseNumber"]').val();
-       var zip =  $('input[name="zip"]').val();
+        var street = $('input[name="street"]').val();
+        var barangay = $('input[name="barangay"]').val();
+        var municipality = $('input[name="municipality"]').val();
+        var province = $('input[name="province"]').val();
+        var country = $('input[name="country"]').val();
+        var houseNumber = $('input[name="houseNumber"]').val();
+        var zip = $('input[name="zip"]').val();
 
         var basic_info_11 = '<p><strong style="font-weight: bold;font-size: 1.2em;">House No.: </strong>' + houseNumber + '</p>';
         var basic_info_12 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Street: </strong>' + street + '</p>';
@@ -674,14 +681,11 @@
         var basic_info_17 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Zip code: </strong>' + zip + '</p>';
 
 
-
-
-
-       var fatherName =  $('input[name="fatherName"]').val();
-       var motherName = $('input[name="motherName"]').val();
-       var guardianName = $('input[name="guardianName"]').val();
-       var parentCpNo =  $('input[name="parentCpNo"]').val();
-       var parentTpNo = $('input[name="parentTpNo"]').val();
+        var fatherName = $('input[name="fatherName"]').val();
+        var motherName = $('input[name="motherName"]').val();
+        var guardianName = $('input[name="guardianName"]').val();
+        var parentCpNo = $('input[name="parentCpNo"]').val();
+        var parentTpNo = $('input[name="parentTpNo"]').val();
 
         var basic_info_18 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Father Name: </strong>' + fatherName + '</p>';
         var basic_info_19 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Mother Name: </strong>' + motherName + '</p>';
@@ -690,13 +694,11 @@
         var basic_info_22 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Tp No: </strong>' + parentTpNo + '</p>';
 
 
-
-
-       var lastGrade = $('input[name="lastGrade"]').val();
-       var lastSchoolYear = $('input[name="lastSchoolYear"]').val();
-       var lastSchoolId = $('input[name="lastSchoolId"]').val();
-       var lastSchool = $('input[name="lastSchool"]').val();
-       var lastSchoolAddress = $('input[name="lastSchoolAddress"]').val();
+        var lastGrade = $('input[name="lastGrade"]').val();
+        var lastSchoolYear = $('input[name="lastSchoolYear"]').val();
+        var lastSchoolId = $('input[name="lastSchoolId"]').val();
+        var lastSchool = $('input[name="lastSchool"]').val();
+        var lastSchoolAddress = $('input[name="lastSchoolAddress"]').val();
 
         var basic_info_23 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Last grade: </strong>' + lastGrade + '</p>';
         var basic_info_24 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Last school year: </strong>' + lastSchoolYear + '</p>';
@@ -705,84 +707,84 @@
         var basic_info_27 = '<p><strong style="font-weight: bold;font-size: 1.2em;">Address: </strong>' + lastSchoolAddress + '</p>';
 
 
-
-
-       var gradeLevel_option = $('#gradeLevel option:selected').val();
-       var gradeLevel = "";
-        if(gradeLevel_option == 1 ){
+        var gradeLevel_option = $('#gradeLevel option:selected').val();
+        var gradeLevel = "";
+        if (gradeLevel_option == 1) {
             gradeLevel = "Grade 11";
-        }else if(gradeLevel_option == 2){
+        } else if (gradeLevel_option == 2) {
             gradeLevel = "Grade 12";
         }
 
 
-       var semester_option = $('#semester option:selected').val();
+        var semester_option = $('#semester option:selected').val();
         var semester = "";
 
-        if(semester_option == "1st" ){
+        if (semester_option == "1st") {
             semester = '1st';
-        }else if (semester_option == "2nd"){
+        } else if (semester_option == "2nd") {
             semester = '2nd';
         }
 
         var track_option = $('#track-selector option:selected').val();
         var track = '';
 
-        if(track_option == 'Academic'){
+        if (track_option == 'Academic') {
             track = "Academic";
-        }else if(track_option == "Technical-Vocational Livelihood"){
+        } else if (track_option == "Technical-Vocational Livelihood") {
             track = "Technical-Vocational Livelihood";
         }
 
         var strand_selector;
 
-        if(!$('.strand-1').val()){
-             strand_selector = $('.strand option:selected').val();
-        }else if(!$('.strand').val()){
+        if (!$('.strand-1').val()) {
+            strand_selector = $('.strand option:selected').val();
+        } else if (!$('.strand').val()) {
             strand_selector = $('.strand-1 option:selected').val();
         }
 
 
         var strand = "";
 
-        if(strand_selector == "(ABM) Accountancy,Business And Management" )
+
+
+        if(strand_selector == 1 )
         {
             strand = "(ABM) Accountancy,Business And Management"
-        }else if(strand_selector == "(HUMSS) Humanities and Social Studies")
+        }else if(strand_selector == 2)
         {
             strand = "(HUMSS) Humanities and Social Studies";
 
-        }else if(strand_selector == "(STEM) Science, Techonological, Engineering and Mathematics")
+        }else if(strand_selector == 3)
         {
             strand = "(STEM) Science, Techonological, Engineering and Mathematics";
-        }else if(strand_selector == "(BC) Beauty Care")
+        }else if(strand_selector == 4)
         {
             strand = "(BC) Beauty Care";
-        }else if(strand_selector == "(GT) Garments Technology")
+        }else if(strand_selector == 5)
         {
             strand ="(GT) Garments Technology";
-        }else if(strand_selector == "(FPS) Food Products Servicing")
+        }else if(strand_selector == 6)
         {
             strand ="(FPS) Food Products Servicing";
-        }else if(strand_selector == "(HRS) Hotel & Restaurant Servicing")
+        }else if(strand_selector == 7)
         {
             strand="(HRS) Hotel & Restaurant Servicing";
-        }else if(strand_selector == "(CSS) Computer System Servicing")
+        }else if(strand_selector == 8)
         {
             strand="(CSS) Computer System Servicing";
-        }else if(strand_selector == "(TDA) Technical Drafting and Animation")
+        }else if(strand_selector == 9)
         {
             strand ="(TDA) Technical Drafting and Animation";
-        }else if(strand_selector == "(ATS) Automotive Servicing")
+        }else if(strand_selector == 10)
         {
             strand ="(ATS) Automotive Servicing";
-        }else if(strand_selector == "(EIM) Electrical Installation And Maintenance")
+        }else if(strand_selector == 11)
         {
             strand ="(EIM) Electrical Installation And Maintenance";
-        }else if(strand_selector == "(EPAS) Electornic Products Assembly and Servicing")
+        }else if(strand_selector == 12)
         {
             strand ="(EPAS) Electornic Products Assembly and Servicing";
-        }else if(strand_selector == "(RAC) Refrigiration and Air-conditioning Servicing")
+        }else if(strand_selector == 13)
         {
             strand ="(RAC) Refrigiration and Air-conditioning Servicing";
         }

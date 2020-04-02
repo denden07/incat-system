@@ -83,7 +83,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="teacherSubmenu">
                     <li class="@yield('mySection-status-all')">
-                        <a href="{{route('admin.teacher.list')}}">All Section</a>
+                        <a href="{{route('teacher.mysection.all')}}">All Section</a>
                     </li>
 
                     <li class="@yield('mySection-status-active')">

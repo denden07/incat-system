@@ -129,8 +129,9 @@ Route::group(['middleware'=>'teacher'],function ()
 
     Route::get('teacher/my-active-subjects/all','TeacherSubjectController@mySubjectListActive')->name('teacher.mysubject.active.all');
 
+//Section
 
-
+    Route::get('teacher/my-section/all','TeacherSectionController@mySectionList')->name('teacher.mysection.all');
 
 });
 

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Section;
 use Illuminate\Http\Request;
 
-class AdminHomeController extends Controller
+class TeacherSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,16 +13,54 @@ class AdminHomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-//    public function __construct()
-//    {
-//        $this->middleware('admin');
-//    }
+
+    public function __construct()
+    {
+        $this->middleware('teacher');
+    }
+
+
+    public function mySectionList()
+    {
+        $id = auth()->user();
+        $id = $id->teacher_id;
+
+        $sections = Section::all()->where('teacher_id',$id);
+
+
+        return view('teacher.section.allSectionList',compact('sections'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function index()
     {
         //
-
-        return view('admin.home.index');
     }
 
     /**

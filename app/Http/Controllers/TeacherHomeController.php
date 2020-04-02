@@ -13,10 +13,10 @@ class TeacherHomeController extends Controller
      */
 
 
-    public function __construct()
-    {
-        $this->middleware('teacher');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('teacher');
+//    }
 
     public function index()
     {
