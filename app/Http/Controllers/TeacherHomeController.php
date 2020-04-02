@@ -21,9 +21,11 @@ class TeacherHomeController extends Controller
     public function index()
     {
         //
+        $id = auth()->user();
 
 
-        return view('teacher.home.index');
+
+        return view('teacher.home.index',compact('id'));
     }
 
 }

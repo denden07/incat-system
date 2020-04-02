@@ -34,7 +34,7 @@
     </nav>
     <!-- Sidebar  -->
 
-    <nav id="sidebar">
+    <nav id="sidebar" style="overflow-y: auto">
         <div class="sidebar-header">
             <img class="logo" src="{{asset('images/logo/incat.png')}}" alt="">
             <strong><img width="100%" src="{{asset('images/logo/incat.png')}}" alt=""></strong>

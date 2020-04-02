@@ -17057,6 +17057,23 @@ a.article:hover {
   color: #fff;
 }
 
+#top-bar .top-menu ul li button {
+  display: block;
+  margin: 0 10px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #2a9055;
+  text-align: center;
+  border-radius: 50%;
+  color: #2a9055;
+}
+
+#top-bar .top-menu ul li button:hover {
+  background: #2a9055;
+  color: #fff;
+}
+
 .hamburger {
   cursor: pointer;
   font-size: 35px;
@@ -18054,5 +18071,37 @@ My subject List
 .mySubject-list-table-design-info span {
   color: black;
   font-weight: bold;
+}
+
+/* ---------------------------------------------------
+teacher dropdown
+----------------------------------------------------- */
+
+.teacher-drop-down-content {
+  padding: 2px;
+  display: none;
+  position: absolute;
+  min-width: 80px;
+  z-index: 10000;
+  border-radius: 0;
+  background: white;
+  color: black;
+  margin-top: 2px;
+}
+
+.teacher-drop-down-content a {
+  display: block;
+  text-align: center;
+  color: black;
+}
+
+.teacher-drop-down-content a:hover {
+  transition: all 0.3s ease;
+  color: white;
+  background: black;
+}
+
+.teacher-drop-down:hover .teacher-drop-down-content {
+  display: block;
 }
 

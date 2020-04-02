@@ -25,9 +25,19 @@
                 <li><a href="#">
                         <i class="fas fa-bell"></i>
                     </a></li>
-                <li><a href="#">
+                <div class="teacher-drop-down">
+                <li><button>
                         <i class="fas fa-user"></i>
-                    </a></li>
+                    </button>
+
+                </li>
+                    <div class="teacher-drop-down-content">
+                        <a href="#">Edit Profile</a>
+                        <a href="{{route('logout')}}">Logout</a>
+
+                    </div>
+                </div>
+
             </ul>
         </div>
 
@@ -66,18 +76,18 @@
             </li>
 
 
-            <li class="@yield('teacher-status')" >
+            <li class="@yield('mySection-status')" >
                 <a href="#teacherSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-users"></i>
                     My Sections
                 </a>
                 <ul class="collapse list-unstyled" id="teacherSubmenu">
-                    <li class="@yield('teacher-list-status')">
-                        <a href="{{route('admin.teacher.list')}}">All Teacher</a>
+                    <li class="@yield('mySection-status-all')">
+                        <a href="{{route('admin.teacher.list')}}">All Section</a>
                     </li>
 
-                    <li class="@yield('teacher-add-status')">
-                        <a href="{{route('admin.teacher.add')}}">Add Teacher</a>
+                    <li class="@yield('mySection-status-active')">
+                        <a href="{{route('admin.teacher.add')}}">Active Section</a>
                     </li>
                 </ul>
             </li>

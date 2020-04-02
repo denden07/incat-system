@@ -28,6 +28,7 @@ Route::get('public/enlistment-form','EnlistmentController@create')->name('public
 
 
 Route::get('/login-system','LoginHome@loginHome')->name('login.home');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
 

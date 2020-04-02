@@ -16,10 +16,18 @@ class TeacherSubjectController extends Controller
      */
 
 
+    public function __construct()
+    {
+        $this->middleware('teacher');
+    }
+
+
     public function mySubjectList()
     {
+        $id = auth()->user();
+        $id = $id->teacher_id;
 
-        $teacher = Teacher::find(9)->id;
+        $teacher = Teacher::find($id)->id;
 
 
         $schedules = Schedule::all()->where('teacher_id',$teacher);
@@ -31,7 +39,10 @@ class TeacherSubjectController extends Controller
     public function mySubjectListActive()
     {
 
-        $teacher = Teacher::find(9)->id;
+        $id = auth()->user();
+        $id = $id->teacher_id;
+
+        $teacher = Teacher::find($id)->id;
 
 
         $schedules = Schedule::all()->where('teacher_id',$teacher)->where('status','active');
