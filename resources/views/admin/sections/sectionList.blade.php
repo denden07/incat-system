@@ -56,15 +56,8 @@
                     <td>{{$section->strand->name}}</td>
                     <td>{{$section->year}}</td>
                     <td width="1%">
-
-                        @foreach($section->studentsCount as $students)
-
-
-                            {{$students->pivot->count()}}
-
-
-
-                            @endforeach
+                        
+                        {{$section->students->count()}}
 
                     </td>
                     <td>{{$section->status}}</td>

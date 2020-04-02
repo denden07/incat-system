@@ -94,9 +94,7 @@
                             <td><a href="{{route('teacher.mysubject.student.show',['schedule_id'=>$schedule->id])}}">{{$schedule->subject->title}}</a></td>
                             <td>{{$schedule->section->name}}</td>
                             <td>
-                                @foreach($schedule->section->studentsCount as $count)
-                                    {{$count->pivot->count()}}
-                                @endforeach
+                                {{$schedule->section->students->count()}}
                             </td>
                             <td>{{$schedule->schedule}}</td>
 

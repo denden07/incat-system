@@ -33,6 +33,7 @@ class TeacherSubjectController extends Controller
         $schedules = Schedule::all()->where('teacher_id',$teacher);
 
 
+
         return view('teacher.subject.allSubjectList',compact('teacher','schedules'));
     }
 

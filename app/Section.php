@@ -31,7 +31,7 @@ class Section extends Model
 
     public function students()
     {
-        return $this->belongsToMany('App\Student','section_student','section_id','student_id');
+        return $this->belongsToMany('App\Student','section_student');
     }
 
     public function studentsCount()

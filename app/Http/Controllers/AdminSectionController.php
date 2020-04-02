@@ -89,7 +89,7 @@ class AdminSectionController extends Controller
 
         $section = Section::find($section_id);
         $strand = Strand::findOrFail($strand_id);
-        $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand->name)->where('status','enrolled')->pluck('name','id');
+        $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand_id)->where('status','enrolled')->pluck('name','id');
 
 
         return view('admin.sections.sectionShow',compact('section','students'));
@@ -100,7 +100,7 @@ class AdminSectionController extends Controller
 
         $section = Section::find($section_id);
         $strand = Strand::findOrFail($strand_id);
-        $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand->name)->where('status','enrolled')->pluck('name','id');
+        $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand_id)->where('status','enrolled')->pluck('name','id');
 
 
         return view('admin.sections.sectionShow',compact('section','students'));

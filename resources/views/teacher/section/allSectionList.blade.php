@@ -96,9 +96,8 @@
                             <td>{{$section->level->name}}</td>
                             <td>{{$section->strand->name}}</td>
                             <td>
-                                @foreach($section->studentsCount as $count)
-                                    {{$count->pivot->count()}}
-                                @endforeach
+
+                                {{$section->students->count()}}
                             </td>
                             <td>{{$section->year}}</td>
 
