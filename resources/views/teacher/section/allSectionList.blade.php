@@ -18,7 +18,7 @@
 
     <div class="mySubject-list-table-design table-design ">
         <h3>My Section History</h3>
-        <form action="{{route('teacher.mysubject.all.action')}}" method="post">
+        <form action="{{route('teacher.mysection.action')}}" method="post">
             @csrf
             @include('layouts._message')
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
@@ -30,7 +30,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Subject as inactive?</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Section as inactive?</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -51,7 +51,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Subject as active?</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Mark Section as active?</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -68,7 +68,7 @@
                 </div>
                 <thead>
                 <tr>
-                    <th><input id="select-all-mySubject" type="checkbox" onclick="checkAll(this)"></th>
+                    <th><input id="select-all-mySection" type="checkbox" onclick="checkAll(this)"></th>
                     <th>Id</th>
                     <th class="th-sm">Name
                     </th>
@@ -90,13 +90,12 @@
                     @foreach($sections as $section)
 
                         <tr>
-                            <td><input type="checkbox" name="checkboxMySubject[]" value="{{$section->id}}"></td>
+                            <td><input type="checkbox" name="checkboxMySection[]" value="{{$section->id}}"></td>
                             <td>{{$section->id}}</td>
                             <td>{{$section->name}}</td>
                             <td>{{$section->level->name}}</td>
                             <td>{{$section->strand->name}}</td>
                             <td>
-
                                 {{$section->students->count()}}
                             </td>
                             <td>{{$section->year}}</td>
@@ -155,7 +154,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#select-all-mySubject').click(function (event) {
+            $('#select-all-mySection').click(function (event) {
                 if(this.checked){
                     $(':checkbox').each(function () {
                         this.checked = true;

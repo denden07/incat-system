@@ -127,11 +127,14 @@ Route::group(['middleware'=>'teacher'],function ()
     Route::post('teacher/my-subjects/show-students/update/{schedule_id}','TeacherSubjectController@updateGradeStudent')->name('teacher.mysubject.student.show.update');
     Route::post('teacher/my-subjects/show-students/update/{schedule_id}/show','TeacherSubjectController@updateGradeStudentShow')->name('teacher.mysubject.student.show.update.show');
 
-    Route::get('teacher/my-active-subjects/all','TeacherSubjectController@mySubjectListActive')->name('teacher.mysubject.active.all');
+    Route::get('teacher/my-subjects/active','TeacherSubjectController@mySubjectListActive')->name('teacher.mysubject.active.all');
 
 //Section
 
     Route::get('teacher/my-section/all','TeacherSectionController@mySectionList')->name('teacher.mysection.all');
+    Route::get('teacher/my-section/active','TeacherSectionController@mySectionListActive')->name('teacher.mysection.active');
+    Route::post('teacher/my-section/action','TeacherSectionController@mySectionListAction')->name('teacher.mysection.action');
+    Route::post('teacher/my-section/active/action','TeacherSectionController@mySectionListActiveAction')->name('teacher.mysection.active.action');
 
 });
 

@@ -87,7 +87,7 @@
                     </li>
 
                     <li class="@yield('mySection-status-active')">
-                        <a href="{{route('admin.teacher.add')}}">Active Section</a>
+                        <a href="{{route('teacher.mysection.active')}}">Active Section</a>
                     </li>
                 </ul>
             </li>

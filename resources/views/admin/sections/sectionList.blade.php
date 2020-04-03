@@ -56,7 +56,7 @@
                     <td>{{$section->strand->name}}</td>
                     <td>{{$section->year}}</td>
                     <td width="1%">
-                        
+
                         {{$section->students->count()}}
 
                     </td>

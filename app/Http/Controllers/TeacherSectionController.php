@@ -31,7 +31,60 @@ class TeacherSectionController extends Controller
         return view('teacher.section.allSectionList',compact('sections'));
     }
 
+    public function mySectionListActive()
+    {
+        $id = auth()->user();
+        $id = $id->teacher_id;
 
+
+        $sections = Section::all()->where('teacher_id',$id)->where('status','active');
+        return view('teacher.section.myActiveSection',compact('sections'));
+
+    }
+
+    public function mySectionListAction(Request $request)
+    {
+        $sections = $request->input('checkboxMySection');
+
+        $section = Section::whereIn('id',$sections);
+
+
+
+
+        switch ($request->input('action')){
+            case 'inactive':
+                $section->update(['status'=>'inactive']);
+                return redirect()->route('teacher.mysection.all')->with('fail',"Section/s is inactive");
+                break;
+
+            case  'active':
+                $section->update(['status'=>'active']);
+                return redirect()->route('teacher.mysection.all')->with('success',"Section/s is active");
+                break;
+        }
+    }
+
+    public function mySectionListActiveAction(Request $request)
+    {
+        $sections = $request->input('checkboxMySection');
+
+        $section = Section::whereIn('id',$sections);
+
+
+
+
+        switch ($request->input('action')){
+            case 'inactive':
+                $section->update(['status'=>'inactive']);
+                return redirect()->route('teacher.mysection.active')->with('fail',"Section/s is inactive");
+                break;
+
+            case  'active':
+                $section->update(['status'=>'active']);
+                return redirect()->route('teacher.mysection.active')->with('success',"Section/s is active");
+                break;
+        }
+    }
 
 
 
