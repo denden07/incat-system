@@ -4,7 +4,7 @@
 @extends('layouts.teacherLayout')
 
 @section('title')
- Show Student
+    Show Student
 
 @endsection
 
@@ -24,76 +24,53 @@
 
     <div class="select-semester">
         <select onchange="location = this.value;" name="" id="">
-            <option value="">All</option>
-            <option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'1st','studentLrn'=>$student->lrnNo])}}">First</option>
-            <option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'2nd','studentLrn'=>$student->lrnNo])}}">Second</option>
+
+            <option value="{{route('teacher.mysection.show.students',['year'=>$year,'studentLrn'=>$student->lrnNo])}}">All</option>
+
+            <option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'1st','studentLrn'=>$student->lrnNo])}}"  @if($sem == '1st')selected @endif>First</option>
+            <option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'2nd','studentLrn'=>$student->lrnNo])}}" @if($sem == '2nd')selected @endif>Second</option>
         </select>
     </div>
 
 
     <div class="">
-
+        @if($sem == '1st')
         <p>1st Semester</p>
-    <table class="student-grade-table">
-        <thead>
-        <tr>
-            <th>Subject</th>
-            <th>First</th>
-            <th>Second</th>
-            <th>Third</th>
-            <th>Fourth</th>
-            <th>Final</th>
-        </tr>
+        @endif
 
-        </thead>
-        <tbody>
-        @foreach($grades1 as $grade)
+        @if($sem=='2nd')
+                <p>2nd Semester</p>
+            @endif
+        <table class="student-grade-table">
+            <thead>
             <tr>
-        <td>{{$grade->schedule->subject->title}}</td>
-            <td>{{$grade->first}}</td>
-            <td>{{$grade->second}}</td>
-            <td>{{$grade->third}}</td>
-            <td>{{$grade->fourth}}</td>
-            <td>{{$grade->final}}</td>
+                <th>Subject</th>
+                <th>First</th>
+                <th>Second</th>
+                <th>Third</th>
+                <th>Fourth</th>
+                <th>Final</th>
             </tr>
-        @endforeach
-        </tbody>
+
+            </thead>
+            <tbody>
+            @foreach($grades as $grade)
+                <tr>
+                    <td>{{$grade->schedule->subject->title}}</td>
+                    <td>{{$grade->first}}</td>
+                    <td>{{$grade->second}}</td>
+                    <td>{{$grade->third}}</td>
+                    <td>{{$grade->fourth}}</td>
+                    <td>{{$grade->final}}</td>
+                </tr>
+            @endforeach
+            </tbody>
 
 
-    </table>
+        </table>
     </div>
 
 
-    <div class="">
-        <p>2nd Semester</p>
-    <table class="student-grade-table">
-        <thead>
-        <tr>
-            <th>Subject</th>
-            <th>First</th>
-            <th>Second</th>
-            <th>Third</th>
-            <th>Fourth</th>
-            <th>Final</th>
-        </tr>
-
-        </thead>
-        <tbody>
-        @foreach($grades2 as $grade)
-            <tr>
-                <td>{{$grade->schedule->subject->title}}</td>
-                <td>{{$grade->first}}</td>
-                <td>{{$grade->second}}</td>
-                <td>{{$grade->third}}</td>
-                <td>{{$grade->fourth}}</td>
-                <td>{{$grade->final}}</td>
-            </tr>
-        @endforeach
-        </tbody>
-
-
-    </table>
-    </div>
 
 @endsection
 

@@ -113,7 +113,7 @@ class TeacherSectionController extends Controller
         $grades2 = Grade::where('student_id',$student->id)->where('teacher_id',$id)->where('year',$year)->where('semester','2nd')->get();
 
 
-        return view('teacher.section.studentShow',compact('grades1','grades2','student'));
+        return view('teacher.section.studentShow',compact('grades1','grades2','student','year'));
     }
 
 
@@ -125,7 +125,9 @@ class TeacherSectionController extends Controller
 
 
         $student = Student::where('lrnNo',$studentLrn)->first();
-        $grades = Grade::where('student_id',$student->id)->where('teacher_id',$id)->where('year',$year)->get();
+        $grades = Grade::where('student_id',$student->id)->where('teacher_id',$id)->where('year',$year)->where('semester',$sem)->get();
+
+        return view('teacher.section.studentShowFilter',compact('student','grades','year','sem'));
     }
 
 
