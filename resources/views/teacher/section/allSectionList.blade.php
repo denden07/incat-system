@@ -92,7 +92,7 @@
                         <tr>
                             <td><input type="checkbox" name="checkboxMySection[]" value="{{$section->id}}"></td>
                             <td>{{$section->id}}</td>
-                            <td>{{$section->name}}</td>
+                            <td><a href="{{route('teacher.mysection.all.students',['year'=>$section->year,'sectionName'=>$section->name])}}">{{$section->name}}</a></td>
                             <td>{{$section->level->name}}</td>
                             <td>{{$section->strand->name}}</td>
                             <td>

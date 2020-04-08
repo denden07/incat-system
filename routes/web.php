@@ -135,6 +135,8 @@ Route::group(['middleware'=>'teacher'],function ()
     Route::get('teacher/my-section/active','TeacherSectionController@mySectionListActive')->name('teacher.mysection.active');
     Route::post('teacher/my-section/action','TeacherSectionController@mySectionListAction')->name('teacher.mysection.action');
     Route::post('teacher/my-section/active/action','TeacherSectionController@mySectionListActiveAction')->name('teacher.mysection.active.action');
+    Route::get('teacher/my-section/all/students/{year}/{sectionName}','TeacherSectionController@mySectionStudentList')->name('teacher.mysection.all.students');
+    Route::get('teacher/my-section/show-student/{year}/{studentLrn}','TeacherSectionController@mySectionShowStudent')->name('teacher.mysection.show.students');
 
 });
 

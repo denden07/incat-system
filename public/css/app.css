@@ -17344,6 +17344,30 @@ a.article:hover {
   background: white;
 }
 
+.table-design th {
+  color: #D5DDE5;
+  background: #1b1e24;
+  border-right: 1px solid ghostwhite;
+  border-bottom: 5px solid ghostwhite;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.table-design tr:hover td {
+  background: #4E5066;
+  color: #FFFFFF;
+  border-top: 1px solid #22262e;
+}
+
+.table-design td {
+  font-weight: 300;
+  font-size: 15px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
 .pagination {
   float: right;
 }
@@ -18103,5 +18127,93 @@ teacher dropdown
 
 .teacher-drop-down:hover .teacher-drop-down-content {
   display: block;
+}
+
+/* ---------------------------------------------------
+Grade Table Section
+----------------------------------------------------- */
+
+.student-grade-table {
+  background: white;
+  border-radius: 5px;
+  margin: auto;
+  max-width: 600px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-grade-table th {
+  color: #D5DDE5;
+  background: #1b1e24;
+  border-right: 1px solid ghostwhite;
+  border-bottom: 5px solid ghostwhite;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 20px;
+  text-align: left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+
+.student-grade-table th:first-child {
+  border-top-left-radius: 3px;
+}
+
+.student-grade-table th:last-child {
+  border-top-right-radius: 3px;
+  border-right: none;
+}
+
+.student-grade-table tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
+  color: #666B85;
+  font-size: 16px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.student-grade-table tr:hover td {
+  background: #4E5066;
+  color: #FFFFFF;
+  border-top: 1px solid #22262e;
+}
+
+.student-grade-table tr:first-child {
+  border-top: none;
+}
+
+.student-grade-table tr:last-child {
+  border-bottom: none;
+}
+
+.student-grade-table tr:nth-child(odd) td {
+  background: #EBEBEB;
+}
+
+.student-grade-table tr:nth-child(odd):hover td {
+  background: #4E5066;
+}
+
+.student-grade-table tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+
+.student-grade-table tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+
+.student-grade-table td {
+  background: #FFFFFF;
+  padding: 20px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.student-grade-table td:last-child {
+  border-right: 0px;
 }
 

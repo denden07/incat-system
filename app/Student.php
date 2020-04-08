@@ -18,6 +18,8 @@ class Student extends Model
 
     ];
 
+    protected $appends = ['name'];
+
     public function level(){
         return $this->belongsTo('App\Level','gradeLevel');
     }
@@ -25,6 +27,8 @@ class Student extends Model
     public function getNameAttribute(){
         return $this->firstName . " " .$this->middleName . " " .$this->lastName . " " . $this->extName;
     }
+
+
 
     public function section()
     {

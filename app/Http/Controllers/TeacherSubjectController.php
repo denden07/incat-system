@@ -95,6 +95,10 @@ class TeacherSubjectController extends Controller
         $count = count($request->input('first'));
 
 
+        $id = auth()->user();
+        $id = $id->teacher_id;
+
+        $teacher = Teacher::find($id)->id;
 
         for ($i = 0; $i <= $count; $i++) {
             if (empty($input['first'][$i]) || !is_numeric($input['first'][$i])) continue;
@@ -104,7 +108,8 @@ class TeacherSubjectController extends Controller
                 'third' => $input['third'][$i],
                 'fourth' => $input['fourth'][$i],
                 'student_id' => $input['student_id'][$i],
-                'subject_id'=>$input['subject_id'][$i]
+                'subject_id'=>$input['subject_id'][$i],
+                'teacher_id' =>$teacher,
             ];
             Grade::create($data);
 

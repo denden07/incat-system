@@ -16,4 +16,9 @@ class Grade extends Model
     {
         return $this->belongsTo('App\Student','student_id');
     }
+
+    public function schedule()
+    {
+        return $this->belongsTo('App\Schedule','subject_id');
+    }
 }

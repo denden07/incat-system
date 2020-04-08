@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Grade;
 use App\Section;
+use App\Student;
 use Illuminate\Http\Request;
 
 class TeacherSectionController extends Controller
@@ -87,9 +89,44 @@ class TeacherSectionController extends Controller
     }
 
 
+    public function mySectionStudentList($year,$sectionName)
+    {
+        $section = Section::where('name',$sectionName)->first();
 
 
 
+
+
+
+        return view('teacher.section.studentList',compact('section','year'));
+    }
+
+    public function mySectionShowStudent($year,$studentLrn)
+    {
+
+        $id = auth()->user();
+        $id = $id->teacher_id;
+
+
+        $student = Student::where('lrnNo',$studentLrn)->first();
+        $grades1 = Grade::where('student_id',$student->id)->where('teacher_id',$id)->where('year',$year)->where('semester','1st')->get();
+        $grades2 = Grade::where('student_id',$student->id)->where('teacher_id',$id)->where('year',$year)->where('semester','2nd')->get();
+
+
+        return view('teacher.section.studentShow',compact('grades1','grades2','student'));
+    }
+
+
+    public function mySectionShowStudentFilter($year,$sem,$studentLrn)
+    {
+
+        $id = auth()->user();
+        $id = $id->teacher_id;
+
+
+        $student = Student::where('lrnNo',$studentLrn)->first();
+        $grades = Grade::where('student_id',$student->id)->where('teacher_id',$id)->where('year',$year)->get();
+    }
 
 
 

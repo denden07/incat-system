@@ -144,13 +144,15 @@
                         <td><input name="third[]" type="number"  value="{{$grade->third}}"></td>
                         <td><input name="fourth[]" type="number"  value="{{$grade->fourth}}"></td>
                         <td style="display: none">  <input style="display: none" type="text" name="subject_id[]" value="{{$schedule->id}}"></td>
-
                         <td>Tba</td>
                         @endforeach
                     </tr>
 
 
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
