@@ -33,13 +33,13 @@
     </div>
 
 
-    <div class="">
+    <div class="student-grade-container">
         @if($sem == '1st')
-        <p>1st Semester</p>
+        <p  class="student-grade-semester">1st Semester</p>
         @endif
 
         @if($sem=='2nd')
-                <p>2nd Semester</p>
+                <p  class="student-grade-semester">2nd Semester</p>
             @endif
         <table class="student-grade-table">
             <thead>

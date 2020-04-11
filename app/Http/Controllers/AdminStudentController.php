@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Grade;
 use App\Level;
 use App\Student;
 use Illuminate\Http\Request;
@@ -22,39 +23,38 @@ class AdminStudentController extends Controller
     public function enlistment()
     {
 
-        $students = Student::all()->where('status','enlisted');
+        $students = Student::all()->where('status', 'enlisted');
         $gradeLevel = Level::all();
         $levels = $gradeLevel->sortBy('name')->pluck('name')->unique();
 
-        return view('admin.student.enlistment',compact('students','levels'));
+        return view('admin.student.enlistment', compact('students', 'levels'));
     }
 
 
     public function delete($student_id)
     {
-        $studen = Student::where('id',$student_id)->where('status','enlisted');
+        $studen = Student::where('id', $student_id)->where('status', 'enlisted');
 
         $studen->delete();
     }
 
-    public function bulkDelete(Request $request){
+    public function bulkDelete(Request $request)
+    {
 
         $students = $request->input('checkboxEnlistment');
 
-        $studen = Student::whereIn('id',$students)->where('status','enlisted');
+        $studen = Student::whereIn('id', $students)->where('status', 'enlisted');
 
 
-
-
-        switch ($request->input('action')){
+        switch ($request->input('action')) {
             case 'delete':
                 $studen->delete();
-                return redirect()->route('admin.student.enlistment')->with('fail',"Students has been deleted");
+                return redirect()->route('admin.student.enlistment')->with('fail', "Students has been deleted");
                 break;
 
             case  'update':
-                $studen->update(['status'=>'enrolled']);
-                return redirect()->route('admin.student.enlistment')->with('success',"Students has been enrolled");
+                $studen->update(['status' => 'enrolled']);
+                return redirect()->route('admin.student.enlistment')->with('success', "Students has been enrolled");
                 break;
         }
     }
@@ -63,22 +63,23 @@ class AdminStudentController extends Controller
     public function studentList()
     {
         $student = Student::find(25);
-        $students = Student::all()->where('status','enrolled');
+        $students = Student::all()->where('status', 'enrolled');
         $gradeLevel = Level::all();
         $levels = $gradeLevel->sortBy('name')->pluck('name')->unique();
-        return view('admin.student.studentList',compact('students','levels','student'));
+        return view('admin.student.studentList', compact('students', 'levels', 'student'));
     }
 
     public function studentShow($student_id)
     {
-       $student = Student::where('id',$student_id)->where('status','enrolled')->first();
+        $student = Student::where('id', $student_id)->where('status', 'enrolled')->first();
 
-        return view('admin.student.studentShow',compact('student'));
+        return view('admin.student.studentShow', compact('student'));
     }
 
 
-    public function enrollmentFormDocs($student_id){
-        $student = Student::findOrFail($student_id)->first();
+    public function enrollmentFormDocs($student_id)
+    {
+        $student = Student::findOrFail($student_id);
 //
 //        $phpWord = new \PhpOffice\PhpWord\PhpWord();
 //
@@ -97,8 +98,31 @@ class AdminStudentController extends Controller
 //        return response()->download(storage_path('TestWordFile.docx'));
 
 
-        return view('admin.student.enlistmentForm',compact('student'));
+        return view('admin.student.enlistmentForm', compact('student'));
     }
+
+    public function studentShowGrade($student_id)
+    {
+        $student = Student::find($student_id);
+
+        $grades1 = Grade::where('student_id', $student_id)->where('semester', '1st')->where('sy', '1st')->get();
+        $grades2 = Grade::where('student_id', $student_id)->where('semester', '2nd')->where('sy', '1st')->get();
+        $grades3 = Grade::where('student_id', $student_id)->where('semester', '1st')->where('sy', '2nd')->get();
+        $grades4 = Grade::where('student_id', $student_id)->where('semester', '2nd')->where('sy', '2nd')->get();
+
+
+        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student'));
+    }
+
+    public function studentPrintGrade()
+    {
+
+
+        return view('admin.student.studentPrintGrade');
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.

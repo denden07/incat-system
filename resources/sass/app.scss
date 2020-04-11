@@ -1349,6 +1349,87 @@ background: white;
   padding: 7px;
 }
 
+/* ---------------------------------------------------
+Admin show Grade
+----------------------------------------------------- */
+
+
+.admin-show-student-grade-year p
+{
+  color: black;
+  text-align: center;
+  padding-bottom: -15px;
+}
+
+.admin-show-student-grade-year
+{
+  width: 20%;
+  margin-left: 40%;
+  border-bottom: solid lightslategrey 3px;
+
+}
+
+.admin-student-grade-semester
+{
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+
+
+
+
+
+/* ---------------------------------------------------
+Admin Print Grade
+----------------------------------------------------- */
+
+
+.grade-slip-logo
+{
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+}
+
+.grade-slip-body
+{
+  margin-top: 150px;
+  padding: 5px;
+}
+
+.grade-slip-banner
+{
+  margin-top: 15px;
+  text-align: center;
+}
+
+.grade-slip-info
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1523,4 +1604,12 @@ Grade Table Section
   border-right: 0px;
 }
 
-
+.student-grade-semester
+{
+  color: black;
+}
+.student-grade-container
+{
+  padding: 25px;
+  border-bottom: 2px solid black;
+}

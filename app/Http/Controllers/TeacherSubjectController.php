@@ -107,6 +107,7 @@ class TeacherSubjectController extends Controller
                 'second' => $input['second'][$i],
                 'third' => $input['third'][$i],
                 'fourth' => $input['fourth'][$i],
+                'final' =>($input['first'][$i] + $input['second'][$i] + $input['third'][$i] + $input['fourth'][$i])/4,
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i],
                 'teacher_id' =>$teacher,
@@ -136,6 +137,7 @@ class TeacherSubjectController extends Controller
                 'second' => $input['second'][$i],
                 'third' => $input['third'][$i],
                 'fourth' => $input['fourth'][$i],
+                'final' =>($input['first'][$i] + $input['second'][$i] + $input['third'][$i] + $input['fourth'][$i])/4,
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i]
             ]);

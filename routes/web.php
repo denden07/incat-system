@@ -52,6 +52,10 @@ Route::group(['middleware'=>'admin'],function ()
 
     Route::get('admin/student/enrollment-form/{student_id}/docx','AdminStudentController@enrollmentFormDocs')->name('admin.student.form.docx');
 
+    Route::get('admin/student/show-grade/{student_id}','AdminStudentController@studentShowGrade')->name('admin.student.show.grade');
+    Route::get('admin/student/print-grade/','AdminStudentController@studentPrintGrade')->name('admin.student.print.grade');
+
+
 
 //route for single delete
     Route::get('admin/students/delete/{student_id}','AdminStudentController@delete')->name('admin.student.enlistment.delete');

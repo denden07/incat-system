@@ -22,7 +22,9 @@
         <h3>{{$student->name}}</h3>
     </div>
 
+
     <div class="select-semester">
+        <span>Filter Semester: </span>
         <select onchange="location = this.value;" name="" id="">
             <option value="">All</option>
             <option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'1st','studentLrn'=>$student->lrnNo])}}">First</option>
@@ -31,9 +33,9 @@
     </div>
 
 
-    <div class="">
+    <div class="student-grade-container">
 
-        <p>1st Semester</p>
+        <p class="student-grade-semester">1st Semester</p>
     <table class="student-grade-table">
         <thead>
         <tr>
@@ -64,8 +66,8 @@
     </div>
 
 
-    <div class="">
-        <p>2nd Semester</p>
+    <div class="student-grade-container">
+        <p class="student-grade-semester">2nd Semester</p>
     <table class="student-grade-table">
         <thead>
         <tr>
