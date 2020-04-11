@@ -53,7 +53,7 @@ Route::group(['middleware'=>'admin'],function ()
     Route::get('admin/student/enrollment-form/{student_id}/docx','AdminStudentController@enrollmentFormDocs')->name('admin.student.form.docx');
 
     Route::get('admin/student/show-grade/{student_id}','AdminStudentController@studentShowGrade')->name('admin.student.show.grade');
-    Route::get('admin/student/print-grade/','AdminStudentController@studentPrintGrade')->name('admin.student.print.grade');
+    Route::get('admin/student/print-grade/{student_id}/{sem}/{sy}','AdminStudentController@studentPrintGrade')->name('admin.student.print.grade');
 
 
 

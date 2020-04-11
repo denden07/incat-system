@@ -28,7 +28,7 @@
         <span>Print Grade:</span>
         <select onchange="location = this.value;" name="" id="">
             <option value="">All</option>
-            {{--<option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'1st','studentLrn'=>$student->lrnNo])}}">First</option>--}}
+            <option value="{{route('admin.student.print.grade',['student_id'=>$studentLrn,'sem'=>'1st','sy'=>'1st'])}}">Grade 11 | 1st Sem</option>
             {{--<option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'2nd','studentLrn'=>$student->lrnNo])}}">Second</option>--}}
         </select>
     </div>

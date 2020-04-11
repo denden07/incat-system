@@ -1412,12 +1412,30 @@ Admin Print Grade
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  font-size: 18px;
 }
 
 
+.grade-slip-table table
+{
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.grade-slip-table table th
+{
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 5px;
+}
 
-
+.grade-slip-table table td
+{
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 5px;
+}
 
 
 

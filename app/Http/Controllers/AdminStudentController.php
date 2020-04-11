@@ -104,6 +104,7 @@ class AdminStudentController extends Controller
     public function studentShowGrade($student_id)
     {
         $student = Student::find($student_id);
+        $studentLrn = Student::find($student_id)->lrnNo;
 
         $grades1 = Grade::where('student_id', $student_id)->where('semester', '1st')->where('sy', '1st')->get();
         $grades2 = Grade::where('student_id', $student_id)->where('semester', '2nd')->where('sy', '1st')->get();
@@ -111,14 +112,18 @@ class AdminStudentController extends Controller
         $grades4 = Grade::where('student_id', $student_id)->where('semester', '2nd')->where('sy', '2nd')->get();
 
 
-        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student'));
+        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student','student_id','studentLrn'));
     }
 
-    public function studentPrintGrade()
+    public function studentPrintGrade($student_id,$sem,$sy)
     {
 
+        $student = Student::where('lrnNo',$student_id)->first();
+        $grades = Grade::where('student_id',$student->id)->where('semester',$sem)->where('sy',$sy)->get();
+        $gradeYear = Grade::where('student_id',$student->id)->where('semester',$sem)->where('sy',$sy)->first();
 
-        return view('admin.student.studentPrintGrade');
+
+        return view('admin.student.studentPrintGrade',compact('student','grades','sem','gradeYear'));
     }
 
 

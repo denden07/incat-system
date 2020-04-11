@@ -36,7 +36,7 @@ class Student extends Model
     }
 
 
-    public function strand()
+    public function strands()
     {
         return $this->belongsTo('App\Strand','strand');
     }
