@@ -51,7 +51,7 @@
         <tbody>
         @foreach($grades1 as $grade)
             <tr>
-        <td>{{$grade->schedule->subject->title}}</td>
+        <td>{{$grade->subject->title}}</td>
             <td>{{$grade->first}}</td>
             <td>{{$grade->second}}</td>
             <td>{{$grade->third}}</td>
@@ -83,7 +83,7 @@
         <tbody>
         @foreach($grades2 as $grade)
             <tr>
-                <td>{{$grade->schedule->subject->title}}</td>
+                <td>{{$grade->subject->title}}</td>
                 <td>{{$grade->first}}</td>
                 <td>{{$grade->second}}</td>
                 <td>{{$grade->third}}</td>

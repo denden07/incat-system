@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Grade;
 use App\Level;
 use App\Student;
+use App\Subject;
 use Illuminate\Http\Request;
 
 class AdminStudentController extends Controller
@@ -112,20 +113,64 @@ class AdminStudentController extends Controller
         $grades4 = Grade::where('student_id', $student_id)->where('semester', '2nd')->where('sy', '2nd')->get();
 
 
-        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student','student_id','studentLrn'));
+        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student', 'student_id', 'studentLrn'));
     }
 
-    public function studentPrintGrade($student_id,$sem,$sy)
+    public function studentPrintGrade($student_id, $sem, $sy)
     {
 
-        $student = Student::where('lrnNo',$student_id)->first();
-        $grades = Grade::where('student_id',$student->id)->where('semester',$sem)->where('sy',$sy)->get();
-        $gradeYear = Grade::where('student_id',$student->id)->where('semester',$sem)->where('sy',$sy)->first();
+        $student = Student::where('lrnNo', $student_id)->first();
+        $grades = Grade::where('student_id', $student->id)->where('semester', $sem)->where('sy', $sy)->get();
+        $gradeYear = Grade::where('student_id', $student->id)->where('semester', $sem)->where('sy', $sy)->first();
 
 
-        return view('admin.student.studentPrintGrade',compact('student','grades','sem','gradeYear'));
+        return view('admin.student.studentPrintGrade', compact('student', 'grades', 'sem', 'gradeYear'));
     }
 
+    public function creditGrade($student_id)
+    {
+
+        $subjects = Subject::all();
+        $studentId = Student::where('lrnNo',$student_id)->first();
+
+
+
+        return view('admin.student.creditCourse',compact('subjects','studentId'));
+    }
+
+    public function creditGradeSave(Request $request,$student_id)
+    {
+
+
+        $subjects = Subject::all();
+        $studentId = $student_id;
+
+        $input = $request->all();
+        $count = count($request->input('final'));
+
+
+
+        for ($i=0;$i<=$count;$i++)
+        {
+
+            if(empty($input['final'][$i]) || !is_numeric($input['final'][$i])) continue;
+            $data = [
+                'subject_id' =>$input['subject_id'][$i],
+                'subject_related' => $input['subjectT'][$i],
+                'final' =>$input['final'][$i],
+                'semester' =>$input['sem'][$i],
+                'sy' =>$input['sy'][$i],
+                'year' => $input['year'][$i],
+                'student_id' => $studentId,
+            ];
+            Grade::create($data);
+        }
+
+
+//        return view('admin.student.creditCourse',compact('subjects','studentId'));
+
+        return back()->with('success','Grade successfully credited');
+    }
 
 
 

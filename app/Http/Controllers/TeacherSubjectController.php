@@ -82,7 +82,7 @@ class TeacherSubjectController extends Controller
 
         $schedule = Schedule::findOrFail($schedule);
 
-        $grades =Grade::all()->where('subject_id',$schedule->id);
+        $grades =Grade::all()->where('subject_id',$schedule->subject->id);
 
 
         return view('teacher.subject.studentList',compact('schedule','grades'));
@@ -111,6 +111,9 @@ class TeacherSubjectController extends Controller
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i],
                 'teacher_id' =>$teacher,
+                'year'=>'2020-2021',
+                'semester'=>'1st',
+                'sy'=>'1st',
             ];
             Grade::create($data);
 
@@ -139,7 +142,8 @@ class TeacherSubjectController extends Controller
                 'fourth' => $input['fourth'][$i],
                 'final' =>($input['first'][$i] + $input['second'][$i] + $input['third'][$i] + $input['fourth'][$i])/4,
                 'student_id' => $input['student_id'][$i],
-                'subject_id'=>$input['subject_id'][$i]
+                'subject_id'=>$input['subject_id'][$i],
+
             ]);
 
 

@@ -35,15 +35,17 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware'=>'admin'],function ()
 {
 //For Admin
-    Route::resource('admin-dashboard','AdminHomeController',['names'=>[
+//    Route::resource('admin-dashboard','AdminHomeController',['names'=>[
+//
+//        'index'=>'admin.dashboard.index',
+//        'create'=>'admin.dashboard.create',
+//        'store'=>'admin.dashboard.store',
+//        'edit'=>'admin.dashboard.edit'
+//
+//
+//    ]]);
 
-        'index'=>'admin.dashboard.index',
-        'create'=>'admin.dashboard.create',
-        'store'=>'admin.dashboard.store',
-        'edit'=>'admin.dashboard.edit'
-
-
-    ]]);
+    Route::get('admin-dashboard','AdminHomeController@index')->name('admin.dashboard.index');
 
 //Students
     Route::get('admin/student/enlistment','AdminStudentController@enlistment')->name('admin.student.enlistment');
@@ -54,6 +56,9 @@ Route::group(['middleware'=>'admin'],function ()
 
     Route::get('admin/student/show-grade/{student_id}','AdminStudentController@studentShowGrade')->name('admin.student.show.grade');
     Route::get('admin/student/print-grade/{student_id}/{sem}/{sy}','AdminStudentController@studentPrintGrade')->name('admin.student.print.grade');
+    Route::get('admin/student/credit-grade/{student_id}','AdminStudentController@creditGrade')->name('admin.student.credit.grade');
+    Route::post('admin/student/credit-grade/{student_id}/save','AdminStudentController@creditGradeSave')->name('admin.student.credit.grade.save');
+
 
 
 

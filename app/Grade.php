@@ -9,7 +9,7 @@ class Grade extends Model
     //
 
     protected $fillable = [
-        'first','second','third','fourth','final','student_id','subject_id','teacher_id'
+        'first','second','third','fourth','final','student_id','subject_id','teacher_id','year','semester','sy','subject_related'
     ];
 
     public function student()
@@ -20,5 +20,10 @@ class Grade extends Model
     public function schedule()
     {
         return $this->belongsTo('App\Schedule','subject_id');
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo('App\Subject','subject_id');
     }
 }

@@ -45,8 +45,8 @@
             <tbody>
             @foreach($grades as $grade)
             <tr>
-            <td>{{$grade->schedule->subject->subjCode}}</td>
-                <td>{{$grade->schedule->subject->title}}</td>
+            <td>{{$grade->subject->subjCode}}</td>
+                <td>{{$grade->subject->title}}</td>
                 <td>{{$grade->final}}</td>
                 @if($grade->final >= 75)
                 <td>Pass</td>
@@ -84,8 +84,8 @@
 </div>
 
 
-
-
-
+<script>
+    window.print();
+</script>
 
 </body>
