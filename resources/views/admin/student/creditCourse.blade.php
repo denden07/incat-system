@@ -31,8 +31,6 @@
                 @include('layouts._message')
                 <table class="table table-bordered" id="dynamic_field">
                     <tr>
-
-
                         <td>
                             <label for="subject_id">Subject Name</label>
                             <select name="subject_id[]" id="">
@@ -91,13 +89,16 @@
 
     </div>
 @endsection
+@section('scripts')
+
 
 <script>
     $(document).ready(function(){
         var i=1;
         $('#add').click(function(){
             i++;
-            $('#dynamic_field').append('<tr id="row'+i+'">  <td>\n' +
+            $('#dynamic_field').append('<tr id="row'+i+'"> ' +
+                ' <td>\n' +
                 '                                      <label for="subject_id">Subject Name</label>\n' +
                 '                            <select name="subject_id[]" id="">\n' +
                 '                                <option value="" selected disabled hidden>Choose Subject</option>\n' +
@@ -170,3 +171,4 @@
 
     });
 </script>
+@endsection

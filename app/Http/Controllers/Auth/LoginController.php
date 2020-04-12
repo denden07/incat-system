@@ -38,7 +38,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->redirectTo = route('admin.dashboard.index');
+        $this->redirectTo = route('admin.landing');
     }
 
     public function logout(Request $request)

@@ -24,7 +24,7 @@ class IsTeacher
             {
                 return $next($request);
             }
-            return redirect('admin-dashboard');
+            return redirect('landing-admin-page');
         }
 
         return redirect('login-system');

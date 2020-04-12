@@ -18,6 +18,14 @@ class AdminHomeController extends Controller
 //        $this->middleware('admin');
 //    }
 
+
+    public function landing()
+    {
+        $settings = Setting::all();
+
+        return view('admin.home.landing',compact('settings'));
+    }
+
     public function index()
     {
         //

@@ -46,6 +46,7 @@ Route::group(['middleware'=>'admin'],function ()
 //    ]]);
 
     Route::get('admin-dashboard','AdminHomeController@index')->name('admin.dashboard.index');
+    Route::get('landing-admin-page','AdminHomeController@landing')->name('admin.landing');
 
 //Students
     Route::get('admin/student/enlistment','AdminStudentController@enlistment')->name('admin.student.enlistment');

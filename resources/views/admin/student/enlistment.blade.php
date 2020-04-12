@@ -100,7 +100,7 @@
             <td>{{$student->firstName ." ".$student->middleName ." " .$student->lastName}}</td>
             <td>{{$student->level->name}}</td>
             <td>{{$student->age}}</td>
-            <td>{{$student->strand}}</td>
+            <td>{{$student->strands->name}}</td>
             <td>{{$student->parentCpNo}}</td>
 
                     </tr>
