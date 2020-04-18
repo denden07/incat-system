@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Grade;
 use App\Schedule;
+use App\Section;
+use App\Setting;
+use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
 
@@ -95,6 +98,22 @@ class TeacherSubjectController extends Controller
         $count = count($request->input('first'));
 
 
+        $subject_id = Schedule::find($schedule)->subject_id;
+
+        $sem  = Setting::where('status','active')->first();
+
+        $semester = null;
+
+        if ($sem->firstS == "active") {
+            $semester = "1st";
+        } elseif ($sem->secondS)
+        {
+            $semester = "2nd";
+        }
+
+
+        $sy = null;
+
         $id = auth()->user();
         $id = $id->teacher_id;
 
@@ -102,6 +121,19 @@ class TeacherSubjectController extends Controller
 
         for ($i = 0; $i <= $count; $i++) {
             if (empty($input['first'][$i]) || !is_numeric($input['first'][$i])) continue;
+
+            $student = $input['student_id'][$i];
+
+            $studentYear = Student::find($student);
+
+            if ($studentYear->gradeLevel == 1)
+            {
+                $sy = "1st";
+            }elseif ($studentYear->gradeLevel == 2)
+            {
+                $sy = "2nd";
+            }
+
             $data = [
                 'first' => $input['first'][$i],
                 'second' => $input['second'][$i],
@@ -111,9 +143,9 @@ class TeacherSubjectController extends Controller
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i],
                 'teacher_id' =>$teacher,
-                'year'=>'2020-2021',
-                'semester'=>'1st',
-                'sy'=>'1st',
+                'year'=>$sem->sy,
+                'semester'=>$semester,
+                'sy'=>$sy,
             ];
             Grade::create($data);
 
@@ -128,6 +160,23 @@ class TeacherSubjectController extends Controller
 
     public function updateGradeStudentShow(Request $request, $schedule_id)
     {
+        $subject_id = Schedule::find($schedule_id)->subject_id;
+
+        $sem  = Setting::where('status','active')->first();
+
+        $semester = null;
+
+        if ($sem->firstS == "active") {
+            $semester = "1st";
+        } elseif ($sem->secondS)
+        {
+            $semester = "2nd";
+        }
+
+
+        $sy = null;
+
+
         $input = $request->all();
         $count = count($request->input('first'));
 
@@ -135,7 +184,19 @@ class TeacherSubjectController extends Controller
         for ($i = 0; $i <= $count; $i++) {
             if (empty($input['first'][$i]) || !is_numeric($input['first'][$i])) continue;
             $student = $input['student_id'][$i];
-            Grade::where('subject_id',$schedule_id)->where('student_id',$student)->update(  [
+
+            $studentYear = Student::find($student);
+
+            if ($studentYear->gradeLevel == 1)
+            {
+                    $sy = "1st";
+            }elseif ($studentYear->gradeLevel == 2)
+            {
+                $sy = "2nd";
+            }
+
+
+            Grade::where('subject_id',$subject_id)->where('student_id',$student)->update(  [
                 'first' => $input['first'][$i],
                 'second' => $input['second'][$i],
                 'third' => $input['third'][$i],
@@ -143,6 +204,9 @@ class TeacherSubjectController extends Controller
                 'final' =>($input['first'][$i] + $input['second'][$i] + $input['third'][$i] + $input['fourth'][$i])/4,
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i],
+                'semester' => $semester,
+                'sy'=> $sy,
+                'year' => $sem->sy,
 
             ]);
 
