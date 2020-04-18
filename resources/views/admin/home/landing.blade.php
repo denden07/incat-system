@@ -11,69 +11,7 @@
         background:#2e8b57;
     }
 
-        .year-card-body
-        {
 
-            margin-top: 10%;
-            margin-left: auto;
-            margin-right: auto;
-            background: #1b1e24;
-            width: 400px;
-            height: 400px;
-        }
-
-    .year-card-body
-    {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-
-        border: solid 1px #6c757d;
-        transition: all ease .5s;
-    }
-
-    .year-card-body:hover
-    {
-        transform: scale(1.2);
-    }
-
-        .year-card-title
-        {
-            color: #f8fafc;
-            border-bottom: 4px solid #5a6268;
-            text-align: center;
-            font-size: 16px;
-            font-weight: 100;
-            padding: 5px;
-        }
-
-    .year-card-body table{
-        color: #f8fafc;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 5px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .year-card-body table th
-    {
-
-        font-size: 18px;
-        border: solid 1px #5a6268;
-    }
-
-    .year-card-body table td
-    {
-
-        font-size: 18px;
-    }
-
-    .year-card-body table tr:hover td
-    {
-        background: black;
-    }
 
 
 
@@ -100,13 +38,20 @@
         <tbody>
         @foreach($settings as $setting)
         <tr>
-            <td>{{$setting->sy}}</td>
+            @if($setting->firstQ == "active")
+                {{$quarter = "1st"}}
+            @elseif($setting->secondQ == "active")
+                {{$quarter ="2nd"}}
+            @elseif($setting->thirdQ == "active")
+                {{$quarter ="3rd"}}
+            @elseif($setting->fourthQ == "active")
+                {{$quarter ="3rd"}}
+            @endif
+
+            <td><a href="{{route('admin.dashboard.index',['year'=>$setting->sy,'quarter'=>$quarter])}}">{{$setting->sy}}</a></td>
+
             <td>{{$setting->status}}</td>
-        </tr>
-        <tr>
-            <td>{{$setting->sy}}</td>
-            <td>{{$setting->status}}</td>
-        </tr>
+
             @endforeach
         </tbody>
     </table>

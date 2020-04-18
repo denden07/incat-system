@@ -33,7 +33,7 @@ class AdminSubjectController extends Controller
         //
     }
 
-    public function createSubject(Request $request)
+    public function createSubject(Request $request,$year,$quarter)
     {
 
 
@@ -41,17 +41,17 @@ class AdminSubjectController extends Controller
         $strands = Strand::all();
 
 
-        return view('admin.subject.create', compact('levels', 'strands'));
+        return view('admin.subject.create', compact('levels', 'strands','year','quarter'));
     }
 
-    public function subjectList(Request $request)
+    public function subjectList(Request $request,$year,$quarter)
     {
 
 
        $subjects = Subject::all();
 
 
-        return view('admin.subject.subjectList', compact('subjects'));
+        return view('admin.subject.subjectList', compact('subjects','year','quarter'));
     }
 
 
@@ -83,18 +83,18 @@ class AdminSubjectController extends Controller
 //
 //        $subject->save();
 
-        return redirect()->route('admin.subject.add')->with('success', 'Subject(s) has been created!');
+        return back()->with('success', 'Subject(s) has been created!');
     }
 
 
-    public function subjectSchedule()
+    public function subjectSchedule($year,$quarter)
     {
 
         $subjects = Subject::all();
         $teachers = Teacher::all()->where('status', 'active');
         $sections = Section::all()->where('status', 'active');
 
-        return view('admin.subject.subjectSchedule', compact('subjects', 'teachers', 'sections'));
+        return view('admin.subject.subjectSchedule', compact('subjects', 'teachers', 'sections','quarter','year'));
     }
 
 //
@@ -139,11 +139,11 @@ class AdminSubjectController extends Controller
 
     }
 
-    public function subjectScheduleList()
+    public function subjectScheduleList($year,$quarter)
     {
         $schedules = Schedule::all();
 
-        return view('admin.subject.subjectScheduleList',compact('schedules'));
+        return view('admin.subject.subjectScheduleList',compact('schedules','year','quarter'));
     }
 
     public function subjectUpdate(Request $request){

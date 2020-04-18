@@ -16,12 +16,12 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('sy')->nullable();
-            $table->string('1stq')->nullable();
-            $table->string('2ndq')->nullable();
-            $table->string('3rdq')->nullable();
-            $table->string('4thq')->nullable();
-            $table->string('1sts')->nullable();
-            $table->string('2nds')->nullable();
+            $table->string('firstQ')->nullable();
+            $table->string('secondQ')->nullable();
+            $table->string('thirdQ')->nullable();
+            $table->string('fourthQ')->nullable();
+            $table->string('firstS')->nullable();
+            $table->string('secondS')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

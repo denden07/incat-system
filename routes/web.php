@@ -45,19 +45,20 @@ Route::group(['middleware'=>'admin'],function ()
 //
 //    ]]);
 
-    Route::get('admin-dashboard','AdminHomeController@index')->name('admin.dashboard.index');
+
     Route::get('landing-admin-page','AdminHomeController@landing')->name('admin.landing');
+    Route::get('admin-dashboard/{year}/{quarter}','AdminHomeController@index')->name('admin.dashboard.index');
 
 //Students
-    Route::get('admin/student/enlistment','AdminStudentController@enlistment')->name('admin.student.enlistment');
-    Route::get('admin/student/enrolled/list','AdminStudentController@studentList')->name('admin.student.list');
-    Route::get('admin/student/show-details/{student_id}','AdminStudentController@studentShow')->name('admin.student.show-details');
+    Route::get('admin/student/enlistment/{year}/{quarter}','AdminStudentController@enlistment')->name('admin.student.enlistment');
+    Route::get('admin/student/enrolled/list/{year}/{quarter}','AdminStudentController@studentList')->name('admin.student.list');
+    Route::get('admin/student/show-details/{student_id}/{year}/{quarter}','AdminStudentController@studentShow')->name('admin.student.show-details');
 
     Route::get('admin/student/enrollment-form/{student_id}/docx','AdminStudentController@enrollmentFormDocs')->name('admin.student.form.docx');
 
-    Route::get('admin/student/show-grade/{student_id}','AdminStudentController@studentShowGrade')->name('admin.student.show.grade');
+    Route::get('admin/student/show-grade/{student_id}/{year}/{quarter}','AdminStudentController@studentShowGrade')->name('admin.student.show.grade');
     Route::get('admin/student/print-grade/{student_id}/{sem}/{sy}','AdminStudentController@studentPrintGrade')->name('admin.student.print.grade');
-    Route::get('admin/student/credit-grade/{student_id}','AdminStudentController@creditGrade')->name('admin.student.credit.grade');
+    Route::get('admin/student/credit-grade/{student_id}/{year}/{quarter}','AdminStudentController@creditGrade')->name('admin.student.credit.grade');
     Route::post('admin/student/credit-grade/{student_id}/save','AdminStudentController@creditGradeSave')->name('admin.student.credit.grade.save');
 
 
@@ -73,30 +74,30 @@ Route::group(['middleware'=>'admin'],function ()
 
 
 //Teachers
-    Route::get('admin/teacher/add','AdminTeacherController@addTeacher')->name('admin.teacher.add');
+    Route::get('admin/teacher/add/{year}/{quarter}','AdminTeacherController@addTeacher')->name('admin.teacher.add');
     Route::post('admin/teacher/store','AdminTeacherController@storeTeacher')->name('admin.teacher.store');
-    Route::get('admin/teacher/teacher-list','AdminTeacherController@teacherList')->name('admin.teacher.list');
+    Route::get('admin/teacher/teacher-list/{year}/{quarter}','AdminTeacherController@teacherList')->name('admin.teacher.list');
     Route::post('admin/teacher/action','AdminTeacherController@teacherAction')->name('admin.teacher.action');
 
 
 
 //Section
-    Route::get('admin/section/create','AdminSectionController@createSection')->name('admin.section.add');
+    Route::get('admin/section/create/{year}/{section}','AdminSectionController@createSection')->name('admin.section.add');
     Route::post('admin/section/save','AdminSectionController@storeSection')->name('admin.section.save');
-    Route::get('admin/section/list','AdminSectionController@sectionList')->name('admin.section.list');
-    Route::get('admin/section/show/{section_id}/{grade_id}/{strand_id}','AdminSectionController@sectionShow')->name('admin.section.show');
+    Route::get('admin/section/list{year}/{quarter}','AdminSectionController@sectionList')->name('admin.section.list');
+    Route::get('admin/section/show/{section_id}/{grade_id}/{strand_id}/{year}/{quarter}','AdminSectionController@sectionShow')->name('admin.section.show');
     Route::patch('admin/section/add-students/{section_id}','AdminSectionController@addStudentToSection')->name('admin.section.add-student');
     Route::get('admin/section/print/{section_id}/{grade_id}/{strand_id}','AdminSectionController@sectionPrint')->name('admin.section.print');
 
 
 //Subject
-    Route::get('admin/subject/create', 'AdminSubjectController@createSubject')->name('admin.subject.add');
-    Route::get('admin/subject/list', 'AdminSubjectController@subjectList')->name('admin.subject.list');
+    Route::get('admin/subject/create/{year}/{section}', 'AdminSubjectController@createSubject')->name('admin.subject.add');
+    Route::get('admin/subject/list/{year}/{quarter}', 'AdminSubjectController@subjectList')->name('admin.subject.list');
     Route::post('admin/subject/save', 'AdminSubjectController@storeSubject')->name('admin.subject.save');
-    Route::get('admin/subject/create/schedule', 'AdminSubjectController@subjectSchedule')->name('admin.subject.schedule.create');
+    Route::get('admin/subject/create/schedule/{year}/{quarter}', 'AdminSubjectController@subjectSchedule')->name('admin.subject.schedule.create');
 
     Route::post('admin/subject/save/schedule', 'AdminSubjectController@saveSubjectSchedule')->name('admin.subject.schedule.save');
-    Route::get('admin/subject/create/schedule/list', 'AdminSubjectController@subjectScheduleList')->name('admin.subject.schedule.list');
+    Route::get('admin/subject/schedule/list/{year}/{quarter}', 'AdminSubjectController@subjectScheduleList')->name('admin.subject.schedule.list');
 //Route::get('admin/subject/fetch/create/schedule', 'AdminSubjectController@fetch')->name('admin.subject.fetch');
     Route::post('admin/subject/schedule/action','AdminSubjectController@subjectUpdate')->name('admin.subject.schedule.action');
 

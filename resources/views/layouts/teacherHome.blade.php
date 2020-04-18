@@ -43,7 +43,7 @@
 
         <ul class="list-unstyled components">
             <li class="@yield('dashboard-status')">
-                <a href="{{route('admin.dashboard.index')}}">
+                <a href="{{route('admin.dashboard.index',['year'=>$year,'quarter'=>$quarter])}}">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
@@ -56,13 +56,13 @@
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li class="@yield('student-list-status')">
-                        <a href="{{route('admin.student.list')}}">All Students</a>
+                        <a href="{{route('admin.student.list',['year'=>$year,'quarter'=>$quarter])}}">All Students</a>
                     </li>
                     <li>
                         <a href="#">Enroll Student</a>
                     </li>
                     <li class="@yield('student-status-enlistment')">
-                        <a href="{{route('admin.student.enlistment')}}">Enlistment</a>
+                        <a href="{{route('admin.student.enlistment',['year'=>$year,'quarter'=>$quarter])}}">Enlistment</a>
                     </li>
 
 
@@ -80,11 +80,11 @@
                 </a>
                 <ul class="collapse list-unstyled" id="teacherSubmenu">
                     <li class="@yield('teacher-list-status')">
-                        <a href="{{route('admin.teacher.list')}}">All Teacher</a>
+                        <a href="{{route('admin.teacher.list',['year'=>$year,'quarter'=>$quarter])}}">All Teacher</a>
                     </li>
 
                     <li class="@yield('teacher-add-status')">
-                        <a href="{{route('admin.teacher.add')}}">Add Teacher</a>
+                        <a href="{{route('admin.teacher.add',['year'=>$year,'quarter'=>$quarter])}}">Add Teacher</a>
                     </li>
                 </ul>
             </li>
@@ -97,24 +97,24 @@
                 </a>
                 <ul class="collapse list-unstyled" id="sectionSubmenu">
                     <li class="@yield('section-list-status')">
-                        <a href="{{route('admin.section.list')}}">All Sections</a>
+                        <a href="{{route('admin.section.list',['year'=>$year,'quarter'=>$quarter])}}">All Sections</a>
                     </li>
 
                     <li class="@yield('subject-list-status')">
-                        <a href="{{route('admin.subject.list')}}">All Subjects</a>
+                        <a href="{{route('admin.subject.list',['year'=>$year,'quarter'=>$quarter])}}">All Subjects</a>
                     </li>
                     <li class="@yield('subject-schedules-list-status')">
-                        <a href="{{route('admin.subject.schedule.list')}}">Subject Schedules</a>
+                        <a href="{{route('admin.subject.schedule.list',['year'=>$year,'quarter'=>$quarter])}}">Subject Schedules</a>
                     </li>
 
                     <li class="@yield('section-add-status')">
-                        <a href="{{route('admin.section.add')}}">Add Section</a>
+                        <a href="{{route('admin.section.add',['year'=>$year,'quarter'=>$quarter])}}">Add Section</a>
                     </li>
                     <li class="@yield('subject-add-status')">
-                        <a href="{{route('admin.subject.add')}}">Add Subject</a>
+                        <a href="{{route('admin.subject.add',['year'=>$year,'quarter'=>$quarter])}}">Add Subject</a>
                     </li>
                     <li class="@yield('subject-schedules-add-status')">
-                        <a href="{{route('admin.subject.schedule.create')}}">Create Subject Schedules</a>
+                        <a href="{{route('admin.subject.schedule.create',['year'=>$year,'quarter'=>$quarter])}}">Create Subject Schedules</a>
                     </li>
                 </ul>
             </li>

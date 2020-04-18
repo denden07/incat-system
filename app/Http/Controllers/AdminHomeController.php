@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Section;
 use App\Setting;
+use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class AdminHomeController extends Controller
@@ -23,15 +26,22 @@ class AdminHomeController extends Controller
     {
         $settings = Setting::all();
 
+
+
         return view('admin.home.landing',compact('settings'));
     }
 
-    public function index()
+    public function index($year,$quarter)
     {
         //
 
+        $setting = Setting::where('sy',$year)->first();
+        $students =Student::where('status','enrolled')->get();
+        $teachers = Teacher::where('status','active')->get();
+        $sections = Section::where('year',$year)->get();
 
-        return view('admin.home.index');
+
+        return view('admin.home.index',compact('year','setting','quarter','students','teachers','sections'));
     }
 
     /**

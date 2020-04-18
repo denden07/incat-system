@@ -34,14 +34,14 @@ class AdminSectionController extends Controller
 
 
 
-    public function createSection()
+    public function createSection($year,$quarter)
     {
 
         $teachers = Teacher::all();
         $levels = Level::all();
         $strands = Strand::all();
 
-        return view('admin.sections.create',compact('teachers','levels','strands'));
+        return view('admin.sections.create',compact('teachers','levels','strands','year','quarter'));
     }
 
     public function storeSection(Request $request)
@@ -75,16 +75,16 @@ class AdminSectionController extends Controller
         return redirect()-> route('admin.section.add')->with('success','Section(s) has been created');
     }
 
-    public function sectionList()
+    public function sectionList($year,$quarter)
     {
 
         $sections = Section::all();
 
 
-        return view('admin.sections.sectionList',compact('sections'));
+        return view('admin.sections.sectionList',compact('sections','year','quarter'));
     }
 
-    public function sectionShow($section_id,$grade_id,$strand_id)
+    public function sectionShow($section_id,$grade_id,$strand_id,$year,$quarter)
     {
 
         $section = Section::find($section_id);
@@ -92,7 +92,7 @@ class AdminSectionController extends Controller
         $students = Student::all()->where('gradeLevel',$grade_id)->where('strand',$strand_id)->where('status','enrolled')->pluck('name','id');
 
 
-        return view('admin.sections.sectionShow',compact('section','students'));
+        return view('admin.sections.sectionShow',compact('section','students','year','quarter'));
     }
 
     public function sectionPrint($section_id,$grade_id,$strand_id)

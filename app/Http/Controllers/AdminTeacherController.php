@@ -33,21 +33,21 @@ class AdminTeacherController extends Controller
     }
 
 
-    public function teacherList()
+    public function teacherList($year,$quarter)
     {
 
 
         $teachers = Teacher::all();
 
-        return view('admin.teacher.teacherList',compact('teachers'));
+        return view('admin.teacher.teacherList',compact('teachers','year','quarter'));
     }
 
 
-    public function addTeacher()
+    public function addTeacher($year,$quarter)
     {
 
 
-        return view('admin.teacher.create');
+        return view('admin.teacher.create',compact('year','quarter'));
     }
 
 
@@ -91,7 +91,7 @@ class AdminTeacherController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        return redirect()->route('admin.teacher.add')->with('success','Teacher has been added successfully');
+        return back()->with('success','Teacher has been added successfully');
 
 
     }

@@ -1,5 +1,4 @@
-@extends('layouts.teacherHome')
-
+@extends('layouts.teacherHome',['year'=>$year,'quarter'=>$quarter])
 @section('section-status')
 
     active
@@ -50,7 +49,7 @@
                 <tr>
                     <td><input type="checkbox" name="checkboxTeacher[]" value="{{$section->id}}"></td>
                     <td>{{$section->id}}</td>
-                    <td style="font-weight: bold"><a href="{{route('admin.section.show',['section_id'=>$section->id,'grade_id'=>$section->level->id,'strand_id'=>$section->strand->id])}}">{{$section->name}}</a></td>
+                    <td style="font-weight: bold"><a href="{{route('admin.section.show',['section_id'=>$section->id,'grade_id'=>$section->level->id,'strand_id'=>$section->strand->id,'year'=>$year,'quarter'=>$quarter])}}">{{$section->name}}</a></td>
                     <td>{{$section->adviser->name}}</td>
                     <td>{{$section->level->name}}</td>
                     <td>{{$section->strand->name}}</td>

@@ -1,5 +1,4 @@
-@extends('layouts.teacherHome')
-
+@extends('layouts.teacherHome',['year'=>$year,'quarter'=>$quarter])
 @section('section-status')
 
     active

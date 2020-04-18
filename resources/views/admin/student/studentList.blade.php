@@ -1,4 +1,4 @@
-@extends('layouts.teacherHome')
+@extends('layouts.teacherHome',['year'=>$year,'quarter'=>$quarter])
 
 @section('title')
     Student List | Admin
@@ -104,7 +104,7 @@
                             <tr>
                                 <td><input type="checkbox" name="checkboxEnlistment[]" value="{{$student->id}}"></td>
                                 <td>{{$student->id}}</td>
-                                <td><a href="{{route('admin.student.show-details',['student_id'=>$student->id])}}">{{$student->firstName ." ".$student->middleName ." " .$student->lastName}}</a></td>
+                                <td><a href="{{route('admin.student.show-details',['student_id'=>$student->id,'year'=>$year,'quarter'=>$quarter])}}">{{$student->firstName ." ".$student->middleName ." " .$student->lastName}}</a></td>
                                 <td>{{$student->level->name}}</td>
                                 <td>
                                     @foreach($student->section as $section)

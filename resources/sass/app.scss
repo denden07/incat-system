@@ -18,6 +18,79 @@ $fa-font-path:        "../webfonts";
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+/* ---------------------------------------------------
+Admin landing page Date
+----------------------------------------------------- */
+
+.year-card-body
+{
+
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #1b1e24;
+  width: 400px;
+  height: 400px;
+}
+
+.year-card-body
+{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  border: solid 1px #6c757d;
+  transition: all ease .5s;
+}
+
+.year-card-body:hover
+{
+  transform: scale(1.2);
+}
+
+.year-card-title
+{
+  color: #f8fafc;
+  border-bottom: 4px solid #5a6268;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 100;
+  padding: 5px;
+}
+
+.year-card-body table{
+  color: #f8fafc;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.year-card-body table th
+{
+
+  font-size: 18px;
+  border: solid 1px #5a6268;
+}
+
+.year-card-body table td
+{
+
+  font-size: 18px;
+}
+
+.year-card-body table tr:hover td
+{
+  background: #f8f9fa;
+  color: #202326;
+}
+
+/* ---------------------------------------------------
+Global
+----------------------------------------------------- */
+
 
 *{
   list-style: none;
@@ -225,6 +298,155 @@ a.article,
 a.article:hover {
   background: #6d7fcc !important;
   color: #fff !important;
+}
+
+
+/* ---------------------------------------------------
+Admin dashboard Card
+----------------------------------------------------- */
+
+.school-year-card-admin
+{
+  width: 100%;
+  background: white;
+  min-height: 100px;
+
+}
+.school-year-selected-admin
+{
+  background: white;
+  height: 100px;
+  margin-left: 80px;
+}
+.items
+{
+  margin: 30px 0;
+}
+.school-year-selected-admin-calendar span i
+{
+  font-size: 70px;
+
+}
+.school-year-selected-admin-calendar .calendar-icon
+{
+  margin: 10px;
+}
+.school-year-selected-admin-calendar .calendar-status
+{
+  margin: auto 0;
+  font-size: 18px;
+  margin-left: -30px;
+}
+.school-year-selected-admin-calendar .calendar-status-year
+{
+  font-weight: bold;
+}
+
+
+.school-year-card-admin .quarter-selector-card
+{
+  float: right;
+  margin-top: -65px;
+  width: 400px;
+}
+
+.school-year-card-admin .quarter-selector-card .quarter-selector-text span
+{
+  font-size: 18px;
+}
+
+.school-year-card-admin .quarter-selector-card .quarter-selector select
+{
+  width: 50%;
+  text-align: center;
+  margin-left: -40px;
+margin-top: 5px;
+}
+
+.total-student-count-admin
+{
+
+  min-height: 100px;
+}
+
+.total-student-count-admin-card
+{
+
+
+  background: white;
+
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+}
+
+.total-student-count-admin-card .student-count-admin i
+{
+
+  font-size: 70px;
+  margin-left: 20px;
+}
+.total-student-count-admin-card-counter
+{
+  margin-left: 100px;
+  margin-top: -70px;
+}
+.total-student-count-admin-total
+{
+  font-weight: bolder;
+}
+.total-student-count-admin-card span
+{
+  font-size: 16px;
+}
+
+.total-teacher-count-admin
+{
+  float: right;
+  display: inline;
+  background: white;
+  width: 300px;
+  height: 100px;
+  margin-top: -100px;
+  margin-right: 36%;
+}
+
+.teacher-count-admin
+{
+  font-size: 70px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.total-teacher-count-admin-card-counter
+{
+  font-size: 16px;
+  margin-left: 120px;
+  margin-top: -90px;
+}
+
+.total-section-count-admin
+{
+  float: right;
+  background: white;
+  width: 300px;
+  height: 100px;
+  margin-top: -100px;
+
+}
+
+.total-section-count-admin-card span i
+{
+  font-size: 70px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.total-section-count-admin-card-counter
+{
+  margin-left: 130px;
+  margin-top: -50px;
+  font-size: 16px;
 }
 
 ///* ---------------------------------------------------

@@ -1,4 +1,5 @@
-@extends('layouts.teacherHome')
+@extends('layouts.teacherHome',['year'=>$year,'quarter'=>$quarter])
+
 
 @section('title')
     Student List | Admin
@@ -21,7 +22,7 @@
             <div class="col-lg-12">
 
 
-                <a href="{{route('admin.student.list')}}"><p class="student-info-back" ><i class="fas fa-arrow-circle-left"></i>Student List</p></a>
+                <a href="{{route('admin.student.list',['year'=>$year,'quarter'=>$quarter])}}"><p class="student-info-back" ><i class="fas fa-arrow-circle-left"></i>Student List</p></a>
             </div>
         </div>
 
@@ -42,12 +43,12 @@
                 <span style="display: block;text-align: center">Edit</span>
             </div>
             <div class="student-info-show-delete col-1">
-                <span ><a href="{{route('admin.student.show.grade',['student_id'=>$student->id])}}"><i class="fas fa-file-alt"></i></a></span>
+                <span ><a href="{{route('admin.student.show.grade',['student_id'=>$student->id,'year'=>$year,'quarter'=>$quarter])}}"><i class="fas fa-file-alt"></i></a></span>
                 <span style="display: block;text-align: center">Grade</span>
             </div>
 
             <div class="student-info-show-delete col-1">
-                <span ><a href="{{route('admin.student.credit.grade',['student_id'=>$student->lrnNo])}}"><i class="fas fa-file-alt"></i></a></span>
+                <span ><a href="{{route('admin.student.credit.grade',['student_id'=>$student->lrnNo,'year'=>$year,'quarter'=>$quarter])}}"><i class="fas fa-file-alt"></i></a></span>
                 <span style="display: block;text-align: center">Credit Course</span>
             </div>
 

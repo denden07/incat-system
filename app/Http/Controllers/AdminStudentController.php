@@ -21,14 +21,14 @@ class AdminStudentController extends Controller
     }
 
 
-    public function enlistment()
+    public function enlistment($year,$quarter)
     {
 
         $students = Student::all()->where('status', 'enlisted');
         $gradeLevel = Level::all();
         $levels = $gradeLevel->sortBy('name')->pluck('name')->unique();
 
-        return view('admin.student.enlistment', compact('students', 'levels'));
+        return view('admin.student.enlistment', compact('students', 'levels','year','quarter'));
     }
 
 
@@ -61,20 +61,21 @@ class AdminStudentController extends Controller
     }
 
 
-    public function studentList()
+    public function studentList($year,$quarter)
     {
         $student = Student::find(25);
         $students = Student::all()->where('status', 'enrolled');
         $gradeLevel = Level::all();
         $levels = $gradeLevel->sortBy('name')->pluck('name')->unique();
-        return view('admin.student.studentList', compact('students', 'levels', 'student'));
+        return view('admin.student.studentList', compact('students', 'levels', 'student','year','quarter'));
     }
 
-    public function studentShow($student_id)
+    public function studentShow($student_id,$year,$quarter)
     {
+
         $student = Student::where('id', $student_id)->where('status', 'enrolled')->first();
 
-        return view('admin.student.studentShow', compact('student'));
+        return view('admin.student.studentShow', compact('student','year','quarter'));
     }
 
 
@@ -102,7 +103,7 @@ class AdminStudentController extends Controller
         return view('admin.student.enlistmentForm', compact('student'));
     }
 
-    public function studentShowGrade($student_id)
+    public function studentShowGrade($student_id,$year,$quarter)
     {
         $student = Student::find($student_id);
         $studentLrn = Student::find($student_id)->lrnNo;
@@ -113,7 +114,7 @@ class AdminStudentController extends Controller
         $grades4 = Grade::where('student_id', $student_id)->where('semester', '2nd')->where('sy', '2nd')->get();
 
 
-        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student', 'student_id', 'studentLrn'));
+        return view('admin.student.studentGrade', compact('grades1', 'grades2', 'grades3', 'grades4', 'student', 'student_id', 'studentLrn','year','quarter'));
     }
 
     public function studentPrintGrade($student_id, $sem, $sy)
@@ -127,7 +128,7 @@ class AdminStudentController extends Controller
         return view('admin.student.studentPrintGrade', compact('student', 'grades', 'sem', 'gradeYear'));
     }
 
-    public function creditGrade($student_id)
+    public function creditGrade($student_id,$year,$quarter)
     {
 
         $subjects = Subject::all();
@@ -135,7 +136,7 @@ class AdminStudentController extends Controller
 
 
 
-        return view('admin.student.creditCourse',compact('subjects','studentId'));
+        return view('admin.student.creditCourse',compact('subjects','studentId','year','quarter'));
     }
 
     public function creditGradeSave(Request $request,$student_id)
