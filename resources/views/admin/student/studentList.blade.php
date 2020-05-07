@@ -31,7 +31,7 @@
         <h3 class="enlistment-list-banner">Student List</h3>
 
         <div class="row table-inner-design">
-            <form action="{{route('admin.student.enlistment.bulkdelete')}}" method="post">
+            <form action="{{route('admin.student.bulk-promote')}}" method="post">
                 @csrf
                 @include('layouts._message')
                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
@@ -64,7 +64,7 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Enroll Students</h5>
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Promote Students</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

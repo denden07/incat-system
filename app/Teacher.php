@@ -17,4 +17,9 @@ class Teacher extends Model
     public function getNameAttribute(){
         return $this->firstName . " " .$this->middleName . " " .$this->lastName . " " . $this->extensionName;
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\User','teacher_id');
+    }
 }

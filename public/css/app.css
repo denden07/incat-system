@@ -17109,7 +17109,7 @@ Admin dashboard Card
 .school-year-card-admin .quarter-selector-card {
   float: right;
   margin-top: -65px;
-  width: 400px;
+  width: 600px;
 }
 
 .school-year-card-admin .quarter-selector-card .quarter-selector-text span {
@@ -17117,7 +17117,7 @@ Admin dashboard Card
 }
 
 .school-year-card-admin .quarter-selector-card .quarter-selector select {
-  width: 50%;
+  width: 70%;
   text-align: center;
   margin-left: -40px;
   margin-top: 5px;
@@ -17678,6 +17678,14 @@ Admin dashboard Card
 
 .action-buttons span i:hover {
   transform: scale(1.9);
+}
+
+/* ---------------------------------------------------
+ Student info-student-show
+----------------------------------------------------- */
+
+.student-edit-form {
+  background: white;
 }
 
 /* ---------------------------------------------------

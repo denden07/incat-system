@@ -51,6 +51,51 @@ class AdminTeacherController extends Controller
     }
 
 
+    public function editTeacher($teahcer_id,$year,$quarter)
+    {
+        $teacher = Teacher::findOrFail($teahcer_id);
+        $user = User::where('teacher_id',$teahcer_id)->first();
+
+        return view('admin.teacher.edit',compact('year','quarter','teacher','user'));
+    }
+
+    public function updateTeacher($teahcer_id, Request $request)
+    {
+        $teacher = Teacher::findOrFail($teahcer_id);
+
+        if ($request->input('user.password') == '' ){
+            $input = $request->except('user.password');
+        } else {
+            $input = $request->all();
+            $input['user.password'] = bcrypt($request->input('user.password'));
+        }
+
+//        $input = $request->all();
+//
+//
+        $teacher->update($input);
+
+        $user = User::where('teacher_id',$teahcer_id)->first();
+
+        if($request->input('user.password') == '')
+        {
+            $user->update(['name' => $request->input('user.name'),
+                            'email'=>$request->input('user.email'),
+
+            ] );
+        }else{
+            $user->update(['name' => $request->input('user.name'),
+                'password'=>$input['user.password'],
+                'email'=>$request->input('user.email'),
+            ] );
+        }
+
+
+
+
+//
+        return back()->with('success','Teacher successfully updated');
+    }
     public function storeTeacher(CreateTeacherRequest $request)
     {
 

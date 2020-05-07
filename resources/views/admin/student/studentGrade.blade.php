@@ -29,7 +29,10 @@
         <select onchange="location = this.value;" name="" id="">
             <option value="">All</option>
             <option value="{{route('admin.student.print.grade',['student_id'=>$studentLrn,'sem'=>'1st','sy'=>'1st'])}}">Grade 11 | 1st Sem</option>
-            {{--<option value="{{route('teacher.mysection.show.students.filter',['year'=>$year,'sem'=>'2nd','studentLrn'=>$student->lrnNo])}}">Second</option>--}}
+            <option value="{{route('admin.student.print.grade',['student_id'=>$studentLrn,'sem'=>'2nd','sy'=>'1st'])}}">Grade 11 | 2nd Sem</option>
+            <option value="{{route('admin.student.print.grade',['student_id'=>$studentLrn,'sem'=>'1st','sy'=>'2nd'])}}">Grade 12 | 1st Sem</option>
+            <option value="{{route('admin.student.print.grade',['student_id'=>$studentLrn,'sem'=>'1st','sy'=>'2nd'])}}">Grade 12 | 2nd Sem</option>
+
         </select>
     </div>
 

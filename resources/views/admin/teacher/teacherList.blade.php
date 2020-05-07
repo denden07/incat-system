@@ -96,7 +96,7 @@
         <tr>
             <td><input type="checkbox" name="checkboxTeacher[]" value="{{$teacher->id}}"></td>
             <td>{{$teacher->id}}</td>
-            <td>{{$teacher->name}}</td>
+            <td><a href="{{route('admin.teacher.edit',['teacher_id'=>$teacher->id,'year'=>$year,'quarter'=>$quarter])}}">{{$teacher->name}}</a></td>
             <td>{{$teacher->course}}</td>
             <td>{{$teacher->expertise}}</td>
             <td>{{$teacher->contactNo}}</td>

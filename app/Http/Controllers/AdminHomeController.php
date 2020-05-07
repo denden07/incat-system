@@ -44,6 +44,149 @@ class AdminHomeController extends Controller
         return view('admin.home.index',compact('year','setting','quarter','students','teachers','sections'));
     }
 
+    public function changeQuarter1($year)
+    {
+        $quarter = Setting::where('sy',$year)->first();
+
+        $quarter->update([
+
+
+            'firstQ' => 'active',
+            'secondQ' => 'inactive',
+            'thirdQ'=> 'inactive',
+            'fourthQ'=> 'inactive',
+
+        ]);
+
+        $quarter = "1st";
+        return redirect()-> route('admin.dashboard.index',['year'=>$year,'quarter'=>$quarter]);
+    }
+
+    public function changeQuarter2($year)
+    {
+        $quarters = Setting::where('sy',$year)->first();
+
+
+
+        $quarters->update([
+
+
+            'firstQ' => 'inactive',
+            'secondQ' => 'active',
+            'thirdQ'=> 'inactive',
+            'fourthQ'=> 'inactive',
+
+        ]);
+
+        $quarter = "2nd";
+        return redirect()-> route('admin.dashboard.index',['year'=>$year,'quarter'=>$quarter]);
+    }
+
+    public function changeQuarter3($year)
+    {
+        $quarter = Setting::where('sy',$year)->first();
+
+        $quarter->update([
+
+
+            'firstQ' => 'inactive',
+            'secondQ' => 'inactive',
+            'thirdQ'=> 'active',
+            'fourthQ'=> 'inactive',
+
+        ]);
+
+        $quarter = "3rd";
+        return redirect()-> route('admin.dashboard.index',['year'=>$year,'quarter'=>$quarter]);
+    }
+
+    public function changeQuarter4($year)
+    {
+        $quarter = Setting::where('sy',$year)->first();
+
+        $quarter->update([
+
+
+            'firstQ' => 'inactive',
+            'secondQ' => 'inactive',
+            'thirdQ'=> 'inactive',
+            'fourthQ'=> 'active',
+
+        ]);
+
+        $quarter = "4th";
+        return redirect()-> route('admin.dashboard.index',['year'=>$year,'quarter'=>$quarter]);
+
+    }
+
+
+
+    public function changeSem1($year)
+    {
+        $quarter = Setting::where('sy',$year)->first();
+
+        $quarter->update([
+
+
+            'firstS'=>'active',
+            'secondS'=>'inactive',
+        ]);
+
+
+        return back();
+    }
+
+
+    public function changeSem2($year)
+    {
+        $quarter = Setting::where('sy',$year)->first();
+
+        $quarter->update([
+
+
+
+            'firstS'=>'inactive',
+            'secondS'=>'active',
+        ]);
+
+
+        return back();
+    }
+
+    public function createSY(Request $request)
+    {
+        $setting = new Setting();
+        $setting->sy = $request->sy;
+        $setting->firstQ = "active";
+        $setting->secondQ = "inactive";
+        $setting->thirdQ = "inactive";
+        $setting->fourthQ= "inactive";
+        $setting->firstS = "active";
+        $setting->secondS ="inactive";
+        $setting->status ="active";
+
+        $setting->save();
+
+        return back();
+
+    }
+
+    public function changeSyStatus($id)
+    {
+        $setting = Setting::findOrFail($id);
+
+        if($setting->status == "active")
+        {
+            $setting->update(['status'=>'inactive']);
+        }else
+        {
+            $setting->update(['status'=>'active']);
+        }
+
+        return back();
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

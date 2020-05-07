@@ -25,9 +25,18 @@
                     <li><a href="#">
                             <i class="fas fa-bell"></i>
                         </a></li>
-                    <li><a href="#">
-                            <i class="fas fa-user"></i>
-                        </a></li>
+                    <div class="teacher-drop-down">
+                        <li><button>
+                                <i class="fas fa-user"></i>
+                            </button>
+
+                        </li>
+                        <div class="teacher-drop-down-content">
+                            <a href="#">Edit Profile</a>
+                            <a href="{{route('logout')}}">Logout</a>
+
+                        </div>
+                    </div>
                 </ul>
             </div>
 

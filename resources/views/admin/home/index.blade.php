@@ -17,42 +17,56 @@
 
                 <div class="quarter-selector-card row">
 
-                    <div class="quarter-selector-text col-5">
+                    <div class="quarter-selector-text col-4">
                         <span>Quarter Selector:</span>
                     </div>
                     <div class="quarter-selector col">
-                        <select name="" id="">
+                        <select  onchange="location = this.value;" name="" id="">
                             @if($quarter == "1st")
                                 <option value="" selected>1st</option>
                             @else
-                                <option value="">1st</option>
+                                <option value="{{route('change.quarter-1',['year'=>$year])}}">1st</option>
                             @endif
 
                                 @if($quarter == "2nd")
                                     <option value="" selected>2nd</option>
                                 @else
-                                    <option value="">2nd</option>
+                                    <option value="{{route('change.quarter-2',['year'=>$year])}}">2nd</option>
                                 @endif
 
                                 @if($quarter == "3rd")
                                     <option value="" selected>3rd</option>
                                 @else
-                                    <option value="">3rd</option>
+                                    <option value="{{route('change.quarter-3',['year'=>$year])}}">3rd</option>
                                 @endif
 
                                 @if($quarter == "4th")
                                     <option value="" selected>4th</option>
                                 @else
-                                    <option value="">4th</option>
+                                    <option value="{{route('change.quarter-4',['year'=>$year])}}">4th</option>
                                 @endif
-
-
-
-
-
-
                         </select>
                     </div>
+                    <div class="quarter-selector-text col-4">
+                        <span>Semester Selector:</span>
+                    </div>
+                    <div class="quarter-selector col">
+                        <select  onchange="location = this.value;" name="" id="">
+                            @if($setting->firstS == "active")
+                                <option value="" selected>1st</option>
+                            @else
+                                <option value="{{route('change.sem-1',['year'=>$year])}}">1st</option>
+                            @endif
+
+
+                                @if($setting->secondS == "active")
+                                    <option value="" selected>2nd</option>
+                                @else
+                                    <option value="{{route('change.sem-2',['year'=>$year])}}">2nd</option>
+                                @endif
+                        </select>
+                    </div>
+
                 </div>
 
         </div>

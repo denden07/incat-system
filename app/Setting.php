@@ -10,7 +10,7 @@ class Setting extends Model
 
 
     protected $fillable = [
-        'sy','sem','active'
+        'sy','sem','active','firstQ','secondQ','thirdQ','fourthQ','firstS','secondS','status'
     ];
 
 

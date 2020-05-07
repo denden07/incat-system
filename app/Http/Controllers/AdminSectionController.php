@@ -72,7 +72,7 @@ class AdminSectionController extends Controller
             Section::create($data);
         }
 
-        return redirect()-> route('admin.section.add')->with('success','Section(s) has been created');
+        return back()->with('success','Section(s) has been created');
     }
 
     public function sectionList($year,$quarter)

@@ -135,7 +135,7 @@ class AdminSubjectController extends Controller
 
         }
 
-        return redirect()->route('admin.subject.schedule.create')->with('success', 'Subject schedule created!');
+        return back()->with('success', 'Subject schedule created!');
 
     }
 
@@ -158,17 +158,17 @@ class AdminSubjectController extends Controller
         switch ($request->input('action')){
             case 'inactive':
                 $subjects->update(['status'=>'inactive']);
-                return redirect()->route('admin.subject.schedule.list')->with('fail',"Subject/s is inactive");
+                return back()->with('fail',"Subject/s is inactive");
                 break;
 
             case  'active':
                 $subjects->update(['status'=>'active']);
-                return redirect()->route('admin.subject.schedule.list')->with('success',"Subject/s is active");
+                return  back()->with('success',"Subject/s is active");
                 break;
 
             case 'delete':
                 $subjects->delete();
-                return redirect()->route('admin.subject.schedule.list')->with('fail',"Subject/s has been deleted");
+                return back()->with('fail',"Subject/s has been deleted");
                 break;
         }
     }

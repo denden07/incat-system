@@ -189,8 +189,8 @@
                     <label for="">Sex:</label>
                     <select  class="{{$errors->has('sex')?'is-invalid' : ""}}" name="sex" id="sexValue">
                         <option value="" selected disabled hidden>Choose here</option>
-                        <option value="1"  @if (old('sex') == "1") {{ 'selected' }} @endif>Male</option>
-                        <option value="2" @if (old('sex') == "2") {{ 'selected' }} @endif>Female</option>
+                        <option value="Male"  @if (old('sex') == "Male") {{ 'selected' }} @endif>Male</option>
+                        <option value="Female" @if (old('sex') == "Female") {{ 'selected' }} @endif>Female</option>
                     </select>
                     @if($errors->has('sex'))
                         <div class="invalid-feedback">
@@ -634,7 +634,7 @@
         var sex_option = $('#sexValue option:selected').val();
 
         var sex = "";
-        if (sex_option == "1") {
+        if (sex_option == "Male") {
             sex = "Male";
         } else {
             sex = "Female";

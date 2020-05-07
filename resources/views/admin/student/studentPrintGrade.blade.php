@@ -31,6 +31,11 @@
     </div>
 
 
+
+
+
+
+
     <div class="grade-slip-table">
 
         <table>
@@ -41,9 +46,13 @@
             <th>Remarks</th>
             </thead>
 
+            @if(isset($grades))
+
+
 
             <tbody>
             @foreach($grades as $grade)
+
             <tr>
             <td>{{$grade->subject->subjCode}}</td>
                 <td>{{$grade->subject->title}}</td>
@@ -54,13 +63,15 @@
                 <td>Fail</td>
                     @endif
             </tr>
+
             @endforeach
 
             </tbody>
 
 
-
-
+@else
+                "hi"
+@endif
 
 
 
@@ -75,6 +86,7 @@
 
 
     </div>
+
 
 
     <p style="padding: 20px" align="center">{{\Carbon\Carbon::now()->toDayDateTimeString()}}</p>

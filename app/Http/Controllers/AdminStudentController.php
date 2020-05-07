@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Grade;
 use App\Level;
+use App\Strand;
 use App\Student;
 use App\Subject;
 use Illuminate\Http\Request;
@@ -50,14 +51,41 @@ class AdminStudentController extends Controller
         switch ($request->input('action')) {
             case 'delete':
                 $studen->delete();
-                return redirect()->route('admin.student.enlistment')->with('fail', "Students has been deleted");
+                return back()->with('fail', "Students has been deleted");
                 break;
 
             case  'update':
                 $studen->update(['status' => 'enrolled']);
-                return redirect()->route('admin.student.enlistment')->with('success', "Students has been enrolled");
+                return back()->with('success', "Students has been enrolled");
                 break;
         }
+    }
+
+    public function bulkPromote(Request $request)
+    {
+        $students = $request->input('checkboxEnlistment');
+
+        $student = Student::whereIn('id',$students)->where('gradeLevel','1');
+
+
+        switch ($request->input('action')) {
+            case 'delete':
+                $student->delete();
+                return back()->with('fail', "Students has been deleted");
+                break;
+
+            case  'update':
+
+                    $student->update(['gradeLevel'=>'2']);
+                    return back()->with('success', "Students has been enrolled");
+
+                break;
+        }
+
+
+
+
+
     }
 
 
@@ -173,6 +201,26 @@ class AdminStudentController extends Controller
         return back()->with('success','Grade successfully credited');
     }
 
+    public function editStudent($student_id,$year,$quarter)
+    {
+        $student = Student::find($student_id);
+        $sex = ['Male','Female'];
+        $levels = Level::pluck('name','id')->all();
+        $strands = Strand::pluck('name','id')->all();
+
+        return view('admin.student.editStudent',compact('year','quarter','student','sex','levels','strands'));
+    }
+
+    public function updateStudent($student_id, Request $request)
+    {
+        $student = Student::findOrFail($student_id);
+        $input = $request->all();
+
+
+        $student->update($input);
+
+        return back()->with('success','Student successfully updated');
+    }
 
 
     /**

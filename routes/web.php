@@ -20,7 +20,7 @@
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
+Route::get('/','LoginHome@loginHome')->name('login.home');
 
 Route::resource('public-pre-enlistment','EnlistmentController')->except('create');
 
@@ -46,8 +46,12 @@ Route::group(['middleware'=>'admin'],function ()
 //    ]]);
 
 
+
     Route::get('landing-admin-page','AdminHomeController@landing')->name('admin.landing');
     Route::get('admin-dashboard/{year}/{quarter}','AdminHomeController@index')->name('admin.dashboard.index');
+    Route::post('new-school-year/save','AdminHomeController@createSY')->name('admin.newsy.save');
+
+    Route::get('change-status/sy/{id}','AdminHomeController@changeSyStatus')->name('change.sy.status');
 
 //Students
     Route::get('admin/student/enlistment/{year}/{quarter}','AdminStudentController@enlistment')->name('admin.student.enlistment');
@@ -60,6 +64,8 @@ Route::group(['middleware'=>'admin'],function ()
     Route::get('admin/student/print-grade/{student_id}/{sem}/{sy}','AdminStudentController@studentPrintGrade')->name('admin.student.print.grade');
     Route::get('admin/student/credit-grade/{student_id}/{year}/{quarter}','AdminStudentController@creditGrade')->name('admin.student.credit.grade');
     Route::post('admin/student/credit-grade/{student_id}/save','AdminStudentController@creditGradeSave')->name('admin.student.credit.grade.save');
+    Route::get('admin/student/{student_id}/edit/{year}/{quarter}','AdminStudentController@editStudent')->name('admin.student.edit');
+    Route::patch('admin/student/{student_id}/update','AdminStudentController@updateStudent')->name('admin.student.update');
 
 
 
@@ -70,7 +76,8 @@ Route::group(['middleware'=>'admin'],function ()
     Route::post('admin/students/bulk-delete','AdminStudentController@bulkDelete')->name('admin.student.enlistment.bulkdelete');
 //route for bulk update in enlistment
     Route::post('admin/students/bulk-update-enlist','AdminStudentController@updateStautsEnlistment')->name('admin.student.enlistment.bulk-update-enlist');
-
+//route for bulk promote in studentlist
+    Route::post('admin/students/bulk-promote','AdminStudentController@bulkPromote')->name('admin.student.bulk-promote');
 
 
 //Teachers
@@ -78,6 +85,8 @@ Route::group(['middleware'=>'admin'],function ()
     Route::post('admin/teacher/store','AdminTeacherController@storeTeacher')->name('admin.teacher.store');
     Route::get('admin/teacher/teacher-list/{year}/{quarter}','AdminTeacherController@teacherList')->name('admin.teacher.list');
     Route::post('admin/teacher/action','AdminTeacherController@teacherAction')->name('admin.teacher.action');
+    Route::get('admin/teacher/{teahcer_id}/edit/{year}/{quarter}','AdminTeacherController@editTeacher')->name('admin.teacher.edit');
+    Route::patch('admin/teacher/{student_id}/update','AdminTeacherController@updateTeacher')->name('admin.teacher.update');
 
 
 
@@ -101,7 +110,13 @@ Route::group(['middleware'=>'admin'],function ()
 //Route::get('admin/subject/fetch/create/schedule', 'AdminSubjectController@fetch')->name('admin.subject.fetch');
     Route::post('admin/subject/schedule/action','AdminSubjectController@subjectUpdate')->name('admin.subject.schedule.action');
 
+    Route::get('change/quarter-1/{year}','AdminHomeController@changeQuarter1')->name('change.quarter-1');
+    Route::get('change/quarter-2/{year}','AdminHomeController@changeQuarter2')->name('change.quarter-2');
+    Route::get('change/quarter-3/{year}','AdminHomeController@changeQuarter3')->name('change.quarter-3');
+    Route::get('change/quarter-4/{year}','AdminHomeController@changeQuarter4')->name('change.quarter-4');
 
+    Route::get('change/sem-1/{year}','AdminHomeController@changeSem1')->name('change.sem-1');
+    Route::get('change/sem-2/{year}','AdminHomeController@changeSem2')->name('change.sem-2');
 });
 
 
