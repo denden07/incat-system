@@ -44,9 +44,9 @@
                     </th>
                     <th class="th-sm">Second
                     </th>
-                    <th class="th-sm">Third
-                    </th>
-                    <th class="th-sm">Fourth
+                    {{--<th class="th-sm">Third--}}
+                    {{--</th>--}}
+                    {{--<th class="th-sm">Fourth--}}
                     </th>
                     <th style="display: none">Hi</th>
                     <th>Final</th>
@@ -64,8 +64,8 @@
                         <td>{{$grade->student->name}}</td>
                         <td><input name="first[]" type="number" value="{{$grade->first}}"></td>
                         <td><input name="second[]" type="number"  value="{{$grade->second}}"></td>
-                        <td><input name="third[]" type="number"  value="{{$grade->third}}"></td>
-                        <td><input name="fourth[]" type="number"  value="{{$grade->fourth}}"></td>
+                        {{--<td><input name="third[]" type="number"  value="{{$grade->third}}"></td>--}}
+                        {{--<td><input name="fourth[]" type="number"  value="{{$grade->fourth}}"></td>--}}
                         <td style="display: none">  <input style="display: none" type="text" name="subject_id[]" value="{{$schedule->id}}"></td>
 
                         <td>Tba</td>

@@ -132,7 +132,7 @@
             <li>
                 <a href="#">
                     <i class="fas fa-briefcase"></i>
-                    About
+                    Users
                 </a>
             </li>
             <li>

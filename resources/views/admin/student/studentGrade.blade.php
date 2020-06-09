@@ -50,8 +50,8 @@
                 <th>Subject</th>
                 <th>First</th>
                 <th>Second</th>
-                <th>Third</th>
-                <th>Fourth</th>
+                {{--<th>Third</th>--}}
+                {{--<th>Fourth</th>--}}
                 <th>Final</th>
             </tr>
 
@@ -62,8 +62,8 @@
                     <td>{{$grade->subject->title}}</td>
                     <td>{{$grade->first}}</td>
                     <td>{{$grade->second}}</td>
-                    <td>{{$grade->third}}</td>
-                    <td>{{$grade->fourth}}</td>
+                    {{--<td>{{$grade->third}}</td>--}}
+                    {{--<td>{{$grade->fourth}}</td>--}}
                     <td>{{$grade->final}}</td>
                 </tr>
             @endforeach
@@ -80,8 +80,8 @@
             <thead>
             <tr>
                 <th>Subject</th>
-                <th>First</th>
-                <th>Second</th>
+                {{--<th>First</th>--}}
+                {{--<th>Second</th>--}}
                 <th>Third</th>
                 <th>Fourth</th>
                 <th>Final</th>
@@ -94,8 +94,8 @@
                     <td>{{$grade->subject->title}}</td>
                     <td>{{$grade->first}}</td>
                     <td>{{$grade->second}}</td>
-                    <td>{{$grade->third}}</td>
-                    <td>{{$grade->fourth}}</td>
+                    {{--<td>{{$grade->third}}</td>--}}
+                    {{--<td>{{$grade->fourth}}</td>--}}
                     <td>{{$grade->final}}</td>
                 </tr>
             @endforeach
@@ -117,8 +117,8 @@
                 <th>Subject</th>
                 <th>First</th>
                 <th>Second</th>
-                <th>Third</th>
-                <th>Fourth</th>
+                {{--<th>Third</th>--}}
+                {{--<th>Fourth</th>--}}
                 <th>Final</th>
             </tr>
 
@@ -129,8 +129,8 @@
                     <td>{{$grade->subject->title}}</td>
                     <td>{{$grade->first}}</td>
                     <td>{{$grade->second}}</td>
-                    <td>{{$grade->third}}</td>
-                    <td>{{$grade->fourth}}</td>
+                    {{--<td>{{$grade->third}}</td>--}}
+                    {{--<td>{{$grade->fourth}}</td>--}}
                     <td>{{$grade->final}}</td>
                 </tr>
             @endforeach
@@ -150,8 +150,8 @@
             <thead>
             <tr>
                 <th>Subject</th>
-                <th>First</th>
-                <th>Second</th>
+                {{--<th>First</th>--}}
+                {{--<th>Second</th>--}}
                 <th>Third</th>
                 <th>Fourth</th>
                 <th>Final</th>
@@ -164,8 +164,8 @@
                     <td>{{$grade->subject->title}}</td>
                     <td>{{$grade->first}}</td>
                     <td>{{$grade->second}}</td>
-                    <td>{{$grade->third}}</td>
-                    <td>{{$grade->fourth}}</td>
+                    {{--<td>{{$grade->third}}</td>--}}
+                    {{--<td>{{$grade->fourth}}</td>--}}
                     <td>{{$grade->final}}</td>
                 </tr>
             @endforeach

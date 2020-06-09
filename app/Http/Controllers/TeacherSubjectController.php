@@ -137,9 +137,9 @@ class TeacherSubjectController extends Controller
             $data = [
                 'first' => $input['first'][$i],
                 'second' => $input['second'][$i],
-                'third' => $input['third'][$i],
-                'fourth' => $input['fourth'][$i],
-                'final' =>($input['first'][$i] + $input['second'][$i] + $input['third'][$i] + $input['fourth'][$i])/4,
+//                'third' => $input['third'][$i],
+//                'fourth' => $input['fourth'][$i],
+                'final' =>($input['first'][$i] + $input['second'][$i])/2,
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i],
                 'teacher_id' =>$teacher,
@@ -162,19 +162,19 @@ class TeacherSubjectController extends Controller
     {
         $subject_id = Schedule::find($schedule_id)->subject_id;
 
-        $sem  = Setting::where('status','active')->first();
-
-        $semester = null;
-
-        if ($sem->firstS == "active") {
-            $semester = "1st";
-        } elseif ($sem->secondS)
-        {
-            $semester = "2nd";
-        }
-
-
-        $sy = null;
+//        $sem  = Setting::where('status','active')->first();
+//
+//        $semester = null;
+//
+//        if ($sem->firstS == "active") {
+//            $semester = "1st";
+//        } elseif ($sem->secondS)
+//        {
+//            $semester = "2nd";
+//        }
+//
+//
+//        $sy = null;
 
 
         $input = $request->all();
@@ -199,14 +199,14 @@ class TeacherSubjectController extends Controller
             Grade::where('subject_id',$subject_id)->where('student_id',$student)->update(  [
                 'first' => $input['first'][$i],
                 'second' => $input['second'][$i],
-                'third' => $input['third'][$i],
-                'fourth' => $input['fourth'][$i],
-                'final' =>($input['first'][$i] + $input['second'][$i] + $input['third'][$i] + $input['fourth'][$i])/4,
+//                'third' => $input['third'][$i],
+//                'fourth' => $input['fourth'][$i],
+                'final' =>($input['first'][$i] + $input['second'][$i])/2,
                 'student_id' => $input['student_id'][$i],
                 'subject_id'=>$input['subject_id'][$i],
-                'semester' => $semester,
-                'sy'=> $sy,
-                'year' => $sem->sy,
+//                'semester' => $semester,
+//                'sy'=> $sy,
+//                'year' => $sem->sy,
 
             ]);
 
