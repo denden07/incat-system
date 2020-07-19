@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Record;
 use App\Section;
 use App\Setting;
+use App\Strand;
 use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\New_;
 
 class AdminHomeController extends Controller
 {
@@ -40,8 +43,32 @@ class AdminHomeController extends Controller
         $teachers = Teacher::where('status','active')->get();
         $sections = Section::where('year',$year)->get();
 
+        $academics = Strand::where('sub_cat','Academic')->get();
 
-        return view('admin.home.index',compact('year','setting','quarter','students','teachers','sections'));
+        $gElevens = Student::where('gradeLevel','1')->get();
+        $gElevensM = Student::where('gradeLevel','1')->where('sex','Male')->get();
+        $gElevensF = Student::where('gradeLevel','1')->where('sex','Female')->get();
+
+        $gTwelves = Student::where('gradeLevel','2')->get();
+        $gTwelvesM = Student::where('gradeLevel','2')->where('sex','Male')->get();
+        $gTwelvesF= Student::where('gradeLevel','2')->where('sex','Female')->get();
+
+
+        return view('admin.home.index',compact('year','setting','quarter',
+            'students','teachers','sections','academics',
+            'gElevens','gElevensM','gElevensF',
+            'gTwelves','gTwelvesM','gTwelvesF'));
+    }
+
+
+    public function generateEnrolleeRecord($year)
+    {
+
+
+        $record = new Record();
+
+
+
     }
 
     public function changeQuarter1($year)

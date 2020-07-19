@@ -113,6 +113,186 @@
 
 
 
+        <div class="enrollment-data">
+             <div class="enrollment-data-banner">
+                 <h3>TOTAL NUMBER OF ENROLEES</h3>
+                 <h4>SCHOOL YEAR 2019-2020</h4>
+                 <h4>SECOND SEMESTER</h4>
+             </div>
+
+            <a href="">Generate Enrolees</a>
+
+            <div class="enrollment-data-table">
+                <table>
+                    <thead>
+                    <th>GRADE LEVEL</th>
+                    <th>MALE</th>
+                    <th>FEMALE</th>
+                    <th>TOTAL</th>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>GRADE 11</td>
+                        <td>{{$gElevensM->count()}}</td>
+                        <td>{{$gElevensF->count()}}</td>
+                        <td>{{$gElevens->count()}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>GRADE 12</td>
+                        <td>{{$gTwelvesM->count()}}</td>
+                        <td>{{$gTwelvesF->count()}}</td>
+                        <td>{{$gTwelves->count()}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>OVERALL TOTAL</td>
+                        <td>{{}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="enrollment-data-by-strand-banner">
+                <h3>NUMBER OF ENROLEES</h3>
+                <h4>SCHOOL YEAR 2019-2020</h4>
+                <h4>SECOND SEMESTER</h4>
+            </div>
+
+
+
+            <div class="enrollment-data-table">
+                <table style="width: 100%">
+                    <thead>
+                    <th>STRAND</th>
+                    <th>MALE</th>
+                    <th>FEMALE</th>
+                    <th>TOTAL</th>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Academic</td>
+                    </tr>
+
+                    <tr>
+                        <td>(ABM) Accountancy,Business And Management</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(HUMSS) Humanities and Social Studies</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(STEM) Science, Techonological, Engineering and Mathematics	</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>TECHNICAL VOCATIONAL LIVELIHOOD</td>
+                    </tr>
+
+                    <tr>
+                       <td> HOME ECONOMICS</td>
+                    </tr>
+
+                    <tr>
+                        <td>(BC) Beauty Care</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(GT) Garments Technology</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(FPS) Food Products Servicing</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(HRS) Hotel & Restaurant Servicing</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                       <td>INFORMATION AND COMMUNICATION TECHNOLOGY</td>
+                    </tr>
+
+                    <tr>
+                        <td>(CSS) Computer System Servicing</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(TDA) Technical Drafting and Animation</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> Industrial Arts</td>
+                    </tr>
+                    <tr>
+                        <td>(ATS) Automotive Servicing</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(EIM) Electrical Installation And Maintenance</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(EPAS) Electornic Products Assembly and Servicing</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>(RAC) Refrigiration and Air-conditioning Servicing</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
 
     </div>
 

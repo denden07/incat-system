@@ -18491,3 +18491,18 @@ Grade Table Section
   border-bottom: 2px solid black;
 }
 
+/* ---------------------------------------------------
+Enrollment Data
+----------------------------------------------------- */
+
+.enrollment-data {
+  margin-top: 5%;
+  width: 100%;
+  background: white;
+  text-align: center;
+}
+
+.enrollment-data-banner {
+  padding: 10px;
+}
+

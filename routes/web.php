@@ -117,6 +117,10 @@ Route::group(['middleware'=>'admin'],function ()
 
     Route::get('change/sem-1/{year}','AdminHomeController@changeSem1')->name('change.sem-1');
     Route::get('change/sem-2/{year}','AdminHomeController@changeSem2')->name('change.sem-2');
+
+
+
+    Route::get('generate/enrollee-record','AdminHomeController@generateEnrolleeRecord')->name('generate.enrollee');
 });
 
 
