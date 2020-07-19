@@ -119,9 +119,11 @@
                  <h4>SCHOOL YEAR 2019-2020</h4>
                  <h4>SECOND SEMESTER</h4>
              </div>
-
-            <a href="">Generate Enrolees</a>
-
+            @if($setting->firstS == "active")
+            <a href="{{route('generate.enrollee',['year'=>$setting->sy,'sem'=>'1st'])}}">Generate Enrolees</a>
+            @else
+                <a href="{{route('generate.enrollee',['year'=>$setting->sy,'sem'=>'2nd'])}}">Generate Enrolees</a>
+            @endif
             <div class="enrollment-data-table">
                 <table>
                     <thead>

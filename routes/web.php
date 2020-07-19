@@ -120,7 +120,7 @@ Route::group(['middleware'=>'admin'],function ()
 
 
 
-    Route::get('generate/enrollee-record','AdminHomeController@generateEnrolleeRecord')->name('generate.enrollee');
+    Route::get('generate/enrollee-record/{year}/{sem}','AdminHomeController@generateEnrolleeRecord')->name('generate.enrollee');
 });
 
 

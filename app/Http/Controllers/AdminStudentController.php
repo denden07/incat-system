@@ -65,7 +65,7 @@ class AdminStudentController extends Controller
     {
         $students = $request->input('checkboxEnlistment');
 
-        $student = Student::whereIn('id',$students)->where('gradeLevel','1');
+        $student = Student::whereIn('id',$students)->where('gradeLevel','1')->first();
 
 
         switch ($request->input('action')) {
@@ -77,6 +77,12 @@ class AdminStudentController extends Controller
             case  'update':
 
                     $student->update(['gradeLevel'=>'2']);
+
+                    if($student->semester == "1st")
+                    {
+                        $student->update(['semester'=>'2nd']);
+                    }
+
                     return back()->with('success', "Students has been enrolled");
 
                 break;

@@ -85,6 +85,7 @@ class EnlistmentController extends Controller
         $students->semester = $request->semester;
         $students->track = $request->track;
         $students->strand = $request->strand;
+        $students->sy = $request->schoolYear1 . "-" .$request->schoolYear2;
 
         $students->status = "enlisted";
 

@@ -61,11 +61,23 @@ class AdminHomeController extends Controller
     }
 
 
-    public function generateEnrolleeRecord($year)
+    public function generateEnrolleeRecord($year,$sem)
     {
 
+        $grade11 = Student::where('gradeLevel','1')->get();
+        $gElevensM = Student::where('gradeLevel','1')->where('sex','Male')->get();
+        $gElevensF = Student::where('gradeLevel','1')->where('sex','Female')->get();
 
         $record = new Record();
+
+        $record->sy = $year;
+        $record->sem = $sem;
+        $record->grade_11 = $grade11->count();
+        $record->grade_11_m = $gElevensM->count();
+        $record->grade_11_f = $gElevensF->count();
+
+        dd($record);
+
 
 
 
