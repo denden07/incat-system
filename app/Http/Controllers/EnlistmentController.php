@@ -70,7 +70,7 @@ class EnlistmentController extends Controller
         $students->psaNo = $request->psaNo;
         $students->schoolYear1 =$request->schoolYear1;
         $students->schoolYear12 =$request->schoolYear2;
-        $students ->address = $request->houseNumber . ", " . $request->street .", ". $request->barangay .", " . $request->municipality .", ". $request->province .", ". $request->country . ", ". $request->zip;
+        $students ->address = $request->houseNumber . ", " . $request->street .", ". $request->sitio.", ". $request->barangay .", " . $request->municipality .", ". $request->province .", ". $request->country . ", ". $request->zip;
         $students-> fatherName	= $request->fatherName;
         $students-> motherName	= $request->motherName;
         $students->guardianName	 = $request->guardianName;
@@ -85,6 +85,7 @@ class EnlistmentController extends Controller
         $students->semester = $request->semester;
         $students->track = $request->track;
         $students->strand = $request->strand;
+
         $students->status = "enlisted";
 
         $students->save();

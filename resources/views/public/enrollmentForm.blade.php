@@ -278,6 +278,17 @@
                     </div>
 
                     <div class="col">
+                        <input value="{{ old('sitio') }}" name="sitio" class="form-control {{$errors->has('sitio')?'is-invalid' : ""}}" type="text">
+                        <label for="">Sitio</label>
+                        @if($errors->has('sitio'))
+                            <div class="invalid-feedback">
+                                <strong>{{$errors->first('sitio')}}</strong>
+                            </div>
+
+                        @endif
+                    </div>
+
+                    <div class="col">
                         <input value="{{ old('barangay') }}" name="barangay" class="form-control {{$errors->has('barangay')?'is-invalid' : ""}}" type="text">
                         <label for="">Barangay</label>
                         @if($errors->has('barangay'))
@@ -359,18 +370,6 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <input value="{{ old('guardianName') }}" name="guardianName" class="form-control {{$errors->has('guardianName')?'is-invalid' : ""}}" type="text" placeholder="First Name, Middle Name, Last Name">
-                        <label for="">Guardian's Name</label>
-                        @if($errors->has('guardianName'))
-                            <div class="invalid-feedback">
-                                <strong>{{$errors->first('guardianName')}}</strong>
-                            </div>
-
-                        @endif
-                    </div>
-                </div>
 
 
                 <div class="row">

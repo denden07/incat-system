@@ -11,7 +11,9 @@ class Teacher extends Model
         'lastName', 'firstName', 'middleName', 'dob', 'age', 'address', 'contactNo',
         'course','yearGraduated', 'lastSchoolTeached', 'status','lastSchoolAttended',
         'award','extensionName','nso','transcript','let','prc','coe','certificates',
-        'sex','religion','mothertongue','expertise'
+        'sex','religion','mothertongue','expertise','phil_health','vocational',
+        'postGraduate','marital','position','employee_id','station_id','umid_id','phil_health','pag_ibig','gsis_id',
+        'prc_id','date_appointed'
     ];
 
     public function getNameAttribute(){

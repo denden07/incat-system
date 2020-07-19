@@ -119,12 +119,18 @@ class AdminTeacherController extends Controller
         $teacher->lastSchoolAttended	 = $request->lastSchoolAttended;
         $teacher->award	 = $request->award;
         $teacher->extensionName	 = $request->extensionName;
-        $teacher->nso	 = $request->nso;
-        $teacher->transcript	 = $request->transcript;
-        $teacher->let = $request->let;
-        $teacher->prc = $request->prc;
-        $teacher->coe = $request->coe;
-        $teacher->certificates = $request->certificates;
+        $teacher->vocational = $request->vocational;
+        $teacher->postGraduate = $request->postGraduate;
+        $teacher->marital = $request->marital;
+        $teacher->position = $request->position;
+        $teacher->employee_id = $request->employee_id;
+        $teacher->station_id = $request->station_id;
+        $teacher->umid_id = $request->umid_id;
+        $teacher->phil_health = $request->phil_health;
+        $teacher->pag_ibig = $request->pag_ibig;
+        $teacher->gsis_id = $request->gsis_id;
+        $teacher->prc_id = $request->prc_id;
+        $teacher->date_appointed = $request->date_appointed;
 
         $teacher->save();
 

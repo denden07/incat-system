@@ -148,29 +148,35 @@
                 </div>
 
                 <div class="teacher-add-additional-details-third">
+
                     <div class="row">
-                        <div class="col">
-
-                            {!! Form::label('religion','Religion:') !!}
-                            {!! Form::text('religion',null) !!}
 
 
-                            @if($errors->has('religion'))
+                        <div class="col-4">
+
+                            {!! Form::label('marital','Marital Status:') !!}
+                            {!! Form::select('marital',['Single'=>'Single','Married'=>'Married','Widowed'=>'Widowed','Separated'=>'Separated','Divorced'=>'Divorced',],null) !!}
+
+                            @if($errors->has('marital'))
                                 <div class="invalid-feedback">
-                                    <strong>{{$errors->first('religion')}}</strong>
+                                    <strong>{{$errors->first('marital')}}</strong>
                                 </div>
 
                             @endif
                         </div>
 
+                        <div class="col-4">
+                            {!! Form::label('religion','Religion:') !!}
+                            {!! Form::text('religion',null) !!}
+                        </div>
 
 
 
-                        <div class="col">
+
+                        <div class="col-4">
 
                             {!! Form::label('mothertongue','Mother Tongue:') !!}
                             {!! Form::text('mothertongue',null) !!}
-
 
                             @if($errors->has('mothertongue'))
                                 <div class="invalid-feedback">
@@ -179,6 +185,31 @@
                             @endif
                         </div>
                     </div>
+
+
+
+
+                    <div  style="margin-top: 3%" class="row justify-content-center">
+                        <div class="col">
+
+                            {!! Form::label('position','Position:') !!}
+                            {!! Form::text('position',null) !!}
+
+
+                        </div>
+
+                        <div class="col">
+
+
+                            {!! Form::label('date_appointed','Date Appointed:') !!}
+                            {!! Form::date('date_appointed',null) !!}
+
+
+                        </div>
+
+
+                    </div>
+
                 </div>
             </div>
 
@@ -186,40 +217,29 @@
 
             <div class="teacher-add-education-1">
                 <div class="row">
-                    <div class="col">
-                        {!! Form::label('course','Course:') !!}
+
+
+                    <div class="col-4">
+
+                        {!! Form::label('vocational','Vocational: ') !!}
+                        {!! Form::text('vocational',null) !!}
+
+                    </div>
+
+                    <div class="col-4">
+
+                        {!! Form::label('course','Degree:') !!}
                         {!! Form::text('course',null) !!}
-                        @if($errors->has('course'))
-                            <div class="invalid-feedback">
-                                <strong>{{$errors->first('course')}}</strong>
-                            </div>
 
-                        @endif
+
                     </div>
 
+                    <div class="col-4">
+
+                        {!! Form::label('postGraduate','Post Graduate:') !!}
+                        {!! Form::text('postGraduate',null) !!}
 
 
-
-                    <div class="col">
-                        {!! Form::label('yearGraduated','Year Graduated:') !!}
-                        {!! Form::text('yearGraduated',null) !!}
-                        @if($errors->has('yearGraduated'))
-                            <div class="invalid-feedback">
-                                <strong>{{$errors->first('yearGraduated')}}</strong>
-                            </div>
-
-                        @endif
-                    </div>
-
-                    <div class="col">
-                        {!! Form::label('lastSchoolAttended','Last School Attended:') !!}
-                        {!! Form::text('lastSchoolAttended',null) !!}
-                        @if($errors->has('lastSchoolAttended'))
-                            <div class="invalid-feedback">
-                                <strong>{{$errors->first('lastSchoolAttended')}}</strong>
-                            </div>
-
-                        @endif
                     </div>
 
 
@@ -227,31 +247,53 @@
             </div>
 
             <div class="teacher-add-education-2">
+
+                <div style="margin-bottom:2% "  class="row">
+                    <div class="col">
+
+                        {!! Form::label('yearGraduated','Year Graduated:') !!}
+                        {!! Form::text('yearGraduated',null) !!}
+
+                    </div>
+
+                    <div class="col">
+
+                        {!! Form::label('lastSchoolAttended','Last School Attended:') !!}
+                        {!! Form::text('lastSchoolAttended',null) !!}
+
+                    </div>
+
+
+                </div>
+
                 <div class="row">
 
                     <div class="col">
-                        {!! Form::label('expertise','Expertise:') !!}
-                        {!! Form::text('expertise',null) !!}
-                        @if($errors->has('expertise'))
-                            <div class="invalid-feedback">
-                                <strong>{{$errors->first('expertise')}}</strong>
-                            </div>
 
-                        @endif
+                        {!! Form::label('expertise','Skills:') !!}
+                        {!! Form::text('expertise',null) !!}
+
+
                     </div>
 
 
                     <div class="col">
+
                         {!! Form::label('award','Awards:') !!}
                         {!! Form::text('award',null) !!}
+
                     </div>
 
                     <div class="col">
-                        {!! Form::label('lastSchoolTeached','Last School Teached:') !!}
+
+                        {!! Form::label('lastSchoolTeached','Last School Teached::') !!}
                         {!! Form::text('lastSchoolTeached',null) !!}
+
 
                     </div>
                 </div>
+
+
             </div>
 
 
@@ -275,7 +317,75 @@
                 </div>
             </div>
 
+        <h5>Other Information</h5>
+        <div class="teacher-add-system">
+            <div class="row justify-content-center" >
+                <div class="col-4">
 
+                    {!! Form::label('employee_id','Employee ID:') !!}
+                    {!! Form::text('employee_id',null) !!}
+
+
+                </div>
+
+
+                <div class="col-4">
+
+                    {!! Form::label('station_id','Station ID:') !!}
+                    {!! Form::text('station_id',null) !!}
+
+
+                </div>
+
+                <div class="col-4">
+
+                    {!! Form::label('umid_id','UMID ID:') !!}
+                    {!! Form::text('umid_id',null) !!}
+
+
+                </div>
+            </div>
+            <div class="row justify-content-center" >
+                <div class="col-4">
+
+                    {!! Form::label('phil_health','Philhealth ID:') !!}
+                    {!! Form::text('phil_health',null) !!}
+
+                </div>
+
+                <div class="col-4">
+
+                    {!! Form::label('pag_ibig','Pagibig ID:') !!}
+                    {!! Form::text('pag_ibig',null) !!}
+
+
+                </div>
+
+
+                <div class="col-4">
+
+                    {!! Form::label('gsis_id','GSIS ID:') !!}
+                    {!! Form::text('gsis_id',null) !!}
+
+
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center" >
+                <div class="col-4">
+
+                    {!! Form::label('prc_id','PRC ID:') !!}
+                    {!! Form::text('prc_id',null) !!}
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
 
 
             <div class="row justify-content-center">

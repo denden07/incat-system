@@ -101,7 +101,6 @@
                     <h4>Parents/Emergency Contact</h4>
                     <p><span>Father's name: </span> {{$student->fatherName}}</p>
                     <p><span>Mothers's name: </span> {{$student->motherName}}</p>
-                    <p><span>Mothers's name: </span> {{$student->guardianName}}</p>
                     @if(empty($student->parentCpNo))
                         <p><span>Contact no: </span> {{$student->parentTpNo}}</p>
                     @elseif(empty($student->parentTpNo))

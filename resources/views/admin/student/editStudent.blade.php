@@ -245,18 +245,7 @@
 
             </div>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    {!! Form::text('guardianName',null,['class'=>'form-control ']) !!}
-                    {!! Form::label('guardianName',"Guardian's Name") !!}
-                    @if($errors->has('guardianName'))
-                        <div class="invalid-feedback">
-                            <strong>{{$errors->first('guardianName')}}</strong>
-                        </div>
 
-                    @endif
-                </div>
-            </div>
 
 
             <div class="row">

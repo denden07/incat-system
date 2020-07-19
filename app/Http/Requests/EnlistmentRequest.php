@@ -27,7 +27,7 @@ class EnlistmentRequest extends FormRequest
             //
             'lastName' => 'required',
             'firstName' => 'required',
-            'middleName' => 'required',
+
             'dob' => 'required|date',
             'sex' => 'required',
             'age' => 'required',
@@ -49,7 +49,6 @@ class EnlistmentRequest extends FormRequest
 
             'fatherName' => 'required',
             'motherName' => 'required',
-            'guardianName' => 'required',
             'parentCpNo' => 'required|numeric',
 
 

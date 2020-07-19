@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Setting;
 use Closure;
+use Hamcrest\Core\Set;
 use Illuminate\Support\Facades\Auth;
 
 class IsTeacher
@@ -16,6 +18,7 @@ class IsTeacher
      */
     public function handle($request, Closure $next)
     {
+        $setting = Setting::where('status','active')->first();
 
 
         if(Auth::check()){
