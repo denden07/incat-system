@@ -1,0 +1,72 @@
+@media print {
+
+    @page  {
+        size: auto;
+    }
+    body
+    {
+        margin: 0;
+    }
+
+    .enrollment-data {
+
+
+        background: white;
+        text-align: center;
+
+        width: 100%;
+        
+        margin-top: 0px !important;
+    }
+
+    .enrollment-data-banner {
+        padding: 10px;
+        font-size: 2.5em;
+    }
+
+    .enrollment-data-banner h3 h4
+    {
+        font-size: 2.5em;
+    }
+
+
+
+    .enrollment-data-table table thead {
+        background: lightgreen;
+        border-bottom: solid 2px black;
+        border-top: solid 2px black;
+        font-size: 1.5em;
+    }
+
+    .enrollment-data-table-1 table thead {
+        background: yellow;
+        border-bottom: solid 2px black;
+        border-top: solid 2px black;
+        font-size: 1.5em;
+    }
+
+    .enrollment-data-table table tr {
+        border-bottom: solid 2px black;
+        border-top: solid 2px black;
+        font-size: 1.5em;
+
+    }
+
+    .enrollment-data-table-1 table tr {
+        border-bottom: solid 2px black;
+        border-top: solid 2px black;
+        font-size: 1.3em;
+    }
+
+    .no-border-enrollee-data {
+        border: none !important;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .footer-enrolle-data {
+        font-size: 1.5em !important;;
+        font-weight: bold !important;;
+    }
+
+}

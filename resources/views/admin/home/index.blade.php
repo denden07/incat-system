@@ -3,7 +3,7 @@
 
 
 @section('contents')
-
+    @include('layouts._message')
     <div class="items">
         <div class="school-year-card-admin">
 
@@ -116,14 +116,26 @@
         <div class="enrollment-data">
              <div class="enrollment-data-banner">
                  <h3>TOTAL NUMBER OF ENROLEES</h3>
-                 <h4>SCHOOL YEAR 2019-2020</h4>
-                 <h4>SECOND SEMESTER</h4>
+                 <h4>SCHOOL YEAR {{$year}}</h4>
+                 @if($setting->firstS == "active")
+
+                 <h4>FIRST SEMESTER</h4>
+                 @else
+                     <h4>SECOND SEMESTER</h4>
+                 @endif
              </div>
             @if($setting->firstS == "active")
-            <a href="{{route('generate.enrollee',['year'=>$setting->sy,'sem'=>'1st'])}}">Generate Enrolees</a>
+
+                    <a href="{{route('generate.enrollee',['year'=>$setting->sy,'sem'=>'1st'])}}">Generate Enrolees</a>
+
+
             @else
+
                 <a href="{{route('generate.enrollee',['year'=>$setting->sy,'sem'=>'2nd'])}}">Generate Enrolees</a>
+
             @endif
+            <a href="{{route('print.enrollee',['year'=>$setting->sy,'sem'=>'okioki'])}}">Print Data</a>
+            @if($record)
             <div class="enrollment-data-table">
                 <table>
                     <thead>
@@ -136,38 +148,44 @@
                     <tbody>
                     <tr>
                         <td>GRADE 11</td>
-                        <td>{{$gElevensM->count()}}</td>
-                        <td>{{$gElevensF->count()}}</td>
-                        <td>{{$gElevens->count()}}</td>
+                        <td>{{$record->grade_11_m}}</td>
+                        <td>{{$record->grade_11_f}}</td>
+                        <td>{{$record->grade_11_t}}</td>
                     </tr>
 
                     <tr>
                         <td>GRADE 12</td>
-                        <td>{{$gTwelvesM->count()}}</td>
-                        <td>{{$gTwelvesF->count()}}</td>
-                        <td>{{$gTwelves->count()}}</td>
+                        <td>{{$record->grade_12_m}}</td>
+                        <td>{{$record->grade_12_f}}</td>
+                        <td>{{$record->grade_12_t}}</td>
                     </tr>
 
                     <tr>
                         <td>OVERALL TOTAL</td>
-                        <td>{{}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->grade_total_m}}</td>
+                        <td>{{$record->grade_total_f}}</td>
+                        <td>{{$record->strand_total}}</td>
                     </tr>
                     </tbody>
                 </table>
 
             </div>
 
-            <div class="enrollment-data-by-strand-banner">
+
+            <div style="margin-top: 3%" class="enrollment-data-by-strand-banner">
                 <h3>NUMBER OF ENROLEES</h3>
-                <h4>SCHOOL YEAR 2019-2020</h4>
-                <h4>SECOND SEMESTER</h4>
+                <h4>SCHOOL YEAR {{$year}}</h4>
+                @if($setting->firstS == "active")
+
+                    <h4>FIRST SEMESTER</h4>
+                @else
+                    <h4>SECOND SEMESTER</h4>
+                @endif
             </div>
 
 
 
-            <div class="enrollment-data-table">
+            <div class="enrollment-data-table-1">
                 <table style="width: 100%">
                     <thead>
                     <th>STRAND</th>
@@ -177,100 +195,100 @@
                     </thead>
 
                     <tbody>
-                    <tr>
+                    <tr class="no-border-enrollee-data">
                         <td>Academic</td>
                     </tr>
 
                     <tr>
                         <td>(ABM) Accountancy,Business And Management</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->abm_t_m}}</td>
+                        <td>{{$record->abm_t_f}}</td>
+                        <td>{{$record->abm_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(HUMSS) Humanities and Social Studies</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->humss_t_m}}</td>
+                        <td>{{$record->humss_t_f}}</td>
+                        <td>{{$record->humss_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(STEM) Science, Techonological, Engineering and Mathematics	</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->stem_t_m}}</td>
+                        <td>{{$record->stem_t_f}}</td>
+                        <td>{{$record->stem_t}}</td>
                     </tr>
-                    <tr>
+                    <tr  class="no-border-enrollee-data">
                         <td>TECHNICAL VOCATIONAL LIVELIHOOD</td>
                     </tr>
 
-                    <tr>
+                    <tr  class="no-border-enrollee-data">
                        <td> HOME ECONOMICS</td>
                     </tr>
 
                     <tr>
                         <td>(BC) Beauty Care</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->bc_t_m}}</td>
+                        <td>{{$record->bc_t_f}}</td>
+                        <td>{{$record->bc_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(GT) Garments Technology</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->gt_t_m}}</td>
+                        <td>{{$record->gt_t_f}}</td>
+                        <td>{{$record->gt_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(FPS) Food Products Servicing</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->fps_t_m}}</td>
+                        <td>{{$record->fps_t_f}}</td>
+                        <td>{{$record->fps_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(HRS) Hotel & Restaurant Servicing</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->hrs_t_m}}</td>
+                        <td>{{$record->hrs_t_f}}</td>
+                        <td>{{$record->hrs_t}}</td>
                     </tr>
 
-                    <tr>
+                    <tr  class="no-border-enrollee-data">
                        <td>INFORMATION AND COMMUNICATION TECHNOLOGY</td>
                     </tr>
 
                     <tr>
                         <td>(CSS) Computer System Servicing</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->css_t_m}}</td>
+                        <td>{{$record->css_t_f}}</td>
+                        <td>{{$record->css_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(TDA) Technical Drafting and Animation</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->tda_t_m}}</td>
+                        <td>{{$record->tda_t_f}}</td>
+                        <td>{{$record->tda_t}}</td>
                     </tr>
 
 
-                    <tr>
+                    <tr  class="no-border-enrollee-data">
                         <td> Industrial Arts</td>
                     </tr>
                     <tr>
                         <td>(ATS) Automotive Servicing</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->ats_t_m}}</td>
+                        <td>{{$record->ats_t_f}}</td>
+                        <td>{{$record->ats_t}}</td>
                     </tr>
 
                     <tr>
                         <td>(EIM) Electrical Installation And Maintenance</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->eim_t_m}}</td>
+                        <td>{{$record->eim_t_f}}</td>
+                        <td>{{$record->eim_t}}</td>
                     </tr>
 
                     <tr>
@@ -282,9 +300,16 @@
 
                     <tr>
                         <td>(RAC) Refrigiration and Air-conditioning Servicing</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$record->rac_t_m}}</td>
+                        <td>{{$record->rac_t_f}}</td>
+                        <td>{{$record->rac_t}}</td>
+                    </tr>
+
+                    <tr class="footer-enrolle-data">
+                        <td>Over All Total</td>
+                        <td>{{$record->strand_t_m}}</td>
+                        <td>{{$record->strand_t_f}}</td>
+                        <td>{{$record->strand_total}}</td>
                     </tr>
 
 
@@ -292,7 +317,7 @@
                 </table>
 
             </div>
-
+            @endif
         </div>
 
 

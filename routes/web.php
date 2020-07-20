@@ -121,6 +121,7 @@ Route::group(['middleware'=>'admin'],function ()
 
 
     Route::get('generate/enrollee-record/{year}/{sem}','AdminHomeController@generateEnrolleeRecord')->name('generate.enrollee');
+    Route::get('print/enrollee-record/{year}/{sem}','AdminHomeController@printEnrollmentData')->name('print.enrollee');
 });
 
 

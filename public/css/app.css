@@ -18500,9 +18500,51 @@ Enrollment Data
   width: 100%;
   background: white;
   text-align: center;
+  padding: 10px;
 }
 
 .enrollment-data-banner {
   padding: 10px;
+}
+
+.enrollment-data-table table {
+  width: 100%;
+}
+
+.enrollment-data-table table thead {
+  background: lightgreen;
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  font-size: 1.5em;
+}
+
+.enrollment-data-table-1 table thead {
+  background: yellow;
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  font-size: 1.5em;
+}
+
+.enrollment-data-table table tr {
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  font-size: 1.5em;
+}
+
+.enrollment-data-table-1 table tr {
+  border-bottom: solid 2px black;
+  border-top: solid 2px black;
+  font-size: 1.3em;
+}
+
+.no-border-enrollee-data {
+  border: none !important;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.footer-enrolle-data {
+  font-size: 1.5em !important;
+  font-weight: bold !important;
 }
 
